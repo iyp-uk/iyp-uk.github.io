@@ -2,7 +2,6 @@
 <html lang="en-GB">
 
 <head>
-	<meta name="generator" content="Hugo 0.25.1" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
@@ -15,23 +14,23 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iyp-uk.github.io/" />
-<meta property="og:title" content="IYP UK" />
-<meta property="twitter:title" content="IYP UK">
+<meta property="og:url" content="https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/" />
+<meta property="og:title" content="Getting Started With Bluetooth Low Energy" />
+<meta property="twitter:title" content="Getting Started With Bluetooth Low Energy">
 
     <meta property="og:image" content="https://iyp-uk.github.io/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="https://iyp-uk.github.io/img/logo.png">
 
-<meta property="og:description" content="IYP UK information">
-<meta property="twitter:description" content="IYP UK information">
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
 <title>
 
 
-    IYP UK
+     IYP UK - Getting Started With Bluetooth Low Energy 
 
 </title>
-<link rel="canonical" href="https://iyp-uk.github.io/">
+<link rel="canonical" href="https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/">
 
 
 <style media="screen">
@@ -927,8 +926,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://iyp-uk.github.io/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
-
 
 </head>
 
@@ -936,7 +933,7 @@ margin-left: -4%;
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://iyp-uk.github.io/"><img class="logo" src="https://iyp-uk.github.io/img/logo.png" alt="logo" /></a>
@@ -963,75 +960,141 @@ margin-left: -4%;
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            
-                <div class="markdown">
-                <p><a href="https://iyp-uk.github.io/">IYP UK</a> provides digital solutions for real-world problems.</p>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Getting Started With Bluetooth Low Energy
+
+</div>
 
                 </div>
-            
-
-            
-                <div class="posts">
-                
-                
-                    <div class="page-heading">Latest posts</div>
-                    <ul>
+                <div class="meta">
+                    <div class="date" title="Sat Aug 26 2017 18:14:18 BST">Aug 26, 2017</div>
                     
-                        <li class="groupby">Aug, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 26, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/"><span>Getting Started With Bluetooth Low Energy</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/getting-started-with-terraform/"><span>Getting Started With Terraform</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/getting-started-with-kubernetes/"><span>Getting Started With Kubernetes</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 18, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/docker-compose-python-eve-mongodb/"><span>Docker Compose Python Eve Mongodb</span></a>
-</li>
-
                         
                     
-                        <li class="groupby">Jul, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Jul 31, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/gardenlog-with-react-node-and-docker/"><span>Gardenlog With React, Node and Docker</span></a>
-</li>
-
-                        
-                    
-                    </ul>
-
-                    
-                        <a href="./blog/" class="see-more">See more ...</a>
-                    
-                
+                    <div class="reading-time"><div class="middot"></div>2 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://iyp-uk.github.io/tags/iot">IoT</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://iyp-uk.github.io/tags/bluetooth">bluetooth</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://iyp-uk.github.io/tags/ble">BLE</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
                 </div>
-            
-
-            <div class="best-posts">
-            
-            
             </div>
+            <div class="markdown">
+                
+    
+
+<h2 id="talking-electronics">Talking electronics</h2>
+
+<p>Hang on, what is Bluetooth in the first place?
+Have a look at the definition on the <a href="https://www.bluetooth.com/what-is-bluetooth-technology/how-it-works">official bluetooth website</a>.</p>
+
+<p>One important thing to notice is that Bluetooth is a wireless technology standard using <a href="https://en.wikipedia.org/wiki/Ultra_high_frequency">UFH</a> (Ultra High Frequency) <strong>radio waves</strong>.
+This means it&rsquo;s in the same family of telecommunications than GSM, GPS, WiFi, walkie-talkies and many more.</p>
+
+<p>As you have probably discovered on their site, Bluetooth comes in different flavours:</p>
+
+<ul>
+<li>Basic Rate/Enhanced Data Rate (BR/EDR)
+
+<ul>
+<li>This is for <strong>point to point</strong> connections (1:1) and allows large amounts of data to be communicated. Your bluetooth speaker uses that :)</li>
+</ul></li>
+<li>Low Energy (LE) - <em>This is the one we&rsquo;re interested in</em>
+
+<ul>
+<li>Allows <strong>point to point</strong> (1:1) for connected device products, such as fitness trackers and health monitors</li>
+<li>Allows <strong>Broadcast</strong> networking (1:m) making it ideal for beacon solutions, such as point-of-interest (PoI) information and item and way-finding services</li>
+<li>Allows <strong>Mesh</strong> networking (m:m) for building automation, sensor network, asset tracking and any solution where multiple devices need to reliably and securely communicate with one another</li>
+</ul></li>
+</ul>
+
+<p>On the Low Energy version, the key is as its name suggests, keeping energy consumption low.
+So the device actually sleeps most of the time. Read on, and we&rsquo;ll know more about this technology and why it matters.</p>
+
+<blockquote>
+<p>You can find a nice summary <a href="https://docs.google.com/gview?url=https://www.bluetooth.com/~/media/files/marketing/bluetooth-connectivity.pdf">here</a>.</p>
+</blockquote>
+
+<h2 id="bluetooth-low-engery-an-introduction">Bluetooth Low Engery: an introduction</h2>
+
+<p>Bluetooth Low Energy, or BLE or even Bluetooth Smart, is part of the Bluetooth 4 <a href="https://www.bluetooth.com/specifications/bluetooth-core-specification">core specification</a>.
+It is optimized for low cost, low bandwidth, low power, and low complexity.
+An illustration of that is its max range (2-5 meters) and transmission rate (10KB/s - even there you&rsquo;d drawn your battery fairly quickly).</p>
+
+<blockquote>
+<p>Currently, the latest Bluetooth core specification is version 5, which enhances BLE for Internet of Things usage.
+It increases range, and the amount of data which you can communicate, but the principles remain the same.</p>
+</blockquote>
+
+<p>One major difference with the previous spec, is the possibility to operate in modes which are not <em>point to point</em>.
+No need to &ldquo;pair&rdquo; with Bluetooth LE, devices rather communicate with one another (see <em>Broadcast</em> and <em>Mesh</em> descriptions above)</p>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://iyp-uk.github.io/img/back.svg" alt="back" />
+                        <a href="https://iyp-uk.github.io/blog/getting-started-with-terraform/">Getting Started With Terraform</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jeromekrieg" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
 
@@ -1108,5 +1171,4 @@ margin-left: -4%;
 
 </body>
 </html>
-
 

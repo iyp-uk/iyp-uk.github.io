@@ -2,7 +2,6 @@
 <html lang="en-GB">
 
 <head>
-	<meta name="generator" content="Hugo 0.25.1" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
@@ -15,23 +14,23 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iyp-uk.github.io/" />
-<meta property="og:title" content="IYP UK" />
-<meta property="twitter:title" content="IYP UK">
+<meta property="og:url" content="https://iyp-uk.github.io/blog/getting-started-with-terraform/" />
+<meta property="og:title" content="Getting Started With Terraform" />
+<meta property="twitter:title" content="Getting Started With Terraform">
 
     <meta property="og:image" content="https://iyp-uk.github.io/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="https://iyp-uk.github.io/img/logo.png">
 
-<meta property="og:description" content="IYP UK information">
-<meta property="twitter:description" content="IYP UK information">
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
 <title>
 
 
-    IYP UK
+     IYP UK - Getting Started With Terraform 
 
 </title>
-<link rel="canonical" href="https://iyp-uk.github.io/">
+<link rel="canonical" href="https://iyp-uk.github.io/blog/getting-started-with-terraform/">
 
 
 <style media="screen">
@@ -927,8 +926,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://iyp-uk.github.io/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
-
 
 </head>
 
@@ -936,7 +933,7 @@ margin-left: -4%;
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://iyp-uk.github.io/"><img class="logo" src="https://iyp-uk.github.io/img/logo.png" alt="logo" /></a>
@@ -963,75 +960,461 @@ margin-left: -4%;
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            
-                <div class="markdown">
-                <p><a href="https://iyp-uk.github.io/">IYP UK</a> provides digital solutions for real-world problems.</p>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Getting Started With Terraform
+
+</div>
 
                 </div>
-            
-
-            
-                <div class="posts">
-                
-                
-                    <div class="page-heading">Latest posts</div>
-                    <ul>
+                <div class="meta">
+                    <div class="date" title="Thu Aug 24 2017 16:23:41 BST">Aug 24, 2017</div>
                     
-                        <li class="groupby">Aug, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 26, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/"><span>Getting Started With Bluetooth Low Energy</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/getting-started-with-terraform/"><span>Getting Started With Terraform</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/getting-started-with-kubernetes/"><span>Getting Started With Kubernetes</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 18, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/docker-compose-python-eve-mongodb/"><span>Docker Compose Python Eve Mongodb</span></a>
-</li>
-
                         
                     
-                        <li class="groupby">Jul, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Jul 31, 2017</span>
-    <a href="https://iyp-uk.github.io/blog/gardenlog-with-react-node-and-docker/"><span>Gardenlog With React, Node and Docker</span></a>
-</li>
-
-                        
-                    
-                    </ul>
-
-                    
-                        <a href="./blog/" class="see-more">See more ...</a>
-                    
-                
+                    <div class="reading-time"><div class="middot"></div>9 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://iyp-uk.github.io/tags/terraform">terraform</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
                 </div>
-            
-
-            <div class="best-posts">
-            
-            
             </div>
+            <div class="markdown">
+                
+    
+
+<h2 id="definitions">Definitions</h2>
+
+<p><a href="https://www.terraform.io/intro/index.html">Terraform</a> is a tool to manage infrastructures.
+This means you will create infrastructures (compute instances, storage, networking, DNS entries, &hellip;)
+You may be already familiar with <a href="https://www.ansible.com/">Ansible</a>, which is a configuration management tool.
+This means with tools like Ansible, you can configure the infrastructure elements already created either manually or with Terraform.</p>
+
+<h2 id="what-we-will-do">What we will do</h2>
+
+<ul>
+<li>Creating an EC2 instance on AWS</li>
+<li>Destroying this EC2 instance</li>
+</ul>
+
+<h2 id="install-terraform">Install terraform</h2>
+
+<blockquote>
+<p>Please refer to <a href="https://www.terraform.io/intro/getting-started/install.html">the official documentation for variants</a>.</p>
+</blockquote>
+
+<pre><code class="language-bash">$ brew install terraform
+</code></pre>
+
+<h2 id="set-up-aws">Set up AWS</h2>
+
+<blockquote>
+<p>Please refer to <a href="http://docs.aws.amazon.com/cli/latest/userguide/installing.html">the official documentation for variants</a></p>
+</blockquote>
+
+<p>If you don&rsquo;t have any AWS account yet, just create one.
+You may be eligible for the free tier.</p>
+
+<pre><code class="language-bash">$ pip install awscli --upgrade --user
+</code></pre>
+
+<p>Now you will want to configure it:</p>
+
+<pre><code class="language-bash">$ aws configure
+</code></pre>
+
+<p>This will prompt your for your account details and store them in your home folder (under <code>~/.aws/credentials</code>).
+This part is particularly interesting as most tools around aws pick up these credentials automatically so you don&rsquo;t have to share them in a source control tool.</p>
+
+<h2 id="build-your-first-infrastructure">Build your first infrastructure</h2>
+
+<p>Ok, let&rsquo;s build our first infrastructure! It will just be an EC2 instance, but it&rsquo;s a start.</p>
+
+<h3 id="find-your-image">Find your image</h3>
+
+<p>EC2 instances are built based on an image, which varies per region. You then need to find your one.
+The <a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html"><code>describe-images</code></a> command could be used for that, but there are many many images to choose from and I didn&rsquo;t find any reasonable filtering.</p>
+
+<p>So, the easier way is to:</p>
+
+<ol>
+<li>Log in to your console on <a href="https://console.aws.amazon.com/ec2/">https://console.aws.amazon.com/ec2/</a></li>
+<li>Click &ldquo;Launch instance&rsquo;</li>
+<li>Get the first &ldquo;Amazon Linux AMI&rdquo; (you should see a label &ldquo;Free tier eligible&rdquo;)</li>
+<li>Copy the image id, here in London region it&rsquo;s <code>ami-489f8e2c</code></li>
+</ol>
+
+<p>Great, now let&rsquo;s get <em>really</em> started.</p>
+
+<h3 id="create-the-terraform-configuration">Create the terraform configuration</h3>
+
+<p>Add a new file, call it <code>demo.ts</code> with:</p>
+
+<pre><code class="language-terraform">provider &quot;aws&quot; {
+  region = &quot;eu-west-2&quot;
+}
+
+resource &quot;aws_instance&quot; &quot;demo&quot; {
+  ami           = &quot;ami-489f8e2c&quot;
+  instance_type = &quot;t2.micro&quot;
+}
+</code></pre>
+
+<blockquote>
+<p>Adapt your region and ami id accordingly.</p>
+</blockquote>
+
+<p>The <code>provider</code> block is used to configure the named provider, in our case &ldquo;aws&rdquo;.
+A provider is responsible for creating and managing resources.
+Multiple provider blocks can exist if a Terraform configuration is composed of multiple providers, which is a common situation.</p>
+
+<p>The <code>resource</code> block defines a resource that exists within the infrastructure.
+A resource might be a physical component such as an EC2 instance, or it can be a logical resource such as a Heroku application.</p>
+
+<p>The <code>resource</code> block has two strings before opening the block: the <code>resource type</code> and the <code>resource name</code>. In our example, the resource type is <code>&quot;aws_instance&quot;</code> and the name is <code>&quot;demo&quot;</code>.
+The prefix of the type maps to the provider.
+In our case <code>&quot;aws_instance&quot;</code> automatically tells Terraform that it is managed by the <code>&quot;aws&quot;</code> provider.</p>
+
+<h3 id="initialisation-terraform-init">Initialisation: Terraform init</h3>
+
+<p>The <code>terraform init</code> command is ran on new projects or after code checkout from repository to install / update plugins and set configuration.</p>
+
+<pre><code class="language-plain">$ terraform init
+
+Initializing provider plugins...
+- Checking for available provider plugins on https://releases.hashicorp.com...
+- Downloading plugin for provider &quot;aws&quot; (0.1.4)...
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = &quot;...&quot; constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.aws: version = &quot;~&gt; 0.1&quot;
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running &quot;terraform plan&quot; to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+</code></pre>
+
+<h3 id="dry-run-terraform-plan">Dry-run: Terraform plan</h3>
+
+<p>The <code>terraform plan</code> command shows the difference between the current state of your infrastructure and what is described in the files (being your target state).</p>
+
+<pre><code class="language-plain">$ terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed. Cyan entries are data sources to be read.
+
+Note: You didn't specify an &quot;-out&quot; parameter to save this plan, so when
+&quot;apply&quot; is called, Terraform can't guarantee this is what will execute.
+
+  + aws_instance.demo
+      ami:                          &quot;ami-489f8e2c&quot;
+      associate_public_ip_address:  &quot;&lt;computed&gt;&quot;
+      availability_zone:            &quot;&lt;computed&gt;&quot;
+      ebs_block_device.#:           &quot;&lt;computed&gt;&quot;
+      ephemeral_block_device.#:     &quot;&lt;computed&gt;&quot;
+      instance_state:               &quot;&lt;computed&gt;&quot;
+      instance_type:                &quot;t2.micro&quot;
+      ipv6_address_count:           &quot;&lt;computed&gt;&quot;
+      ipv6_addresses.#:             &quot;&lt;computed&gt;&quot;
+      key_name:                     &quot;&lt;computed&gt;&quot;
+      network_interface.#:          &quot;&lt;computed&gt;&quot;
+      network_interface_id:         &quot;&lt;computed&gt;&quot;
+      placement_group:              &quot;&lt;computed&gt;&quot;
+      primary_network_interface_id: &quot;&lt;computed&gt;&quot;
+      private_dns:                  &quot;&lt;computed&gt;&quot;
+      private_ip:                   &quot;&lt;computed&gt;&quot;
+      public_dns:                   &quot;&lt;computed&gt;&quot;
+      public_ip:                    &quot;&lt;computed&gt;&quot;
+      root_block_device.#:          &quot;&lt;computed&gt;&quot;
+      security_groups.#:            &quot;&lt;computed&gt;&quot;
+      source_dest_check:            &quot;true&quot;
+      subnet_id:                    &quot;&lt;computed&gt;&quot;
+      tenancy:                      &quot;&lt;computed&gt;&quot;
+      volume_tags.%:                &quot;&lt;computed&gt;&quot;
+      vpc_security_group_ids.#:     &quot;&lt;computed&gt;&quot;
+
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+</code></pre>
+
+<p>What does it mean?</p>
+
+<ul>
+<li>The <code>+</code> sign next to <code>aws_instance.demo</code> has to be read like a diff, this resource is not currently known by the infrastructure, and Terraform know it has to be created.
+This information can also be read at the bottom (<code>Plan: 1 to add, 0 to change, 0 to destroy.</code>)</li>
+<li>The <code>&lt;computed&gt;</code> values mean that they are not known until the resource has been created.</li>
+</ul>
+
+<p>So at this point, we have one resource to create, which is <code>aws_instance.demo</code>. So let&rsquo;s create it!</p>
+
+<h3 id="terraform-apply">Terraform apply</h3>
+
+<p>The <code>terraform apply</code> command actually applies as its name suggests the infrastructure defined by your code.</p>
+
+<pre><code class="language-plain">$ terraform apply
+aws_instance.demo: Creating...
+  ami:                          &quot;&quot; =&gt; &quot;ami-489f8e2c&quot;
+  associate_public_ip_address:  &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  availability_zone:            &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  ebs_block_device.#:           &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  ephemeral_block_device.#:     &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  instance_state:               &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  instance_type:                &quot;&quot; =&gt; &quot;t2.micro&quot;
+  ipv6_address_count:           &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  ipv6_addresses.#:             &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  key_name:                     &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  network_interface.#:          &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  network_interface_id:         &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  placement_group:              &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  primary_network_interface_id: &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  private_dns:                  &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  private_ip:                   &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  public_dns:                   &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  public_ip:                    &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  root_block_device.#:          &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  security_groups.#:            &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  source_dest_check:            &quot;&quot; =&gt; &quot;true&quot;
+  subnet_id:                    &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  tenancy:                      &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  volume_tags.%:                &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  vpc_security_group_ids.#:     &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+aws_instance.demo: Still creating... (10s elapsed)
+aws_instance.demo: Still creating... (20s elapsed)
+aws_instance.demo: Creation complete (ID: i-0cfedba420a5fd163)
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+</code></pre>
+
+<p>Here we are! Let&rsquo;s do a <code>terraform plan</code> again to see the difference:</p>
+
+<pre><code class="language-plain">$ terraform plan
+terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+aws_instance.demo: Refreshing state... (ID: i-0cfedba420a5fd163)
+No changes. Infrastructure is up-to-date.
+
+This means that Terraform did not detect any differences between your
+configuration and real physical resources that exist. As a result, Terraform
+doesn't need to do anything.
+</code></pre>
+
+<p><strong>No changes. Infrastructure is up-to-date.</strong> Well, that&rsquo;s what we expected.</p>
+
+<p>You can go ahead and check your instance in the AWS console, you&rsquo;ll see it running.</p>
+
+<p>Alternatively, you can use <code>aws-cli</code> with:</p>
+
+<pre><code class="language-bash">$ aws ec2 describe-instances --filters &quot;Name=instance-state-name,Values=running,Name=image-id,Values=ami-489f8e2c&quot;
+</code></pre>
+
+<p>Or even, as the terraform plan gives you the instance id, you could:</p>
+
+<pre><code class="language-bash">$ aws ec2 get-console-output --instance-id i-0cfedba420a5fd163
+</code></pre>
+
+<h3 id="terraform-state">Terraform state</h3>
+
+<p>Look at your files directory now, you should have a new one called <code>terraform.tfstate</code>.
+This file keeps track of your infrastructure state, it&rsquo;s extremely important! That&rsquo;s even one of the key features of Terraform, to keep track of your infrastructure&rsquo;s state.
+&gt; Note that if you&rsquo;re working in a team, this file will likely be frequently under merge conflicts.
+Tt&rsquo;s best practice to use a <a href="https://www.terraform.io/docs/state/remote.html">&ldquo;remote state&rdquo;</a> instead, which is a sort of backend for your terraform, storing state on a deported S3 for example.</p>
+
+<h3 id="terraform-show">Terraform show</h3>
+
+<p>Let&rsquo;s see what terraform can tell us about our infrastructure now:</p>
+
+<pre><code class="language-plain">$ terraform show
+terraform show
+aws_instance.demo:
+  id = i-0cfedba420a5fd163
+  ami = ami-489f8e2c
+  associate_public_ip_address = true
+  availability_zone = eu-west-2a
+  disable_api_termination = false
+  ebs_block_device.# = 0
+  ebs_optimized = false
+  ephemeral_block_device.# = 0
+  iam_instance_profile = 
+  instance_state = running
+  instance_type = t2.micro
+  ipv6_addresses.# = 0
+  key_name = 
+  monitoring = false
+  network_interface.# = 0
+  network_interface_id = eni-9891dde2
+  primary_network_interface_id = eni-9891dde2
+  private_dns = ip-172-31-14-93.eu-west-2.compute.internal
+  private_ip = 172.31.14.93
+  public_dns = ec2-35-176-145-154.eu-west-2.compute.amazonaws.com
+  public_ip = 35.176.145.154
+  root_block_device.# = 1
+  root_block_device.0.delete_on_termination = true
+  root_block_device.0.iops = 100
+  root_block_device.0.volume_size = 8
+  root_block_device.0.volume_type = gp2
+  security_groups.# = 0
+  source_dest_check = true
+  subnet_id = subnet-99cb7be2
+  tags.% = 0
+  tenancy = default
+  volume_tags.% = 0
+  vpc_security_group_ids.# = 1
+  vpc_security_group_ids.3104331321 = sg-238acd4a
+</code></pre>
+
+<h3 id="clean-up-terraform-destroy">Clean up: Terraform destroy</h3>
+
+<p>Say this infrastructure was used to run tests and are part of a Jenkins pipeline for instance.
+Now that the tests are complete, we can dispose of it.</p>
+
+<p>The <code>terraform plan</code> command can again be used as a dry-run to see if it will do want we really want it to do.</p>
+
+<pre><code class="language-plain">terraform plan -destroy
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+aws_instance.demo: Refreshing state... (ID: i-0cfedba420a5fd163)
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed. Cyan entries are data sources to be read.
+
+Note: You didn't specify an &quot;-out&quot; parameter to save this plan, so when
+&quot;apply&quot; is called, Terraform can't guarantee this is what will execute.
+
+  - aws_instance.demo
+
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+</code></pre>
+
+<p>Apparently here, 1 resource would be destroyed, which is our <code>aws_instance.demo</code> and turns out it&rsquo;s actually what we need.
+Great, so let&rsquo;s do it!</p>
+
+<pre><code class="language-plain">terraform destroy
+aws_instance.demo: Refreshing state... (ID: i-0cfedba420a5fd163)
+
+The Terraform destroy plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning.
+Resources shown in red will be destroyed.
+
+  - aws_instance.demo
+
+
+Do you really want to destroy?
+  Terraform will delete all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_instance.demo: Destroying... (ID: i-0cfedba420a5fd163)
+aws_instance.demo: Still destroying... (ID: i-0cfedba420a5fd163, 10s elapsed)
+aws_instance.demo: Still destroying... (ID: i-0cfedba420a5fd163, 20s elapsed)
+aws_instance.demo: Still destroying... (ID: i-0cfedba420a5fd163, 30s elapsed)
+aws_instance.demo: Still destroying... (ID: i-0cfedba420a5fd163, 40s elapsed)
+aws_instance.demo: Still destroying... (ID: i-0cfedba420a5fd163, 50s elapsed)
+aws_instance.demo: Destruction complete
+
+Destroy complete! Resources: 1 destroyed.
+</code></pre>
+
+<blockquote>
+<p>Note that there&rsquo;s a prompt asking you to confirm you want to destroy your infrastructure.
+The <code>terraform destroy</code> accepts a <code>-force</code> argument to skip the confirmation prompt.</p>
+</blockquote>
+
+<h2 id="source-code">Source code</h2>
+
+<p>You can find the code used in this article at: <a href="https://github.com/iyp-uk/terraform-getting-started">https://github.com/iyp-uk/terraform-getting-started</a></p>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://iyp-uk.github.io/img/back.svg" alt="back" />
+                        <a href="https://iyp-uk.github.io/blog/getting-started-with-kubernetes/">Getting Started With Kubernetes</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                    <div>
+                        <a href="https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/">Getting Started With Bluetooth Low Energy</a>
+                        <img class="icon" src="https://iyp-uk.github.io/img/next.svg" alt="next" />
+                    </div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jeromekrieg" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
 
@@ -1108,5 +1491,4 @@ margin-left: -4%;
 
 </body>
 </html>
-
 

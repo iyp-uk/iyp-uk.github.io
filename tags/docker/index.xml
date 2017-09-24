@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Mon, 31 Jul 2017 12:01:35 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 14:47:35 +0100</lastBuildDate>
     
 	<atom:link href="https://iyp-uk.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker Compose Python Eve Mongodb</title>
+      <link>https://iyp-uk.github.io/blog/docker-compose-python-eve-mongodb/</link>
+      <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
+      
+      <guid>https://iyp-uk.github.io/blog/docker-compose-python-eve-mongodb/</guid>
+      <description>PyCharm As a Python developer you are probably familiar with PyCharm, an amazing IDE from JetBrains. If you don&amp;rsquo;t know anything about it, have a look, you&amp;rsquo;ll probably not regret it :) Some of the steps in this article will make mention of PyCharm, however, it&amp;rsquo;s not required and you can still follow if you&amp;rsquo;re using another IDE. If you&amp;rsquo;re not using any IDE, well, god save your soul.</description>
+    </item>
     
     <item>
       <title>Gardenlog With React, Node and Docker</title>
