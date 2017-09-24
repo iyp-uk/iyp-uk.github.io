@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IYP UK</title>
-    <link>https://www.iyp-uk.com/</link>
+    <link>https://iyp-uk.github.io/</link>
     <description>Recent content on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Sat, 26 Aug 2017 18:14:18 +0100</lastBuildDate>
     
-	<atom:link href="https://www.iyp-uk.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://iyp-uk.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With Bluetooth Low Energy</title>
-      <link>https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</link>
+      <link>https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/</link>
       <pubDate>Sat, 26 Aug 2017 18:14:18 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</guid>
+      <guid>https://iyp-uk.github.io/blog/getting-started-with-bluetooth-low-energy/</guid>
       <description>Talking electronics Hang on, what is Bluetooth in the first place? Have a look at the definition on the official bluetooth website.
 One important thing to notice is that Bluetooth is a wireless technology standard using UFH (Ultra High Frequency) radio waves. This means it&amp;rsquo;s in the same family of telecommunications than GSM, GPS, WiFi, walkie-talkies and many more.
 As you have probably discovered on their site, Bluetooth comes in different flavours:</description>
@@ -25,20 +25,20 @@ As you have probably discovered on their site, Bluetooth comes in different flav
     
     <item>
       <title>Getting Started With Terraform</title>
-      <link>https://www.iyp-uk.com/blog/getting-started-with-terraform/</link>
+      <link>https://iyp-uk.github.io/blog/getting-started-with-terraform/</link>
       <pubDate>Thu, 24 Aug 2017 16:23:41 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/getting-started-with-terraform/</guid>
+      <guid>https://iyp-uk.github.io/blog/getting-started-with-terraform/</guid>
       <description>Definitions Terraform is a tool to manage infrastructures. This means you will create infrastructures (compute instances, storage, networking, DNS entries, &amp;hellip;) You may be already familiar with Ansible, which is a configuration management tool. This means with tools like Ansible, you can configure the infrastructure elements already created either manually or with Terraform.
 What we will do  Creating an EC2 instance on AWS Destroying this EC2 instance  Install terraform  Please refer to the official documentation for variants.</description>
     </item>
     
     <item>
       <title>Getting Started With Kubernetes</title>
-      <link>https://www.iyp-uk.com/blog/getting-started-with-kubernetes/</link>
+      <link>https://iyp-uk.github.io/blog/getting-started-with-kubernetes/</link>
       <pubDate>Thu, 24 Aug 2017 11:07:05 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/getting-started-with-kubernetes/</guid>
+      <guid>https://iyp-uk.github.io/blog/getting-started-with-kubernetes/</guid>
       <description>Let&amp;rsquo;s get started with Kubernetes and play around with it locally.
 Foreword This article is largely inspired by the official Kubernetes getting started guide.
 What is minikube?  Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
@@ -47,19 +47,19 @@ What is minikube?  Minikube is a tool that makes it easy to run Kubernetes local
     
     <item>
       <title>Docker Compose Python Eve Mongodb</title>
-      <link>https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</link>
+      <link>https://iyp-uk.github.io/blog/docker-compose-python-eve-mongodb/</link>
       <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</guid>
+      <guid>https://iyp-uk.github.io/blog/docker-compose-python-eve-mongodb/</guid>
       <description>PyCharm As a Python developer you are probably familiar with PyCharm, an amazing IDE from JetBrains. If you don&amp;rsquo;t know anything about it, have a look, you&amp;rsquo;ll probably not regret it :) Some of the steps in this article will make mention of PyCharm, however, it&amp;rsquo;s not required and you can still follow if you&amp;rsquo;re using another IDE. If you&amp;rsquo;re not using any IDE, well, god save your soul.</description>
     </item>
     
     <item>
       <title>Gardenlog With React, Node and Docker</title>
-      <link>https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</link>
+      <link>https://iyp-uk.github.io/blog/gardenlog-with-react-node-and-docker/</link>
       <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</guid>
+      <guid>https://iyp-uk.github.io/blog/gardenlog-with-react-node-and-docker/</guid>
       <description>This will show the rewriting of a project using different technologies.
 What is Gardenlog? Gardenlog is a project which:
  monitors garden (even if it could be anything), gathering all sorts of meteorological information allows users to interact with it   IYP UK has built it using several technologies:
@@ -68,28 +68,28 @@ What is Gardenlog? Gardenlog is a project which:
     
     <item>
       <title>Home</title>
-      <link>https://www.iyp-uk.com/home/</link>
+      <link>https://iyp-uk.github.io/home/</link>
       <pubDate>Mon, 31 Jul 2017 11:31:18 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/home/</guid>
+      <guid>https://iyp-uk.github.io/home/</guid>
       <description>IYP UK provides digital solutions for real-world problems.</description>
     </item>
     
     <item>
       <title>License</title>
-      <link>https://www.iyp-uk.com/license/</link>
+      <link>https://iyp-uk.github.io/license/</link>
       <pubDate>Mon, 31 Jul 2017 11:06:04 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/license/</guid>
+      <guid>https://iyp-uk.github.io/license/</guid>
       <description>Copyright 2017 IYP UK. All rights reserved.</description>
     </item>
     
     <item>
       <title>Nodejs Docker And Aws</title>
-      <link>https://www.iyp-uk.com/blog/nodejs-docker-and-aws/</link>
+      <link>https://iyp-uk.github.io/blog/nodejs-docker-and-aws/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/nodejs-docker-and-aws/</guid>
+      <guid>https://iyp-uk.github.io/blog/nodejs-docker-and-aws/</guid>
       <description>In this post, we will make use of NodeJS and Docker to provide and API which interfaces with an Elasticsearch instance in AWS.
 Assuming you already have an AWS account, and aws-cli set up.
 Process  Write the NodeJS app locally Wrap it a docker image and deploy this image to a registry (we will use docker hub here) Use AWS ECS (EC2 Container Service) to deploy and scale your app in the cloud.</description>
