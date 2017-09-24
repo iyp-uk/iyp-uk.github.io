@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rest on IYP UK</title>
-    <link>https://www.iyp-uk.com/tags/rest/</link>
+    <link>http://www.iyp-uk.com/tags/rest/</link>
     <description>Recent content in Rest on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Fri, 18 Aug 2017 14:47:35 +0100</lastBuildDate>
     
-	<atom:link href="https://www.iyp-uk.com/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.iyp-uk.com/tags/rest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker Compose Python Eve Mongodb</title>
-      <link>https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</link>
+      <link>http://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</link>
       <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</guid>
+      <guid>http://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</guid>
       <description>PyCharm As a Python developer you are probably familiar with PyCharm, an amazing IDE from JetBrains. If you don&amp;rsquo;t know anything about it, have a look, you&amp;rsquo;ll probably not regret it :) Some of the steps in this article will make mention of PyCharm, however, it&amp;rsquo;s not required and you can still follow if you&amp;rsquo;re using another IDE. If you&amp;rsquo;re not using any IDE, well, god save your soul.</description>
     </item>
     

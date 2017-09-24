@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ble on IYP UK</title>
-    <link>https://www.iyp-uk.com/tags/ble/</link>
+    <link>http://www.iyp-uk.com/tags/ble/</link>
     <description>Recent content in Ble on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Sat, 26 Aug 2017 18:14:18 +0100</lastBuildDate>
     
-	<atom:link href="https://www.iyp-uk.com/tags/ble/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.iyp-uk.com/tags/ble/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With Bluetooth Low Energy</title>
-      <link>https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</link>
+      <link>http://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</link>
       <pubDate>Sat, 26 Aug 2017 18:14:18 +0100</pubDate>
       
-      <guid>https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</guid>
+      <guid>http://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</guid>
       <description>Talking electronics Hang on, what is Bluetooth in the first place? Have a look at the definition on the official bluetooth website.
 One important thing to notice is that Bluetooth is a wireless technology standard using UFH (Ultra High Frequency) radio waves. This means it&amp;rsquo;s in the same family of telecommunications than GSM, GPS, WiFi, walkie-talkies and many more.
 As you have probably discovered on their site, Bluetooth comes in different flavours:</description>
