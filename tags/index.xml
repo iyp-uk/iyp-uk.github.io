@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on IYP UK</title>
+    <link>https://iyp-uk.github.io/tags/</link>
+    <description>Recent content in Tags on IYP UK</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <copyright>Copyright © 2017 IYP UK</copyright>
+    <lastBuildDate>Mon, 31 Jul 2017 12:01:35 +0100</lastBuildDate>
+    
+	<atom:link href="https://iyp-uk.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aws</title>
+      <link>https://iyp-uk.github.io/tags/aws/</link>
+      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      
+      <guid>https://iyp-uk.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://iyp-uk.github.io/tags/docker/</link>
+      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      
+      <guid>https://iyp-uk.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://iyp-uk.github.io/tags/elasticsearch/</link>
+      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      
+      <guid>https://iyp-uk.github.io/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Express</title>
+      <link>https://iyp-uk.github.io/tags/express/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://iyp-uk.github.io/tags/express/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nodejs</title>
+      <link>https://iyp-uk.github.io/tags/nodejs/</link>
+      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      
+      <guid>https://iyp-uk.github.io/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactjs</title>
+      <link>https://iyp-uk.github.io/tags/reactjs/</link>
+      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      
+      <guid>https://iyp-uk.github.io/tags/reactjs/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
