@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on IYP UK</title>
-    <link>http://www.iyp-uk.com/tags/docker/</link>
+    <link>https://www.iyp-uk.com/tags/docker/</link>
     <description>Recent content in Docker on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Fri, 18 Aug 2017 14:47:35 +0100</lastBuildDate>
     
-	<atom:link href="http://www.iyp-uk.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.iyp-uk.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker Compose Python Eve Mongodb</title>
-      <link>http://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</link>
+      <link>https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</link>
       <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
       
-      <guid>http://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</guid>
+      <guid>https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/</guid>
       <description>PyCharm As a Python developer you are probably familiar with PyCharm, an amazing IDE from JetBrains. If you don&amp;rsquo;t know anything about it, have a look, you&amp;rsquo;ll probably not regret it :) Some of the steps in this article will make mention of PyCharm, however, it&amp;rsquo;s not required and you can still follow if you&amp;rsquo;re using another IDE. If you&amp;rsquo;re not using any IDE, well, god save your soul.</description>
     </item>
     
     <item>
       <title>Gardenlog With React, Node and Docker</title>
-      <link>http://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</link>
+      <link>https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</link>
       <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
       
-      <guid>http://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</guid>
+      <guid>https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</guid>
       <description>This will show the rewriting of a project using different technologies.
 What is Gardenlog? Gardenlog is a project which:
  monitors garden (even if it could be anything), gathering all sorts of meteorological information allows users to interact with it   IYP UK has built it using several technologies:
@@ -35,10 +35,10 @@ What is Gardenlog? Gardenlog is a project which:
     
     <item>
       <title>Nodejs Docker And Aws</title>
-      <link>http://www.iyp-uk.com/blog/nodejs-docker-and-aws/</link>
+      <link>https://www.iyp-uk.com/blog/nodejs-docker-and-aws/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.iyp-uk.com/blog/nodejs-docker-and-aws/</guid>
+      <guid>https://www.iyp-uk.com/blog/nodejs-docker-and-aws/</guid>
       <description>In this post, we will make use of NodeJS and Docker to provide and API which interfaces with an Elasticsearch instance in AWS.
 Assuming you already have an AWS account, and aws-cli set up.
 Process  Write the NodeJS app locally Wrap it a docker image and deploy this image to a registry (we will use docker hub here) Use AWS ECS (EC2 Container Service) to deploy and scale your app in the cloud.</description>

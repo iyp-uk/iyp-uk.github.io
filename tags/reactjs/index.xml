@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reactjs on IYP UK</title>
-    <link>http://www.iyp-uk.com/tags/reactjs/</link>
+    <link>https://www.iyp-uk.com/tags/reactjs/</link>
     <description>Recent content in Reactjs on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Mon, 31 Jul 2017 12:01:35 +0100</lastBuildDate>
     
-	<atom:link href="http://www.iyp-uk.com/tags/reactjs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.iyp-uk.com/tags/reactjs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gardenlog With React, Node and Docker</title>
-      <link>http://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</link>
+      <link>https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</link>
       <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
       
-      <guid>http://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</guid>
+      <guid>https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/</guid>
       <description>This will show the rewriting of a project using different technologies.
 What is Gardenlog? Gardenlog is a project which:
  monitors garden (even if it could be anything), gathering all sorts of meteorological information allows users to interact with it   IYP UK has built it using several technologies:

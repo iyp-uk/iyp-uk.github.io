@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on IYP UK</title>
-    <link>http://www.iyp-uk.com/tags/kubernetes/</link>
+    <link>https://www.iyp-uk.com/tags/kubernetes/</link>
     <description>Recent content in Kubernetes on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Thu, 24 Aug 2017 11:07:05 +0100</lastBuildDate>
     
-	<atom:link href="http://www.iyp-uk.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.iyp-uk.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With Kubernetes</title>
-      <link>http://www.iyp-uk.com/blog/getting-started-with-kubernetes/</link>
+      <link>https://www.iyp-uk.com/blog/getting-started-with-kubernetes/</link>
       <pubDate>Thu, 24 Aug 2017 11:07:05 +0100</pubDate>
       
-      <guid>http://www.iyp-uk.com/blog/getting-started-with-kubernetes/</guid>
+      <guid>https://www.iyp-uk.com/blog/getting-started-with-kubernetes/</guid>
       <description>Let&amp;rsquo;s get started with Kubernetes and play around with it locally.
 Foreword This article is largely inspired by the official Kubernetes getting started guide.
 What is minikube?  Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
