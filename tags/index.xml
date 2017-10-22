@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Mon, 31 Jul 2017 12:01:35 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2017 16:45:01 +0100</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Architecture</title>
+      <link>https://www.iyp-uk.com/tags/architecture/</link>
+      <pubDate>Sun, 22 Oct 2017 16:45:01 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/architecture/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Aws</title>
@@ -18,6 +27,15 @@
       <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Best Practices</title>
+      <link>https://www.iyp-uk.com/tags/best-practices/</link>
+      <pubDate>Sun, 22 Oct 2017 16:45:01 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/best-practices/</guid>
       <description></description>
     </item>
     
@@ -45,6 +63,15 @@
       <pubDate>Thu, 24 Aug 2017 11:07:05 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/coreos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design Patterns</title>
+      <link>https://www.iyp-uk.com/tags/design-patterns/</link>
+      <pubDate>Sun, 22 Oct 2017 16:45:01 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/design-patterns/</guid>
       <description></description>
     </item>
     

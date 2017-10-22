@@ -2,7 +2,6 @@
 <html lang="en-GB">
 
 <head>
-	<meta name="generator" content="Hugo 0.29" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
@@ -15,24 +14,24 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.iyp-uk.com/" />
-<meta property="og:title" content="IYP UK" />
-<meta property="twitter:title" content="IYP UK">
+<meta property="og:url" content="https://www.iyp-uk.com/blog/clean-code/" />
+<meta property="og:title" content="Clean Code" />
+<meta property="twitter:title" content="Clean Code">
 
     <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="https://www.iyp-uk.com/img/logo.png">
 
-<meta property="og:description" content="IYP UK&#39;s website">
-<meta property="twitter:description" content="IYP UK&#39;s website">
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
 
 <title>
 
 
-    IYP UK
+     IYP UK - Clean Code 
 
 </title>
-<link rel="canonical" href="https://www.iyp-uk.com/">
+<link rel="canonical" href="https://www.iyp-uk.com/blog/clean-code/">
 
 
 <style media="screen">
@@ -928,8 +927,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://www.iyp-uk.com/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
-
 
 
 <script>
@@ -946,7 +943,7 @@ ga('send', 'pageview');
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://www.iyp-uk.com/"><img class="logo" src="https://www.iyp-uk.com/img/logo.png" alt="logo" /></a>
@@ -973,75 +970,348 @@ ga('send', 'pageview');
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            
-                <div class="markdown">
-                <p><a href="https://www.iyp-uk.com/">IYP UK</a> provides digital solutions for real-world problems.</p>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Clean Code
+
+</div>
 
                 </div>
-            
-
-            
-                <div class="posts">
-                
-                
-                    <div class="page-heading">Latest posts</div>
-                    <ul>
+                <div class="meta">
+                    <div class="date" title="Sun Oct 22 2017 16:45:01 BST">Oct 22, 2017</div>
                     
-                        <li class="groupby">Oct, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Oct 22, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/clean-code/"><span>Clean Code</span></a>
-</li>
-
                         
                     
-                        <li class="groupby">Aug, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 26, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/"><span>Getting Started With Bluetooth Low Energy</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-terraform/"><span>Getting Started With Terraform</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-kubernetes/"><span>Getting Started With Kubernetes</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 18, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/"><span>Docker Compose Python Eve Mongodb</span></a>
-</li>
-
-                        
-                    
-                    </ul>
-
-                    
-                        <a href="./blog/" class="see-more">See more ...</a>
-                    
-                
+                    <div class="reading-time"><div class="middot"></div>5 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/best-practices">best practices</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/design-patterns">design patterns</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/architecture">architecture</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
                 </div>
-            
-
-            <div class="best-posts">
-            
-            
             </div>
+            <div class="markdown">
+                
+    
+
+<p>This post is a summary of some notes taken from the amazing series of <a href="https://www.safaribooksonline.com/library/view/clean-code/9780134661742/">clean code videos</a>, themselves taken from the <a href="https://www.safaribooksonline.com/library/view/clean-code/9780136083238/">clean code book</a>.
+Both come highly recommended if you want to improve your professionalism as a software engineer.</p>
+
+<h2 id="names">Names</h2>
+
+<ol>
+<li>Choose names thoughtfully</li>
+<li>Communicate your intent = by reading it you understand what it is / does</li>
+<li>Avoid disinformation</li>
+<li>Pronounceable names</li>
+<li>Avoid encodings (like Hungarian notation)</li>
+<li>Ensure code can read like prose in plain english
+
+<ul>
+<li>Variables = nouns</li>
+<li>Classes = nouns and names</li>
+<li>Methods = verbs</li>
+<li>booleans with isSomething</li>
+</ul></li>
+<li>Name as scope dictates:
+
+<ul>
+<li>Private, details functions / classes / methods / vars should have long and explicit names</li>
+<li>Public, widely used functions / classes / methods / vars  should have short and explicit names</li>
+</ul></li>
+</ol>
+
+<h2 id="functions">Functions</h2>
+
+<ul>
+<li>1st rule: functions are small</li>
+<li>2nd rule: they are smaller than that</li>
+<li>Functions do one thing: If a function is included in another it should be taken out
+
+<ul>
+<li>Extract till you drop</li>
+<li>If you can extract one function from another, you should, as the function isn’t doing one thing indeed</li>
+</ul></li>
+<li>Classes hide in long functions =&gt; Long functions = classes</li>
+</ul>
+
+<h2 id="function-structure">Function structure</h2>
+
+<ul>
+<li>Small function signatures: 3 arguments max</li>
+<li>No boolean argument</li>
+<li>Avoid switch and if statements, replace by polymorphism</li>
+<li>Functional programming
+
+<ul>
+<li>No assignment statement</li>
+<li>A function is immutable: same input always gives the same output</li>
+<li>CQS: Command and Query Separation
+
+<ul>
+<li>Command
+
+<ul>
+<li>Execute the command and return nothing</li>
+<li>Can throw exception</li>
+</ul></li>
+<li>Query
+
+<ul>
+<li>Execute the query and return value but do not change state</li>
+</ul></li>
+<li>If a method modifies state, it must return void</li>
+<li>If a method queries state, it must not modify it</li>
+</ul></li>
+<li>Tell don’t ask
+
+<ul>
+<li>Let the object itself deal with its state rather than asking for it before asking for a command</li>
+<li>Don’t chain methods</li>
+</ul></li>
+<li>Block-passing technique</li>
+<li>Law of Demeter</li>
+</ul></li>
+<li>Structured programming
+
+<ul>
+<li>Sequence</li>
+<li>Selection</li>
+<li>Interaction</li>
+<li>Single entrance at the top, single exit at the bottom, for all these blocks, and by composition modules, and systems do too</li>
+</ul></li>
+</ul>
+
+<h2 id="form">Form</h2>
+
+<ul>
+<li>Comments</li>
+<li>Classes and parameters:
+
+<ul>
+<li>Can have private parameters</li>
+<li>Tell don’t ask implies: No getters, No setters</li>
+<li>your class and the objects resulting from it are just a bunch of functions from the outside</li>
+<li>Polymorphism</li>
+<li>If you expose data, make it as abstract as possible so that we can derivate from that class with no issues</li>
+</ul></li>
+<li>Class VS Data structure
+
+<ul>
+<li>DS is opposite of the class. It has public variables, and no methods</li>
+<li>If there’s a switch, it’s probably because there’s a data structure hiding behind</li>
+</ul></li>
+<li>Use as less comments as possible, just when they’re absolutely necessary</li>
+<li>Average file size &lt; 100 lines, never &gt; 500 lines</li>
+<li>Use tell don’t ask</li>
+<li>Boundaries
+
+<ul>
+<li>Separate concrete things from abstract things</li>
+</ul></li>
+<li>Separate business objects and database with abstraction layer</li>
+</ul>
+
+<h2 id="tdd">TDD</h2>
+
+<ul>
+<li>Red &gt; Green &gt; Refactor, repeat
+
+<ul>
+<li>RED: Write failing test code, with just enough code to demonstrate a failure</li>
+<li>GREEN: Write production code, with just enough code to make the test pass  (can be dumb here)</li>
+<li>REFACTOR: Refactor what you’ve just written in the 2 previous phases as much as you can while keeping a green state</li>
+</ul></li>
+<li>TDD is like double entry bookkeeping for accountants</li>
+</ul>
+
+<blockquote>
+<p>Code rots because of the fear of change: only tests that you trust can eliminate that fear.</p>
+</blockquote>
+
+<h2 id="architecture-use-cases-and-high-level-design">Architecture, use cases and high level design</h2>
+
+<ul>
+<li>Use cases / User stories</li>
+<li>Isolate core from periphery</li>
+</ul>
+
+<blockquote>
+<p>Design delivery-mechanism independent systems</p>
+</blockquote>
+
+<ul>
+<li>Use cases and high level design
+
+<ul>
+<li>Saying architecting is choosing Java, sprint and whatnot is the same as saying a house has to be made of nails and wood</li>
+<li>Architecture is not about tools, it’s about usage,
+
+<ul>
+<li>see drawings of a house or a church. At first sight you understand the purpose, the intent. It has to be the same with software architecture</li>
+</ul></li>
+<li>A good architecture screams use cases!</li>
+<li>Don’t specify UI, databases, etc…
+
+<ul>
+<li>A good architect knows how to keep options open for as long as possible</li>
+</ul></li>
+</ul></li>
+<li>Separation of value
+
+<ul>
+<li>Use cases</li>
+<li>UI</li>
+<li>Databases</li>
+<li>Web server</li>
+<li>Allows a Cost / Value analysis</li>
+</ul></li>
+<li>Conclusion
+
+<ul>
+<li>Defer decisions thanks to separation of value</li>
+</ul></li>
+</ul>
+
+<h3 id="use-cases">Use cases</h3>
+
+<ul>
+<li>Describe how a user interacts with the system, but not specifying links and buttons. Otherwise it’s too related to the delivery mechanism (web in most cases). It’s called Use cases</li>
+<li>Primary course: Happy path</li>
+<li>Exception course: When something goes wrong, how should the system react?</li>
+<li>Books
+
+<ul>
+<li>Writing Effective Use Cases</li>
+<li>Object Oriented Software Engineering</li>
+</ul></li>
+<li>What object holds the business rules?
+
+<ul>
+<li>See partitioning</li>
+</ul></li>
+</ul>
+
+<h3 id="partitioning">Partitioning</h3>
+
+<ul>
+<li>Entities
+
+<ul>
+<li>Application-agnostic</li>
+</ul></li>
+<li>&ldquo;Interactors&rdquo;
+
+<ul>
+<li>Application-specific, in order to achieve the goal of the use case</li>
+</ul></li>
+<li>Boundary objects
+
+<ul>
+<li>Prepare data for the delivery mechanism</li>
+<li>They are the only objects which talk to the delivery mechanism</li>
+</ul></li>
+</ul>
+
+<h3 id="isolation">Isolation</h3>
+
+
+<figure >
+    
+        <img src="https://www.iyp-uk.com/img/isolation.png" />
+    
+    
+</figure>
+
+
+<h3 id="conclusion">Conclusion</h3>
+
+<ul>
+<li>Architecture
+
+<ul>
+<li>Does not rely on any tool or framework</li>
+<li>Allows to defer decisions on tools and frameworks for a very long time</li>
+</ul></li>
+<li>A good architecture
+
+<ul>
+<li>Maximises the number of decisions not made</li>
+<li>Does not depend on the delivery mechanism, even hides it
+
+<ul>
+<li>i.e., when you look at a system, you shouldn’t be able to tell if it’s a web system</li>
+</ul></li>
+<li>Allows the cost
+
+<ul>
+<li>of the use cases</li>
+<li>of the UI and other components</li>
+<li>to be evaluated independently</li>
+</ul></li>
+<li>So that their relative business value can be evaluated</li>
+</ul></li>
+<li>The use cases
+
+<ul>
+<li>Are the core of the system as they show its intent</li>
+</ul></li>
+<li>Interactor, Entity and Boundary partition principle
+
+<ul>
+<li>Interactors encapsulate use cases</li>
+<li>Entities encapsulate business objects</li>
+<li>Boundaries isolate the system from user interfaces</li>
+</ul></li>
+<li>Databases are isolated thanks to abstraction and that’s the iterator objects responsible for DB access</li>
+</ul>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
+                        <a href="https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/">Getting Started With Bluetooth Low Energy</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
 
@@ -1116,5 +1386,4 @@ ga('send', 'pageview');
 
 </body>
 </html>
-
 

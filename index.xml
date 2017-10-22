@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Sat, 26 Aug 2017 18:14:18 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2017 16:45:01 +0100</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Clean Code</title>
+      <link>https://www.iyp-uk.com/blog/clean-code/</link>
+      <pubDate>Sun, 22 Oct 2017 16:45:01 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/clean-code/</guid>
+      <description>This post is a summary of some notes taken from the amazing series of clean code videos, themselves taken from the clean code book. Both come highly recommended if you want to improve your professionalism as a software engineer.
+Names  Choose names thoughtfully Communicate your intent = by reading it you understand what it is / does Avoid disinformation Pronounceable names Avoid encodings (like Hungarian notation) Ensure code can read like prose in plain english  Variables = nouns Classes = nouns and names Methods = verbs booleans with isSomething  Name as scope dictates:  Private, details functions / classes / methods / vars should have long and explicit names Public, widely used functions / classes / methods / vars should have short and explicit names   Functions  1st rule: functions are small 2nd rule: they are smaller than that Functions do one thing: If a function is included in another it should be taken out  Extract till you drop If you can extract one function from another, you should, as the function isn’t doing one thing indeed  Classes hide in long functions =&amp;gt; Long functions = classes  Function structure  Small function signatures: 3 arguments max No boolean argument Avoid switch and if statements, replace by polymorphism Functional programming  No assignment statement A function is immutable: same input always gives the same output CQS: Command and Query Separation  Command  Execute the command and return nothing Can throw exception  Query  Execute the query and return value but do not change state  If a method modifies state, it must return void If a method queries state, it must not modify it  Tell don’t ask  Let the object itself deal with its state rather than asking for it before asking for a command Don’t chain methods  Block-passing technique Law of Demeter  Structured programming  Sequence Selection Interaction Single entrance at the top, single exit at the bottom, for all these blocks, and by composition modules, and systems do too   Form  Comments Classes and parameters:  Can have private parameters Tell don’t ask implies: No getters, No setters your class and the objects resulting from it are just a bunch of functions from the outside Polymorphism If you expose data, make it as abstract as possible so that we can derivate from that class with no issues  Class VS Data structure  DS is opposite of the class.</description>
+    </item>
     
     <item>
       <title>Getting Started With Bluetooth Low Energy</title>

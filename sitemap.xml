@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.iyp-uk.com/blog/clean-code/</loc>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/</loc>
     <lastmod>2017-08-26T18:14:18+01:00</lastmod>
   </url>
@@ -43,8 +48,20 @@
   </url>
   
   <url>
+    <loc>https://www.iyp-uk.com/tags/architecture/</loc>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/tags/aws/</loc>
     <lastmod>2017-07-31T12:01:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/best-practices/</loc>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -56,7 +73,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/blog/</loc>
-    <lastmod>2017-08-26T18:14:18+01:00</lastmod>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -74,6 +91,12 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/coreos/</loc>
     <lastmod>2017-08-24T11:07:05+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/design-patterns/</loc>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -103,7 +126,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/</loc>
-    <lastmod>2017-08-26T18:14:18+01:00</lastmod>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -169,7 +192,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/tags/</loc>
-    <lastmod>2017-07-31T12:01:35+01:00</lastmod>
+    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
     <priority>0</priority>
   </url>
   
