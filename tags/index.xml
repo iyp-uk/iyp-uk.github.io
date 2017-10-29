@@ -76,9 +76,18 @@
     </item>
     
     <item>
+      <title>Django</title>
+      <link>https://www.iyp-uk.com/tags/django/</link>
+      <pubDate>Sun, 29 Oct 2017 10:06:26 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Docker</title>
       <link>https://www.iyp-uk.com/tags/docker/</link>
-      <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
+      <pubDate>Sun, 29 Oct 2017 10:06:26 +0000</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/docker/</guid>
       <description></description>
@@ -177,7 +186,7 @@
     <item>
       <title>Python</title>
       <link>https://www.iyp-uk.com/tags/python/</link>
-      <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
+      <pubDate>Sun, 29 Oct 2017 10:06:26 +0000</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/python/</guid>
       <description></description>
@@ -198,6 +207,15 @@
       <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tdd</title>
+      <link>https://www.iyp-uk.com/tags/tdd/</link>
+      <pubDate>Sun, 29 Oct 2017 10:06:26 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/tdd/</guid>
       <description></description>
     </item>
     
