@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Sun, 22 Oct 2017 16:45:01 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 29 Oct 2017 10:06:26 +0000</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TDD Django Docker</title>
+      <link>https://www.iyp-uk.com/blog/tdd-django-docker/</link>
+      <pubDate>Sun, 29 Oct 2017 10:06:26 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/tdd-django-docker/</guid>
+      <description>What you will learn here We will go through the current Django tutorial with a particular focus on TDD and using Docker.
+ This tutorial presents a polls application.
+ Prerequisites Check you have the required software on your machine.
+$ docker -v Docker version 17.09.0-ce, build afdb6d4  $ docker-compose -v docker-compose version 1.16.1, build 6d1ac21  Getting started We will be running Django along with a PostgreSQL database.</description>
+    </item>
     
     <item>
       <title>Clean Code</title>

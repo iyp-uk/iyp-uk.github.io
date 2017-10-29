@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.iyp-uk.com/blog/" />
-<meta property="og:title" content="Blog" />
-<meta property="twitter:title" content="Blog">
+<meta property="og:url" content="https://www.iyp-uk.com/blog/tdd-django-docker/" />
+<meta property="og:title" content="TDD Django Docker" />
+<meta property="twitter:title" content="TDD Django Docker">
 
     <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
@@ -28,10 +28,10 @@
 <title>
 
 
-     IYP UK - Blog 
+     IYP UK - TDD Django Docker 
 
 </title>
-<link rel="canonical" href="https://www.iyp-uk.com/blog/">
+<link rel="canonical" href="https://www.iyp-uk.com/blog/tdd-django-docker/">
 
 
 <style media="screen">
@@ -927,8 +927,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://www.iyp-uk.com/blog/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
-
 
 
 <script>
@@ -945,7 +943,7 @@ ga('send', 'pageview');
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://www.iyp-uk.com/"><img class="logo" src="https://www.iyp-uk.com/img/logo.png" alt="logo" /></a>
@@ -972,75 +970,664 @@ ga('send', 'pageview');
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Blog</div>
-                <ul>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    TDD Django Docker
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Oct 29 2017 10:06:26 UTC">Oct 29, 2017</div>
                     
-                        <li class="groupby">Oct, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Oct 29, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/tdd-django-docker/"><span>TDD Django Docker</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Oct 22, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/clean-code/"><span>Clean Code</span></a>
-</li>
-
                         
                     
-                        <li class="groupby">Aug, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 26, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-bluetooth-low-energy/"><span>Getting Started With Bluetooth Low Energy</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-terraform/"><span>Getting Started With Terraform</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 24, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-kubernetes/"><span>Getting Started With Kubernetes</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Aug 18, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/docker-compose-python-eve-mongodb/"><span>Docker Compose Python Eve Mongodb</span></a>
-</li>
-
-                        
-                    
-                        <li class="groupby">Jul, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Jul 31, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/gardenlog-with-react-node-and-docker/"><span>Gardenlog With React, Node and Docker</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Jul 31, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/nodejs-docker-and-aws/"><span>Nodejs Docker And Aws</span></a>
-</li>
-
-                        
-                    
-                </ul>
+                    <div class="reading-time"><div class="middot"></div>10 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+
+<h2 id="what-you-will-learn-here">What you will learn here</h2>
+
+<p>We will go through the <a href="https://docs.djangoproject.com/en/1.11/intro/tutorial01/">current Django tutorial</a> with a particular focus on <a href="https://www.iyp-uk.com/blog/clean-code/#tdd">TDD</a> and using <a href="https://www.docker.com/">Docker</a>.</p>
+
+<blockquote>
+<p>This tutorial presents a polls application.</p>
+</blockquote>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Check you have the required software on your machine.</p>
+
+<pre><code>$ docker -v
+Docker version 17.09.0-ce, build afdb6d4
+</code></pre>
+
+<pre><code>$ docker-compose -v
+docker-compose version 1.16.1, build 6d1ac21
+</code></pre>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>We will be running <a href="https://www.djangoproject.com/">Django</a> along with a <a href="https://www.postgresql.org/">PostgreSQL</a> database.</p>
+
+<p>This means we will have 2 services:</p>
+
+<ul>
+<li>A container running Django, based on Python</li>
+<li>A container running Postgres</li>
+</ul>
+
+<p>hence our <code>docker-compose</code> requirement.</p>
+
+<blockquote>
+<p>Django supports and uses <a href="https://www.sqlite.org/">SQLite</a> in its tutorial.</p>
+</blockquote>
+
+<h3 id="project-foundations">Project foundations</h3>
+
+<p>Create the project&rsquo;s directory:</p>
+
+<pre><code class="language-console">$ mkdir tdd-django-docker
+$ cd tdd-django-docker
+$ git init
+</code></pre>
+
+<p>Add relevant files:</p>
+
+<pre><code class="language-console">$ touch Dockerfile requirements.txt docker-compose.yml
+</code></pre>
+
+<p>Some details here:</p>
+
+<ul>
+<li><code>Dockerfile</code> describes our Django app</li>
+<li><code>requirements.txt</code> lists requirements for this Django app</li>
+<li><code>docker-compose.yml</code> describes the combination of services to run the app</li>
+</ul>
+
+<p>We need <code>django</code> and <code>psycopg2</code> to communicate with postgres.
+In <code>requirements.txt</code>, add:</p>
+
+<pre><code>Django==1.11
+psycopg2==2.7.3
+</code></pre>
+
+<p>Now, the container will have to pick these requirements, so that the django part can be run.</p>
+
+<p>In <code>Dockerfile</code>:</p>
+
+<pre><code class="language-Dockerfile">FROM python:3
+
+EXPOSE 8000
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+</code></pre>
+
+<p>Finally, in <code>docker-compose.yml</code>:</p>
+
+<p>You&rsquo;re now able to create your django project:</p>
+
+<pre><code class="language-console">$ docker-compose run web django-admin startproject pollapp .
+</code></pre>
+
+<blockquote>
+<p>Notice the trailing dot which will generate the app in the directory defined in the <code>Dockerfile</code>, avoiding Django&rsquo;s additional directory level.</p>
+</blockquote>
+
+<p>This will generate the files for your django <code>pollapp</code> project:</p>
+
+<pre><code class="language-console">$ tree
+.
+├── Dockerfile
+├── README.md
+├── docker-compose.yml
+├── manage.py
+├── pollapp
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── requirements.txt
+
+1 directory, 9 files
+</code></pre>
+
+<p>At this point, you will want to instruct your app about the postgres database, so go ahead and edit the <code>DATABASES</code> setting from <code>pollapp/settings.py</code>:</p>
+
+<pre><code class="language-python"># Database
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+</code></pre>
+
+<p>the <code>NAME</code> and <code>USER</code> are provided by the default <a href="https://hub.docker.com/_/postgres/"><code>postgres</code> docker image</a></p>
+
+<blockquote>
+<p>We&rsquo;re simplifying quite a bit here, on a normal project you&rsquo;d make these environment variables.</p>
+</blockquote>
+
+<p>You&rsquo;re now ready to start building this app. Let&rsquo;s run it:</p>
+
+<pre><code class="language-console">$ docker-compose up
+</code></pre>
+
+<p>You should now be able to navigate to <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> as per the Django tutorial and see a “Welcome to Django” page, in pleasant, light-blue pastel. It worked!</p>
+
+<blockquote>
+<p>Check the <a href="https://github.com/iyp-uk/tdd-django-docker/tree/app-set-up">codebase at this stage</a></p>
+</blockquote>
+
+<h2 id="creating-the-polls-app">Creating the polls app</h2>
+
+<blockquote>
+<p>We&rsquo;re following the Django&rsquo;s tutorial here.</p>
+</blockquote>
+
+<p>Run the following command:</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py startapp polls
+</code></pre>
+
+<p>Notice without the docker context it would have been:</p>
+
+<pre><code class="language-console">$ python manage.py startapp polls
+</code></pre>
+
+<blockquote>
+<p>See how similar they are? Just instruct the <code>web</code> service from <code>docker-compose</code> to <code>run</code> the command you supply.
+Couldn&rsquo;t be easier :)</p>
+</blockquote>
+
+<p>That creates a new <code>polls</code> directory which in context is like:</p>
+
+<pre><code class="language-console">$ tree
+.
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── docker-compose.yml
+├── manage.py
+├── pollapp
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── polls
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+└── requirements.txt
+</code></pre>
+
+<h3 id="baby-steps">Baby steps</h3>
+
+<p>We want to add a <code>/polls</code> route.</p>
+
+<p>But we&rsquo;re TDD here, remember? <code>RED &gt; GREEN &gt; REFACTOR</code></p>
+
+<p>So we will add a test to check that this route exists, make sure it fails (RED) and write just enough to make it pass (GREEN).</p>
+
+<h4 id="defining-tests">Defining tests</h4>
+
+<p>First let&rsquo;s confirm you can run tests as it will be our first one.</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py test
+Starting tdddjangodocker_db_1 ... done
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Destroying test database for alias 'default'...
+</code></pre>
+
+<p>OK, the tests can run, there are none for now but not for long!</p>
+
+<p>You may have noticed a <code>polls/tests.py</code>, that&rsquo;s where we&rsquo;ll add them!</p>
+
+<p>So let&rsquo;s write the <strong>minimum amount of code</strong> to have this test verify our requirements and fail (RED phase).</p>
+
+<pre><code class="language-python">from django.test import TestCase
+
+
+class PollsView(TestCase):
+
+    def test_route_to_polls(self):
+        response = self.client.get('/polls/')
+        self.assertEqual(response.status_code, 200)
+</code></pre>
+
+<p>Now run the tests:</p>
+
+<pre><code class="language-console">docker-compose run web python manage.py test
+Starting tdddjangodocker_db_1 ... done
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+F
+======================================================================
+FAIL: test_route_to_polls (polls.tests.PollsView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/src/app/polls/tests.py&quot;, line 7, in test_route_to_polls
+    self.assertEqual(response.status_code, 200)
+AssertionError: 404 != 200
+
+----------------------------------------------------------------------
+Ran 1 test in 0.023s
+
+FAILED (failures=1)
+Destroying test database for alias 'default'...
+</code></pre>
+
+<p>Fails! fantastic, we can now move on to the next phase: writing <strong>just enough</strong> production code to get the test to pass (GREEN phase).</p>
+
+<p>We will then add:</p>
+
+<ul>
+<li>a <a href="https://docs.djangoproject.com/en/1.11/topics/http/views/">view</a> to deal with the logic</li>
+<li>an <a href="https://docs.djangoproject.com/en/1.11/topics/http/urls/">url dispatcher</a> to route requests to the view</li>
+</ul>
+
+<p>Follow the tutorial and:</p>
+
+<ul>
+<li>Update <code>polls/views.py</code></li>
+<li>Add <code>polls/urls.py</code></li>
+<li>Update <code>pollapp/urls.py</code></li>
+</ul>
+
+<p>Running tests again, they pass:</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py test
+Starting tdddjangodocker_db_1 ... done
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.021s
+
+OK
+Destroying test database for alias 'default'...
+</code></pre>
+
+<p>So we&rsquo;re now in the REFACTORING phase.
+Anything to refactor? Not quite, let&rsquo;s move on.</p>
+
+<h4 id="run-the-tests-in-ci">Run the tests in CI</h4>
+
+<p>So we&rsquo;ve got our first test. That&rsquo;s cool but we want to enforce it so that any change / PR runs them too and not rely on developers&rsquo; good will to run them.
+Introducing <a href="https://travis-ci.org/">travis</a>! There are plenty of them, this is just an example here.</p>
+
+<p>Add a <code>.travis.yml</code> at the root of the project:</p>
+
+<pre><code class="language-console">$ touch .travis.yml
+</code></pre>
+
+<p>And fill it in with:</p>
+
+<pre><code class="language-yaml">sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_COMPOSE_VERSION=1.14.0
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` &gt; docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+before_script:
+  - docker-compose up --build -d
+
+script:
+  - docker-compose run web python manage.py test
+
+after_script:
+  - docker-compose down
+</code></pre>
+
+<p><a href="https://docs.travis-ci.com/user/getting-started/">Read the travis documentation</a> for further instructions.</p>
+
+<p>You can even <a href="https://docs.travis-ci.com/user/status-images/">add a fancy badge to your project&rsquo;s readme file</a>.</p>
+
+<blockquote>
+<p>Check the <a href="https://github.com/iyp-uk/tdd-django-docker/tree/add-polls-app">codebase at this stage</a> and the <a href="https://github.com/iyp-uk/tdd-django-docker/compare/app-set-up...add-polls-app">diff with previous checkpoint</a>.</p>
+</blockquote>
+
+<h2 id="database-set-up">Database set up</h2>
+
+<p>Our database connection is already set, but we will now:</p>
+
+<ul>
+<li>Update Internationalisation settings</li>
+<li>Prepare <code>migrate</code> (see below)</li>
+</ul>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py migrate
+Starting tdddjangodocker_db_1 ... done
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying sessions.0001_initial... OK
+</code></pre>
+
+<h3 id="adding-models">Adding models</h3>
+
+<p>Update <code>polls/models.py</code> and <code>pollapp/settings.py</code> as per tutorial.</p>
+
+<p>Finally create new migrations based on the schema changes we&rsquo;ve added.</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py makemigrations polls
+Starting tdddjangodocker_db_1 ... done
+Migrations for 'polls':
+  polls/migrations/0001_initial.py
+    - Create model Choice
+    - Create model Question
+    - Add field question to choice
+</code></pre>
+
+<p>Notice it&rsquo;s now created <code>polls/migrations/0001_initial.py</code> which defines your schema update.</p>
+
+<p>You can also read this in a SQL version:</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py sqlmigrate polls 0001
+Starting tdddjangodocker_db_1 ... done
+BEGIN;
+--
+-- Create model Choice
+--
+CREATE TABLE &quot;polls_choice&quot; (&quot;id&quot; serial NOT NULL PRIMARY KEY, &quot;choice_text&quot; varchar(200) NOT NULL, &quot;votes&quot; integer NOT NULL);
+--
+-- Create model Question
+--
+CREATE TABLE &quot;polls_question&quot; (&quot;id&quot; serial NOT NULL PRIMARY KEY, &quot;question_text&quot; varchar(200) NOT NULL, &quot;pub_date&quot; timestamp with time zone NOT NULL);
+--
+-- Add field question to choice
+--
+ALTER TABLE &quot;polls_choice&quot; ADD COLUMN &quot;question_id&quot; integer NOT NULL;
+CREATE INDEX &quot;polls_choice_question_id_c5b4b260&quot; ON &quot;polls_choice&quot; (&quot;question_id&quot;);
+ALTER TABLE &quot;polls_choice&quot; ADD CONSTRAINT &quot;polls_choice_question_id_c5b4b260_fk_polls_question_id&quot; FOREIGN KEY (&quot;question_id&quot;) REFERENCES &quot;polls_question&quot; (&quot;id&quot;) DEFERRABLE INITIALLY DEFERRED;
+COMMIT;
+</code></pre>
+
+<blockquote>
+<p>By running <code>makemigrations</code>, you’re telling Django that you’ve made some changes to your models (in this case, you’ve made new ones) and that you’d like the changes to be stored as a migration.</p>
+
+<p>Read more about <a href="https://docs.djangoproject.com/en/1.11/topics/migrations/">migrations</a>.</p>
+</blockquote>
+
+<p>Reading these is a way to crosscheck that the changes we want to apply are correct.</p>
+
+<p>We can now apply these changes to the database:</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py migrate              
+Starting tdddjangodocker_db_1 ... done
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, polls, sessions
+Running migrations:
+  Applying polls.0001_initial... OK
+</code></pre>
+
+<blockquote>
+<p><a href="https://docs.djangoproject.com/en/1.11/ref/django-admin/">Read more about <code>manage.py</code> commands</a>.</p>
+</blockquote>
+
+<h3 id="using-the-api">Using the API</h3>
+
+<p>Yes, even with docker you can run the python command line.</p>
+
+<pre><code class="language-console">$ docker-compose run web python manage.py shell 
+Starting tdddjangodocker_db_1 ... done
+Python 3.6.2 (default, Jul 24 2017, 19:47:39) 
+[GCC 4.9.2] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+(InteractiveConsole)
+&gt;&gt;&gt; 
+</code></pre>
+
+<p>Go through the tutorial&rsquo;s steps.</p>
+
+<h3 id="make-the-polls-app-modifiable-in-admin">Make the polls app modifiable in admin</h3>
+
+<p>Still follow the tutorial&hellip;</p>
+
+<blockquote>
+<p>Check the <a href="https://github.com/iyp-uk/tdd-django-docker/tree/set-up-database">codebase at this stage</a> and the <a href="https://github.com/iyp-uk/tdd-django-docker/compare/add-polls-app...set-up-database">diff with previous checkpoint</a>.</p>
+</blockquote>
+
+<h2 id="adding-more-views">Adding more views</h2>
+
+<p>We now want to add more routes, such as:</p>
+
+<ul>
+<li>questions details</li>
+<li>questions results</li>
+<li>votes</li>
+</ul>
+
+<p>Let&rsquo;s start by adding more tests for all these routes.</p>
+
+<p>Add the following tests under <code>polls/tests.py</code> after the one we already have:</p>
+
+<pre><code class="language-python">    def test_question_details(self):
+        response = self.client.get('/polls/5/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_question_results_details(self):
+        response = self.client.get('/polls/5/results/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_question_vote_details(self):
+        response = self.client.get('/polls/5/vote/')
+        self.assertEqual(response.status_code, 200)
+</code></pre>
+
+<p>Run the tests:</p>
+
+<pre><code class="language-console">docker-compose run web python manage.py test
+Starting tdddjangodocker_db_1 ... done
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+FFF.
+======================================================================
+FAIL: test_question_details (polls.tests.PollsView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/src/app/polls/tests.py&quot;, line 12, in test_question_details
+    self.assertEqual(response.status_code, 200)
+AssertionError: 404 != 200
+
+======================================================================
+FAIL: test_question_results_details (polls.tests.PollsView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/src/app/polls/tests.py&quot;, line 16, in test_question_results_details
+    self.assertEqual(response.status_code, 200)
+AssertionError: 404 != 200
+
+======================================================================
+FAIL: test_question_vote_details (polls.tests.PollsView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/src/app/polls/tests.py&quot;, line 20, in test_question_vote_details
+    self.assertEqual(response.status_code, 200)
+AssertionError: 404 != 200
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.051s
+
+FAILED (failures=3)
+Destroying test database for alias 'default'...
+</code></pre>
+
+<p>OK, we can now add some <em>basic</em> stuff to these routes (follow as per tutorial).</p>
+
+<p>Run the tests again, they pass.</p>
+
+<p>Well that&rsquo;s ok to test the routes, but there&rsquo;s not much logic in there.</p>
+
+<h3 id="write-views-that-actually-do-something">Write views that actually do something</h3>
+
+<h4 id="the-index-polls">The index (<code>/polls</code>)</h4>
+
+<p>We want the <code>index</code> to return a list of the 5 more recent questions.</p>
+
+<p>So we can define for instance a test case like:</p>
+
+<pre><code class="language-python">def test_polls_lists_5_most_recent(self):
+    questions = [
+        &quot;How long is a piece of string?&quot;,
+        &quot;How are you today?&quot;,
+        &quot;What have you done yesterday?&quot;,
+        &quot;What's your mother's maiden name?&quot;,
+        &quot;When is your birthday?&quot;,
+        &quot;Are you happy?&quot;,
+        &quot;What is the meaning of life?&quot;
+    ]
+    for question in questions:
+        add_question(question)
+
+    response = self.client.get('/polls/')
+    for question in questions[2:]:
+        self.assertContains(response, question)
+
+    for question in questions[:2]:
+        self.assertNotContains(response, question)
+</code></pre>
+
+<p>This creates 7 questions, checks that the 5 most recent appear in the list and that 2 other which are less recent don&rsquo;t appear.</p>
+
+<p>The corresponding production code is in the tutorial.</p>
+
+<p>We can even assert more when it comes down to the template level and check for markup.</p>
+
+<p>Likewise, we can also test when there are no posts:</p>
+
+<pre><code class="language-python">def test_polls_list_returns_message_when_no_questions(self):
+    response = self.client.get('/polls/')
+    self.assertContains(response, escape(&quot;No polls are available.&quot;), html=True)
+</code></pre>
+
+<blockquote>
+<p>Notice here the HTML version, and it&rsquo;s better to escape what you pass in just in case it contains single quotes (apostrophe)</p>
+</blockquote>
+
+<h4 id="a-questions-details-page">A questions details page</h4>
+
+<p>So here, we could start by checking that an existing question returns <code>200</code> and a <code>404</code> exception is raised, resulting in a <code>404</code> page when no question is found at details page:</p>
+
+<pre><code class="language-python">def test_question_details(self):
+    q = add_question()
+    response = self.client.get(f'/polls/{q.id}/')
+    self.assertEqual(response.status_code, 200)
+
+def test_question_details_does_not_exist(self):
+    q = add_question()
+    response = self.client.get(f'/polls/{q.id + 1}/')
+    self.assertEqual(response.status_code, 404)
+</code></pre>
+
+<p>But also be more specific, like ensuring a given template is used or check for related entities (here relation with <code>choice</code>):</p>
+
+<pre><code class="language-python">def test_question_details(self):
+    q = add_question()
+    q.choice_set.create(choice_text='Not much', votes=0)
+    q.choice_set.create(choice_text='The sky', votes=0)
+    response = self.client.get(f'/polls/{q.id}/')
+    title = '&lt;h1&gt;%s&lt;/h1&gt;' % escape(q.question_text)
+    self.assertContains(response, title, html=True)
+    self.assertContains(response, &quot;Not much&quot;, html=True)
+    self.assertContains(response, &quot;The sky&quot;, html=True)
+    self.assertTemplateUsed(response, 'polls/detail.html')
+</code></pre>
+
+<blockquote>
+<p>Check the <a href="https://github.com/iyp-uk/tdd-django-docker/tree/add-routes">codebase at this stage</a> and the <a href="https://github.com/iyp-uk/tdd-django-docker/compare/set-up-database...add-routes">diff with previous checkpoint</a>.</p>
+</blockquote>
+
+<p>This can go on and on.</p>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
+                        <a href="https://www.iyp-uk.com/blog/clean-code/">Clean Code</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
 
