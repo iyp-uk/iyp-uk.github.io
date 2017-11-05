@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Sun, 29 Oct 2017 10:06:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Nov 2017 16:04:16 +0000</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java Spring Boot Getting Started</title>
+      <link>https://www.iyp-uk.com/blog/java-spring-boot-getting-started/</link>
+      <pubDate>Sat, 04 Nov 2017 16:04:16 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/java-spring-boot-getting-started/</guid>
+      <description>Part 1: Basic set up  Steps inspired by spring boot getting started guide.
+ Add some basic dependencies and Java file to return Hello world!
+ See the code on github.
+ Part 2: Using spring boot Typical project layout com +- example +- myapplication +- Application.java | +- customer | +- Customer.java | +- CustomerController.java | +- CustomerService.java | +- CustomerRepository.java | +- order +- Order.java +- OrderController.</description>
+    </item>
     
     <item>
       <title>TDD Django Docker</title>
