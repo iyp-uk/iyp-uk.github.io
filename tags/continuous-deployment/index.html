@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.iyp-uk.com/blog/java-spring-boot-getting-started/" />
-<meta property="og:title" content="Java Spring Boot Getting Started" />
-<meta property="twitter:title" content="Java Spring Boot Getting Started">
+<meta property="og:url" content="https://www.iyp-uk.com/tags/continuous-deployment/" />
+<meta property="og:title" content="Continuous Deployment" />
+<meta property="twitter:title" content="Continuous Deployment">
 
     <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
@@ -28,10 +28,10 @@
 <title>
 
 
-     IYP UK - Java Spring Boot Getting Started 
+     IYP UK - Continuous Deployment 
 
 </title>
-<link rel="canonical" href="https://www.iyp-uk.com/blog/java-spring-boot-getting-started/">
+<link rel="canonical" href="https://www.iyp-uk.com/tags/continuous-deployment/">
 
 
 <style media="screen">
@@ -927,6 +927,8 @@ margin-left: -4%;
 
 
 
+  <link href="https://www.iyp-uk.com/tags/continuous-deployment/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
+
 
 
 <script>
@@ -943,7 +945,7 @@ ga('send', 'pageview');
 <body>
 
 
-<section class="header">
+<section class="header header-home">
 
     <div class="container">
         <a href="https://www.iyp-uk.com/"><img class="logo" src="https://www.iyp-uk.com/img/logo.png" alt="logo" /></a>
@@ -970,556 +972,24 @@ ga('send', 'pageview');
     </div>
 </section>
 
-
-<section class="main post non-narrow zero-top-spacing">
+<section class="main">
     <div class="container">
         <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
-
-    Java Spring Boot Getting Started
-
-</div>
-
-                </div>
-                <div class="meta">
-                    <div class="date" title="Sat Nov 4 2017 16:04:16 UTC">Nov 4, 2017</div>
+            <div class="posts">
+                <div class="page-heading">Posts about Continuous Deployment</div>
+                <ul>
                     
-                        
+                        <li class="post-item">
+    <span class="meta">Nov 14, 2017</span>
+    <a href="https://www.iyp-uk.com/blog/gitlab-review-apps/"><span>Gitlab Review Apps</span></a>
+</li>
+
                     
-                    <div class="reading-time"><div class="middot"></div>5 minute read</div>
-                    <div class="tags">
-                        <ul>
-                          
-                            <div class="middot"></div>
-                            <li><a href="https://www.iyp-uk.com/tags/java">Java</a> </li>
-                          
-                            <div class="middot"></div>
-                            <li><a href="https://www.iyp-uk.com/tags/spring-boot">Spring boot</a> </li>
-                          
-                        </ul>
-                    </div>
-                    <div class="tags">
-                        <ul>
-                          
-                          
-                        </ul>
-                    </div>
-                </div>
+                </ul>
             </div>
-            <div class="markdown">
-                
-    
-
-<h2 id="part-1-basic-set-up">Part 1: Basic set up</h2>
-
-<blockquote>
-<p>Steps inspired by <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-first-application">spring boot getting started guide</a>.</p>
-</blockquote>
-
-<p>Add some basic dependencies and Java file to return Hello world!</p>
-
-<blockquote>
-<p><a href="https://github.com/iyp-uk/sprint-boot-basics/tree/part1">See the code on github</a>.</p>
-</blockquote>
-
-<h2 id="part-2-using-spring-boot">Part 2: Using spring boot</h2>
-
-<h3 id="typical-project-layout">Typical project layout</h3>
-
-<pre><code>com
- +- example
-     +- myapplication
-         +- Application.java
-         |
-         +- customer
-         |   +- Customer.java
-         |   +- CustomerController.java
-         |   +- CustomerService.java
-         |   +- CustomerRepository.java
-         |
-         +- order
-             +- Order.java
-             +- OrderController.java
-             +- OrderService.java
-             +- OrderRepository.java
-</code></pre>
-
-<p>Where <code>Application.java</code> declares the <code>main</code> method, being the app&rsquo;s entry point, like so:</p>
-
-<pre><code class="language-java">package com.example.myapplication;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
-}
-</code></pre>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-locating-the-main-class">Locating the Main Application Class</a>.</p>
-</blockquote>
-
-<h3 id="configuration">Configuration</h3>
-
-<p>Favour <strong>Java-based configuration</strong> classes over XML.</p>
-
-<blockquote>
-<p>Note that you can mix and match XML and Classes. Loading XML-based config via <code>@ImportResource</code>.</p>
-
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-configuration-classes">Configuration Classes</a>.</p>
-</blockquote>
-
-<h4 id="gradually-replace-the-auto-configuration-with-yours">Gradually replace the auto-configuration with yours</h4>
-
-<p>It could be handy to start with auto-configuration, while seeing which config is applied using <code>--debug</code> when starting the app like so:</p>
-
-<pre><code class="language-console">$ java -jar myproject-0.0.1-SNAPSHOT.jar --debug
-</code></pre>
-
-<p>You would need to use the  <code>@EnableAutoConfiguration</code> or <code>@SpringBootApplication</code> on your <code>@Configuration</code> class.</p>
-
-<blockquote>
-<p><code>@SpringBootApplication</code> is equivalent to <code>@Configuration</code>, <code>@EnableAutoConfiguration</code> and <code>@ComponentScan</code> together.</p>
-
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-auto-configuration">Auto-configuration</a>.</p>
-</blockquote>
-
-<h3 id="developer-tools">Developer tools</h3>
-
-<p>Check the <code>spring-boot-devtools</code> module!
-It provides useful things like <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-restart">automatic restart</a>,
-<a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-livereload">LiveReload</a>,
-and <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-remote">Remote tools</a>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools">Developer Tools</a>.</p>
-</blockquote>
-
-<h2 id="part-3-spring-boot-features">Part 3: Spring boot features</h2>
-
-<h3 id="application-events-and-listeners">Application Events and Listeners</h3>
-
-<p>Events are sent in the following order as the application runs:</p>
-
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>When</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>ApplicationStartingEvent</code></td>
-<td>Start of a run, before any processing <strong>except</strong> registration of listeners and initialisers</td>
-</tr>
-
-<tr>
-<td><code>ApplicationEnvironmentPreparedEvent</code></td>
-<td>When <code>Environment</code> to use is known but <em>before</em> the context is created</td>
-</tr>
-
-<tr>
-<td><code>ApplicationPreparedEvent</code></td>
-<td>After bean definitions are loaded but <em>before</em> refresh is started</td>
-</tr>
-
-<tr>
-<td><code>ApplicationReadyEvent</code></td>
-<td>After refresh + related callbacks have been processed = App ready for service requests</td>
-</tr>
-
-<tr>
-<td><code>ApplicationFailedEvent</code></td>
-<td>Startup exception has been raised</td>
-</tr>
-</tbody>
-</table>
-
-<p>Be careful when using a hierarchy of <code>SpringApplication</code> instances, as <strong>a listener may receive multiple instances of the same type of application event</strong>.
-Implement <code>ApplicationContextAware</code> to inject context and compare it with the event&rsquo;s context.
-If the listener is a <code>@Bean</code>, use <code>@Autowired</code>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-application-events-and-listeners">Application Events and Listeners</a>.</p>
-</blockquote>
-
-<h3 id="web-environment">Web environment</h3>
-
-<p>Call <code>setWebEnvironment(false)</code> when using <code>SpringApplication</code> within a JUnit test.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-web-environment">Web Environment</a>.</p>
-</blockquote>
-
-<h3 id="externalised-configuration">Externalised configuration</h3>
-
-<p>Run the same application code no matter what the environment!</p>
-
-<p>Pass your configuration with:</p>
-
-<ul>
-<li>Properties files</li>
-<li>YAML files</li>
-<li>Environment variables</li>
-<li>Command-line arguments</li>
-</ul>
-
-<p>Property values can then be injected into beans using <code>@Value</code> accessed via:</p>
-
-<ul>
-<li>Spring&rsquo;s <code>Environment</code> abstraction</li>
-<li><code>@ConfigurationProperties</code> with <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties">structured objects bindings</a></li>
-</ul>
-
-<p>Properties are considered <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config">in a specific order</a>, go have a look at it.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config">Externalized configuration</a>.</p>
-</blockquote>
-
-<h4 id="relaxed-binding">Relaxed binding</h4>
-
-<p>Interestingly, there is no need for an exact match between <code>Environment</code> and <code>@ConfigurationProperties</code> beans property names.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">@ConfigurationProperties(prefix=&quot;person&quot;)
-public class OwnerProperties {
-
-	private String firstName;
-
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-}
-</code></pre>
-
-<p>To pass the <code>firstName</code> property you can use:</p>
-
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Format</th>
-<th>Usage</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>person.firstName</code></td>
-<td>Camel case</td>
-<td>Standard</td>
-</tr>
-
-<tr>
-<td><code>person.first-name</code></td>
-<td>Kebab case</td>
-<td>Recommended in <code>.properties</code> and <code>.yml</code> files</td>
-</tr>
-
-<tr>
-<td><code>person.first_name</code></td>
-<td>Underscore notation</td>
-<td><em>Alternative format</em> in <code>.properties</code> and <code>.yml</code> files</td>
-</tr>
-
-<tr>
-<td><code>PERSON_FIRSTNAME</code></td>
-<td>Upper case</td>
-<td>Environment variables</td>
-</tr>
-</tbody>
-</table>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-relaxed-binding">Relaxed binding</a>.</p>
-</blockquote>
-
-<h3 id="profiles">Profiles</h3>
-
-<p>Segregate parts of your application to make them available only in certain environments.</p>
-
-<blockquote>
-<p>Applies to <code>@Component</code> and <code>@Configuration</code> when marked with <code>@Profile</code>.</p>
-</blockquote>
-
-<pre><code class="language-java">@Configuration
-@Profile(&quot;production&quot;)
-public class ProductionConfiguration {
-
-	// ...
-
-}
-</code></pre>
-
-<p>Then, specify which profiles are active using <code>spring.profiles.active=dev,hsqldb</code> or on the command line with <code>--spring.profiles.active=dev,hsqldb</code>.</p>
-
-<p>Profiles also allow <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-profile-specific-properties">per-profile configuration files</a>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-profiles">Profiles</a>.</p>
-</blockquote>
-
-<h3 id="developing-web-applications">Developing web applications</h3>
-
-<ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-spring-mvc">Spring MVC</a> which covers:
-
-<ul>
-<li>Auto-config</li>
-<li><code>HttpMessageConverters</code></li>
-<li>Custom JSON serializers and deserializers</li>
-<li><code>MessageCodesResolver</code></li>
-<li>Static content, including Favicon</li>
-<li><code>ConfigurableWebBindingInitializer</code></li>
-<li>Template engines</li>
-<li>Error Handling, including custom error pages (Possibly outside of Spring MVC)</li>
-<li>Spring <a href="https://spring.io/understanding/HATEOAS">HATEOAS</a></li>
-<li><a href="https://spring.io/understanding/CORS">CORS</a></li>
-</ul></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-webflux">Spring WebFlux</a> for async which covers:
-
-<ul>
-<li>Auto-config</li>
-<li>HTTP Codecs with HttpMessageReaders and HttpMessageWriters</li>
-<li>Static content</li>
-<li>Template engines</li>
-<li>Error Handling, including custom error pages</li>
-</ul></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-jersey">JAX-RS and Jersey</a></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-embedded-container">Embedded Servlet Container Support</a><br /></li>
-</ul>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-developing-web-applications">Developing web applications</a>.</p>
-
-<p>More on <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html">Spring webflux</a></p>
-</blockquote>
-
-<h3 id="security">Security</h3>
-
-<p>Defaults to basic auth when enabled. OAuth2 also supported OOTB.</p>
-
-<p>Refer to the <a href="https://docs.spring.io/spring-security/site/docs/5.0.0.RC1/reference/htmlsingle#jc-method">Spring Security Reference</a>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-security">Security</a></p>
-</blockquote>
-
-<h3 id="data-stores">Data stores</h3>
-
-<p>Depending on your needs,
-refer to <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-sql">SQL databases</a>
-and <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-nosql">NoSQL databases</a>
-(which includes <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-solr">SolR</a>
-and <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-elasticsearch">ElasticSearch</a>)
-documentations where you will find details about common data stores.</p>
-
-<h3 id="caching">Caching</h3>
-
-<p>Refer to <a href="https://docs.spring.io/spring/docs/5.0.1.RELEASE/spring-framework-reference/integration.html#cache">Spring documentation</a> for details.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">import org.springframework.cache.annotation.Cacheable
-import org.springframework.stereotype.Component;
-
-@Component
-public class MathService {
-
-	@Cacheable(&quot;piDecimals&quot;)
-	public int computePiDecimal(int i) {
-		// ...
-	}
-
-}
-</code></pre>
-
-<p>Here, before invoking <code>computePiDecimal</code>,</p>
-
-<ol>
-<li>abstraction looks for an entry in <code>piDecimals</code> cache that matches the <code>i</code> argument</li>
-<li><strong>if</strong> an entry is found,
-
-<ul>
-<li>content retrieved from the cache is returned to the caller and <code>computePiDecimal</code> is not invoked</li>
-</ul></li>
-<li><strong>else</strong>
-
-<ul>
-<li>Method is invoked and <code>piDecimals</code> cache is updated before returning the value to the caller.</li>
-</ul></li>
-</ol>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-caching">Caching</a>.</p>
-</blockquote>
-
-<h4 id="cache-providers">Cache providers</h4>
-
-<p>Many cache providers are supported, including Couchbase and Redis. <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#_supported_cache_providers">See the list of supported cache providers</a>.</p>
-
-<h4 id="disabling-caching">Disabling caching</h4>
-
-<p>You may want to disable caching altogether in certain environments even if <code>@EnableCaching</code> is present in configuration.</p>
-
-<p>A handy way of doing it would be to force the <code>none</code> cache type:</p>
-
-<pre><code>spring.cache.type=none
-</code></pre>
-
-<h3 id="messaging">Messaging</h3>
-
-<p>Support for both JMS and AMPQ.</p>
-
-<ul>
-<li>JMS (Java Message Service)
-
-<ul>
-<li>ActiveMQ</li>
-<li>Artemis</li>
-</ul></li>
-<li>AMQP (Advanced Message Queueing Protocol)
-
-<ul>
-<li>RabbitMQ</li>
-<li>Apache Kafka</li>
-</ul></li>
-</ul>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-messaging">Messaging</a>.</p>
-</blockquote>
-
-<h3 id="rest-clients">REST clients</h3>
-
-<h4 id="resttemplate"><code>RestTemplate</code></h4>
-
-<p><code>RestTemplate</code> is a convenient way of handling your calls to other REST services.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">@Service
-public class MyService {
-
-	private final RestTemplate restTemplate;
-
-	public MyBean(RestTemplateBuilder restTemplateBuilder) {
-		this.restTemplate = restTemplateBuilder.build();
-	}
-
-	public Details someRestCall(String name) {
-		return this.restTemplate.getForObject(&quot;/{name}/details&quot;, Details.class, name);
-	}
-
-}
-</code></pre>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-resttemplate">Calling REST Services with RestTemplate</a></p>
-</blockquote>
-
-<h4 id="webclient"><code>WebClient</code></h4>
-
-<p>When in use with WebFlux. <code>WebClient</code> is fully reactive.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">@Service
-public class MyService {
-
-	private final WebClient webClient;
-
-	public MyBean(WebClient.Builder webClientBuilder) {
-		this.webClient = webClientBuilder.baseUrl(&quot;http://example.org&quot;).build();
-	}
-
-	public Mono&lt;Details&gt; someRestCall(String name) {
-		return this.webClient.get().url(&quot;/{name}/details&quot;, name)
-						.retrieve().bodyToMono(Details.class);
-	}
-
-}
-</code></pre>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-webclient">Calling REST Services with WebClient</a>.</p>
-</blockquote>
-
-<h3 id="testing">Testing</h3>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-testing">Testing</a></p>
-</blockquote>
-
-<h3 id="websockets">WebSockets</h3>
-
-<p>Accessible through the <code>spring-boot-starter-websocket</code> module.
-Documentation on <a href="https://docs.spring.io/spring/docs/5.0.1.RELEASE/spring-framework-reference/web.html#websocket">spring framework websockets</a></p>
-
-<blockquote>
-<p><a href="http://mqtt.org/">MQTT</a> is available through <a href="https://docs.spring.io/spring-integration/reference/html/mqtt.html">sprint integration</a></p>
-
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-websockets">Websockets</a>.</p>
-</blockquote>
-
-<h2 id="further-reading">Further reading</h2>
-
-<ul>
-<li><a href="https://spring.io/guides/gs/intellij-idea/">Spring and IntelliJ IDEA getting started guide</a></li>
-<li><a href="https://spring.io/guides/gs/spring-boot-docker/">Spring boot docker getting started guide</a></li>
-</ul>
-
-
-                <br>
-            </div>
-            
-            
-                <div class="navigation">
-                    
-                    <div>
-                        <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
-                        <a href="https://www.iyp-uk.com/blog/tdd-django-docker/">TDD Django Docker</a>
-                    </div>
-                    
-                    <div style="width: 100%;"></div>
-                    
-                    <div>
-                        <a href="https://www.iyp-uk.com/blog/gitlab-review-apps/">Gitlab Review Apps</a>
-                        <img class="icon" src="https://www.iyp-uk.com/img/next.svg" alt="next" />
-                    </div>
-                    
-                </div>
-            
-            <br>
-            <div class="disqus">
-                
-            </div>
-            
         </div>
     </div>
 </section>
-
 <section class="footer">
     <div class="container">
 

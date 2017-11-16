@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitlab on IYP UK</title>
+    <link>https://www.iyp-uk.com/tags/gitlab/</link>
+    <description>Recent content in Gitlab on IYP UK</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <copyright>Copyright © 2017 IYP UK</copyright>
+    <lastBuildDate>Tue, 14 Nov 2017 16:20:25 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.iyp-uk.com/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitlab Review Apps</title>
+      <link>https://www.iyp-uk.com/blog/gitlab-review-apps/</link>
+      <pubDate>Tue, 14 Nov 2017 16:20:25 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/gitlab-review-apps/</guid>
+      <description>Let&amp;rsquo;s have a look at Gitlab&amp;rsquo;s review Apps, available for available in GitLab.com, GitLab Community Edition, and GitLab Enterprise Edition.
+So what&amp;rsquo;s the plan? In this particular example, we want to demonstrate a use case of Gitlab&amp;rsquo;s review apps. We will also demonstrate that in the context of a trivial docker-based python app, which essentially returns an &amp;ldquo;Hello world&amp;rdquo;.
+Gitlab CI allows us to do plenty of things, and in particular we will want to:</description>
+    </item>
+    
+  </channel>
+</rss>

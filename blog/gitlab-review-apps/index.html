@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.iyp-uk.com/blog/java-spring-boot-getting-started/" />
-<meta property="og:title" content="Java Spring Boot Getting Started" />
-<meta property="twitter:title" content="Java Spring Boot Getting Started">
+<meta property="og:url" content="https://www.iyp-uk.com/blog/gitlab-review-apps/" />
+<meta property="og:title" content="Gitlab Review Apps" />
+<meta property="twitter:title" content="Gitlab Review Apps">
 
     <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
@@ -28,10 +28,10 @@
 <title>
 
 
-     IYP UK - Java Spring Boot Getting Started 
+     IYP UK - Gitlab Review Apps 
 
 </title>
-<link rel="canonical" href="https://www.iyp-uk.com/blog/java-spring-boot-getting-started/">
+<link rel="canonical" href="https://www.iyp-uk.com/blog/gitlab-review-apps/">
 
 
 <style media="screen">
@@ -978,25 +978,31 @@ ga('send', 'pageview');
                 <div class="title-container">
                     <div class="page-heading">
 
-    Java Spring Boot Getting Started
+    Gitlab Review Apps
 
 </div>
 
                 </div>
                 <div class="meta">
-                    <div class="date" title="Sat Nov 4 2017 16:04:16 UTC">Nov 4, 2017</div>
+                    <div class="date" title="Tue Nov 14 2017 16:20:25 UTC">Nov 14, 2017</div>
                     
                         
                     
-                    <div class="reading-time"><div class="middot"></div>5 minute read</div>
+                    <div class="reading-time"><div class="middot"></div>8 minute read</div>
                     <div class="tags">
                         <ul>
                           
                             <div class="middot"></div>
-                            <li><a href="https://www.iyp-uk.com/tags/java">Java</a> </li>
+                            <li><a href="https://www.iyp-uk.com/tags/continuous-deployment">Continuous deployment</a> </li>
                           
                             <div class="middot"></div>
-                            <li><a href="https://www.iyp-uk.com/tags/spring-boot">Spring boot</a> </li>
+                            <li><a href="https://www.iyp-uk.com/tags/gitlab">Gitlab</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/review-apps">Review Apps</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/docker">docker</a> </li>
                           
                         </ul>
                     </div>
@@ -1012,482 +1018,436 @@ ga('send', 'pageview');
                 
     
 
-<h2 id="part-1-basic-set-up">Part 1: Basic set up</h2>
+<p>Let&rsquo;s have a look at <a href="https://about.gitlab.com/features/review-apps/">Gitlab&rsquo;s review Apps</a>,
+available for available in GitLab.com, GitLab Community Edition, and GitLab Enterprise Edition.</p>
 
-<blockquote>
-<p>Steps inspired by <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-first-application">spring boot getting started guide</a>.</p>
-</blockquote>
+<h2 id="so-what-s-the-plan">So what&rsquo;s the plan?</h2>
 
-<p>Add some basic dependencies and Java file to return Hello world!</p>
+<p>In this particular example, we want to demonstrate a use case of Gitlab&rsquo;s review apps.
+We will also demonstrate that in the context of a trivial docker-based python app, which essentially returns an &ldquo;Hello world&rdquo;.</p>
 
-<blockquote>
-<p><a href="https://github.com/iyp-uk/sprint-boot-basics/tree/part1">See the code on github</a>.</p>
-</blockquote>
-
-<h2 id="part-2-using-spring-boot">Part 2: Using spring boot</h2>
-
-<h3 id="typical-project-layout">Typical project layout</h3>
-
-<pre><code>com
- +- example
-     +- myapplication
-         +- Application.java
-         |
-         +- customer
-         |   +- Customer.java
-         |   +- CustomerController.java
-         |   +- CustomerService.java
-         |   +- CustomerRepository.java
-         |
-         +- order
-             +- Order.java
-             +- OrderController.java
-             +- OrderService.java
-             +- OrderRepository.java
-</code></pre>
-
-<p>Where <code>Application.java</code> declares the <code>main</code> method, being the app&rsquo;s entry point, like so:</p>
-
-<pre><code class="language-java">package com.example.myapplication;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
-}
-</code></pre>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-locating-the-main-class">Locating the Main Application Class</a>.</p>
-</blockquote>
-
-<h3 id="configuration">Configuration</h3>
-
-<p>Favour <strong>Java-based configuration</strong> classes over XML.</p>
-
-<blockquote>
-<p>Note that you can mix and match XML and Classes. Loading XML-based config via <code>@ImportResource</code>.</p>
-
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-configuration-classes">Configuration Classes</a>.</p>
-</blockquote>
-
-<h4 id="gradually-replace-the-auto-configuration-with-yours">Gradually replace the auto-configuration with yours</h4>
-
-<p>It could be handy to start with auto-configuration, while seeing which config is applied using <code>--debug</code> when starting the app like so:</p>
-
-<pre><code class="language-console">$ java -jar myproject-0.0.1-SNAPSHOT.jar --debug
-</code></pre>
-
-<p>You would need to use the  <code>@EnableAutoConfiguration</code> or <code>@SpringBootApplication</code> on your <code>@Configuration</code> class.</p>
-
-<blockquote>
-<p><code>@SpringBootApplication</code> is equivalent to <code>@Configuration</code>, <code>@EnableAutoConfiguration</code> and <code>@ComponentScan</code> together.</p>
-
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-auto-configuration">Auto-configuration</a>.</p>
-</blockquote>
-
-<h3 id="developer-tools">Developer tools</h3>
-
-<p>Check the <code>spring-boot-devtools</code> module!
-It provides useful things like <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-restart">automatic restart</a>,
-<a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-livereload">LiveReload</a>,
-and <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-remote">Remote tools</a>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools">Developer Tools</a>.</p>
-</blockquote>
-
-<h2 id="part-3-spring-boot-features">Part 3: Spring boot features</h2>
-
-<h3 id="application-events-and-listeners">Application Events and Listeners</h3>
-
-<p>Events are sent in the following order as the application runs:</p>
-
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>When</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>ApplicationStartingEvent</code></td>
-<td>Start of a run, before any processing <strong>except</strong> registration of listeners and initialisers</td>
-</tr>
-
-<tr>
-<td><code>ApplicationEnvironmentPreparedEvent</code></td>
-<td>When <code>Environment</code> to use is known but <em>before</em> the context is created</td>
-</tr>
-
-<tr>
-<td><code>ApplicationPreparedEvent</code></td>
-<td>After bean definitions are loaded but <em>before</em> refresh is started</td>
-</tr>
-
-<tr>
-<td><code>ApplicationReadyEvent</code></td>
-<td>After refresh + related callbacks have been processed = App ready for service requests</td>
-</tr>
-
-<tr>
-<td><code>ApplicationFailedEvent</code></td>
-<td>Startup exception has been raised</td>
-</tr>
-</tbody>
-</table>
-
-<p>Be careful when using a hierarchy of <code>SpringApplication</code> instances, as <strong>a listener may receive multiple instances of the same type of application event</strong>.
-Implement <code>ApplicationContextAware</code> to inject context and compare it with the event&rsquo;s context.
-If the listener is a <code>@Bean</code>, use <code>@Autowired</code>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-application-events-and-listeners">Application Events and Listeners</a>.</p>
-</blockquote>
-
-<h3 id="web-environment">Web environment</h3>
-
-<p>Call <code>setWebEnvironment(false)</code> when using <code>SpringApplication</code> within a JUnit test.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-web-environment">Web Environment</a>.</p>
-</blockquote>
-
-<h3 id="externalised-configuration">Externalised configuration</h3>
-
-<p>Run the same application code no matter what the environment!</p>
-
-<p>Pass your configuration with:</p>
-
-<ul>
-<li>Properties files</li>
-<li>YAML files</li>
-<li>Environment variables</li>
-<li>Command-line arguments</li>
-</ul>
-
-<p>Property values can then be injected into beans using <code>@Value</code> accessed via:</p>
-
-<ul>
-<li>Spring&rsquo;s <code>Environment</code> abstraction</li>
-<li><code>@ConfigurationProperties</code> with <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties">structured objects bindings</a></li>
-</ul>
-
-<p>Properties are considered <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config">in a specific order</a>, go have a look at it.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config">Externalized configuration</a>.</p>
-</blockquote>
-
-<h4 id="relaxed-binding">Relaxed binding</h4>
-
-<p>Interestingly, there is no need for an exact match between <code>Environment</code> and <code>@ConfigurationProperties</code> beans property names.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">@ConfigurationProperties(prefix=&quot;person&quot;)
-public class OwnerProperties {
-
-	private String firstName;
-
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-}
-</code></pre>
-
-<p>To pass the <code>firstName</code> property you can use:</p>
-
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Format</th>
-<th>Usage</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>person.firstName</code></td>
-<td>Camel case</td>
-<td>Standard</td>
-</tr>
-
-<tr>
-<td><code>person.first-name</code></td>
-<td>Kebab case</td>
-<td>Recommended in <code>.properties</code> and <code>.yml</code> files</td>
-</tr>
-
-<tr>
-<td><code>person.first_name</code></td>
-<td>Underscore notation</td>
-<td><em>Alternative format</em> in <code>.properties</code> and <code>.yml</code> files</td>
-</tr>
-
-<tr>
-<td><code>PERSON_FIRSTNAME</code></td>
-<td>Upper case</td>
-<td>Environment variables</td>
-</tr>
-</tbody>
-</table>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-relaxed-binding">Relaxed binding</a>.</p>
-</blockquote>
-
-<h3 id="profiles">Profiles</h3>
-
-<p>Segregate parts of your application to make them available only in certain environments.</p>
-
-<blockquote>
-<p>Applies to <code>@Component</code> and <code>@Configuration</code> when marked with <code>@Profile</code>.</p>
-</blockquote>
-
-<pre><code class="language-java">@Configuration
-@Profile(&quot;production&quot;)
-public class ProductionConfiguration {
-
-	// ...
-
-}
-</code></pre>
-
-<p>Then, specify which profiles are active using <code>spring.profiles.active=dev,hsqldb</code> or on the command line with <code>--spring.profiles.active=dev,hsqldb</code>.</p>
-
-<p>Profiles also allow <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-profile-specific-properties">per-profile configuration files</a>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-profiles">Profiles</a>.</p>
-</blockquote>
-
-<h3 id="developing-web-applications">Developing web applications</h3>
-
-<ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-spring-mvc">Spring MVC</a> which covers:
-
-<ul>
-<li>Auto-config</li>
-<li><code>HttpMessageConverters</code></li>
-<li>Custom JSON serializers and deserializers</li>
-<li><code>MessageCodesResolver</code></li>
-<li>Static content, including Favicon</li>
-<li><code>ConfigurableWebBindingInitializer</code></li>
-<li>Template engines</li>
-<li>Error Handling, including custom error pages (Possibly outside of Spring MVC)</li>
-<li>Spring <a href="https://spring.io/understanding/HATEOAS">HATEOAS</a></li>
-<li><a href="https://spring.io/understanding/CORS">CORS</a></li>
-</ul></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-webflux">Spring WebFlux</a> for async which covers:
-
-<ul>
-<li>Auto-config</li>
-<li>HTTP Codecs with HttpMessageReaders and HttpMessageWriters</li>
-<li>Static content</li>
-<li>Template engines</li>
-<li>Error Handling, including custom error pages</li>
-</ul></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-jersey">JAX-RS and Jersey</a></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-embedded-container">Embedded Servlet Container Support</a><br /></li>
-</ul>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-developing-web-applications">Developing web applications</a>.</p>
-
-<p>More on <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html">Spring webflux</a></p>
-</blockquote>
-
-<h3 id="security">Security</h3>
-
-<p>Defaults to basic auth when enabled. OAuth2 also supported OOTB.</p>
-
-<p>Refer to the <a href="https://docs.spring.io/spring-security/site/docs/5.0.0.RC1/reference/htmlsingle#jc-method">Spring Security Reference</a>.</p>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-security">Security</a></p>
-</blockquote>
-
-<h3 id="data-stores">Data stores</h3>
-
-<p>Depending on your needs,
-refer to <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-sql">SQL databases</a>
-and <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-nosql">NoSQL databases</a>
-(which includes <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-solr">SolR</a>
-and <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-elasticsearch">ElasticSearch</a>)
-documentations where you will find details about common data stores.</p>
-
-<h3 id="caching">Caching</h3>
-
-<p>Refer to <a href="https://docs.spring.io/spring/docs/5.0.1.RELEASE/spring-framework-reference/integration.html#cache">Spring documentation</a> for details.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">import org.springframework.cache.annotation.Cacheable
-import org.springframework.stereotype.Component;
-
-@Component
-public class MathService {
-
-	@Cacheable(&quot;piDecimals&quot;)
-	public int computePiDecimal(int i) {
-		// ...
-	}
-
-}
-</code></pre>
-
-<p>Here, before invoking <code>computePiDecimal</code>,</p>
+<p><a href="https://docs.gitlab.com/ee/ci/README.html">Gitlab CI</a> allows us to do plenty of things, and in particular we will want to:</p>
 
 <ol>
-<li>abstraction looks for an entry in <code>piDecimals</code> cache that matches the <code>i</code> argument</li>
-<li><strong>if</strong> an entry is found,
-
-<ul>
-<li>content retrieved from the cache is returned to the caller and <code>computePiDecimal</code> is not invoked</li>
-</ul></li>
-<li><strong>else</strong>
-
-<ul>
-<li>Method is invoked and <code>piDecimals</code> cache is updated before returning the value to the caller.</li>
-</ul></li>
+<li>Run tests (there are no tests in our dummy app but we&rsquo;ll bring a &ldquo;stage&rdquo; for it in case you want to fill them with your needs)</li>
+<li>Build the docker image</li>
+<li>Deploy the app to heroku</li>
 </ol>
 
 <blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-caching">Caching</a>.</p>
+<p>The source code is available on <a href="https://gitlab.com/iyp-uk/gitlab-review-apps">gitlab</a></p>
 </blockquote>
 
-<h4 id="cache-providers">Cache providers</h4>
+<h2 id="let-s-get-started">Let&rsquo;s get started</h2>
 
-<p>Many cache providers are supported, including Couchbase and Redis. <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#_supported_cache_providers">See the list of supported cache providers</a>.</p>
+<p>First of all, let&rsquo;s have a look at our app: <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/app-init">Here it is</a>.</p>
 
-<h4 id="disabling-caching">Disabling caching</h4>
+<p>That&rsquo;s a Flask app, just <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/blob/app-init/app.py">greeting you with a nice &ldquo;Hello world!&rdquo;</a>.</p>
 
-<p>You may want to disable caching altogether in certain environments even if <code>@EnableCaching</code> is present in configuration.</p>
+<p>As you may see, there&rsquo;s no definition of any CI/CD pipeline. It&rsquo;s just the code.</p>
 
-<p>A handy way of doing it would be to force the <code>none</code> cache type:</p>
+<h2 id="add-continuous-integration-support">Add Continuous integration support</h2>
 
-<pre><code>spring.cache.type=none
+<p>Adding a <code>.gitlab-ci.yml</code> will enable this functionality.
+So let&rsquo;s add one with basic stuff so that we can validate it&rsquo;s being picked up.</p>
+
+<pre><code class="language-yaml">myfirstjob:
+  script: echo &quot;It works!&quot;
 </code></pre>
 
-<h3 id="messaging">Messaging</h3>
+<p><a href="https://gitlab.com/iyp-uk/gitlab-review-apps/commit/70678236c9dffb3416337fd2f984da010aa2705d">Commit and push</a>.
+Gitlab comes with free runners to run this, you may just have to wait for them to become available.
+You can also set up your <a href="https://docs.gitlab.com/runner/">own runner(s)</a> to increase availability.</p>
 
-<p>Support for both JMS and AMPQ.</p>
+<p>Either way, the result is the same:
+The <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#jobs">job</a> has fired and you can <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/-/jobs/40425183">see its results</a>.</p>
+
+<p>Codebase now looks like <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/set-up-ci">this</a>.</p>
+
+<blockquote>
+<p>Read more:
+* <a href="https://docs.gitlab.com/ee/ci/quick_start/README.html">Getting started with CI/CD in Gitlab</a>
+* <a href="https://docs.gitlab.com/ee/ci/yaml/README.html">.gitlab-ci.yml reference</a>
+* <a href="https://docs.gitlab.com/ee/ci/README.html">Gitlab&rsquo;s CI docs</a></p>
+</blockquote>
+
+<h2 id="configure-a-more-advanced-ci">Configure a more advanced CI</h2>
+
+<p>OK, let&rsquo;s now move on to something more useful.</p>
+
+<p>We can set a sequence of <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#stages">stages</a>.
+This is called a <a href="https://docs.gitlab.com/ee/ci/pipelines.html">pipeline</a></p>
+
+<p>Let&rsquo;s ask this runner to build our docker image and run tests.
+We will then set up 2 stages: <code>build</code> and <code>test</code> in our <code>.gitlab-ci.yml</code>.</p>
+
+<pre><code class="language-yaml">stages:
+  - build
+  - test
+</code></pre>
+
+<p>Our docker images can be stored in the <a href="https://gitlab.com/help/user/project/container_registry">Gitlab container registry</a>.
+This is the one we will use here, but it could be any registry.</p>
+
+<p>For the first time, you may want to try to push to the registry manually.
+For all other times, it will be done by the pipeline.</p>
+
+<p>So according the Gitlab&rsquo;s registry tab (from your local machine, within your project):</p>
+
+<p>Login:</p>
+
+<pre><code class="language-console">$ docker login registry.gitlab.com
+</code></pre>
+
+<p>Then build and push your image:</p>
+
+<pre><code class="language-console">$ docker build -t registry.gitlab.com/iyp-uk/gitlab-review-apps .
+$ docker push registry.gitlab.com/iyp-uk/gitlab-review-apps
+</code></pre>
+
+<p>This tags your image with <code>latest</code> and pushes it to the registry where you <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/container_registry">can see it</a></p>
+
+<p>Let&rsquo;s now <a href="https://gitlab.com/help/ci/docker/using_docker_build.md#using-the-gitlab-container-registry">add these steps to our build stage</a>:</p>
+
+<pre><code class="language-yaml">services:
+  - docker:dind
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+</code></pre>
+
+<p>Where:</p>
 
 <ul>
-<li>JMS (Java Message Service)
+<li><code>$CI_REGISTRY_IMAGE</code>: Address of the registry tied to the specific project (Would resolve to <code>registry.gitlab.com/iyp-uk/gitlab-review-apps</code> here)</li>
+<li><code>$CI_COMMIT_REF_NAME</code>: Branch or tag name for which project is built</li>
+<li><code>$CI_JOB_TOKEN</code>: Token used for authenticating with the GitLab Container Registry</li>
+<li><code>$CI_REGISTRY</code>: Address of GitLab&rsquo;s Container Registry (resolves to <code>registry.gitlab.com</code>)</li>
+</ul>
+
+<p>And:</p>
 
 <ul>
-<li>ActiveMQ</li>
-<li>Artemis</li>
-</ul></li>
-<li>AMQP (Advanced Message Queueing Protocol)
+<li><code>services</code>: Specifies docker image to use (here it&rsquo;s using Docker in Docker <code>dind</code>)</li>
+<li><code>variables</code>: Defines variables for later use in jobs</li>
+<li><code>before_script</code>: Command which runs before all jobs</li>
+</ul>
+
+<p>We will keep the previous job&rsquo;s script to run during the <code>test</code> stage for now, so that our complete definition looks like:</p>
+
+<pre><code class="language-yaml">image: docker:latest
+services:
+  - docker:dind
+
+stages:
+  - build
+  - test
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+
+test:
+  stage: test
+  script: echo &quot;It works!&quot;
+</code></pre>
+
+<p>Commit and push:</p>
 
 <ul>
-<li>RabbitMQ</li>
-<li>Apache Kafka</li>
-</ul></li>
+<li><a href="https://gitlab.com/iyp-uk/gitlab-review-apps/pipelines/13966918">Check the pipeline</a></li>
+<li><a href="https://gitlab.com/iyp-uk/gitlab-review-apps/container_registry">Check the registry</a>: Notice a new image tagged <code>master</code> has been created as we pushed from the <code>master</code> branch</li>
+</ul>
+
+<p>Codebase now looks like <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/set-up-pipelines">this</a>.</p>
+
+<blockquote>
+<ul>
+<li><a href="https://docs.gitlab.com/ee/ci/variables/README.html">Read more about these variables</a></li>
+<li><a href="https://docs.gitlab.com/ee/ci/yaml/README.html">Read .gitlab-ci.yml reference</a> for <code>services</code>, <code>variables</code> and <code>before_script</code> definitions</li>
+</ul>
+</blockquote>
+
+<h2 id="deploying-the-app">Deploying the app</h2>
+
+<p>So the purpose of this article is to deploy our app for Merge Requests.
+It&rsquo;s now time to deploy!</p>
+
+<p>We will deploy in different ways:</p>
+
+<ul>
+<li>Deploy to staging when something gets merged into master</li>
+<li>Deploy to production on tags</li>
+<li>Deploy to a temporary environment for Merge Requests</li>
 </ul>
 
 <blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-messaging">Messaging</a>.</p>
+<p>We will deploy to <a href="https://www.heroku.com/">Heroku</a> for that, so go ahead and create an account if you don&rsquo;t already have one.</p>
 </blockquote>
 
-<h3 id="rest-clients">REST clients</h3>
-
-<h4 id="resttemplate"><code>RestTemplate</code></h4>
-
-<p><code>RestTemplate</code> is a convenient way of handling your calls to other REST services.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">@Service
-public class MyService {
-
-	private final RestTemplate restTemplate;
-
-	public MyBean(RestTemplateBuilder restTemplateBuilder) {
-		this.restTemplate = restTemplateBuilder.build();
-	}
-
-	public Details someRestCall(String name) {
-		return this.restTemplate.getForObject(&quot;/{name}/details&quot;, Details.class, name);
-	}
-
-}
-</code></pre>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-resttemplate">Calling REST Services with RestTemplate</a></p>
-</blockquote>
-
-<h4 id="webclient"><code>WebClient</code></h4>
-
-<p>When in use with WebFlux. <code>WebClient</code> is fully reactive.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-java">@Service
-public class MyService {
-
-	private final WebClient webClient;
-
-	public MyBean(WebClient.Builder webClientBuilder) {
-		this.webClient = webClientBuilder.baseUrl(&quot;http://example.org&quot;).build();
-	}
-
-	public Mono&lt;Details&gt; someRestCall(String name) {
-		return this.webClient.get().url(&quot;/{name}/details&quot;, name)
-						.retrieve().bodyToMono(Details.class);
-	}
-
-}
-</code></pre>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-webclient">Calling REST Services with WebClient</a>.</p>
-</blockquote>
-
-<h3 id="testing">Testing</h3>
-
-<blockquote>
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-testing">Testing</a></p>
-</blockquote>
-
-<h3 id="websockets">WebSockets</h3>
-
-<p>Accessible through the <code>spring-boot-starter-websocket</code> module.
-Documentation on <a href="https://docs.spring.io/spring/docs/5.0.1.RELEASE/spring-framework-reference/web.html#websocket">spring framework websockets</a></p>
-
-<blockquote>
-<p><a href="http://mqtt.org/">MQTT</a> is available through <a href="https://docs.spring.io/spring-integration/reference/html/mqtt.html">sprint integration</a></p>
-
-<p>Reference: <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-websockets">Websockets</a>.</p>
-</blockquote>
-
-<h2 id="further-reading">Further reading</h2>
+<p>In Heroku, create 2 &ldquo;apps&rdquo;:</p>
 
 <ul>
-<li><a href="https://spring.io/guides/gs/intellij-idea/">Spring and IntelliJ IDEA getting started guide</a></li>
-<li><a href="https://spring.io/guides/gs/spring-boot-docker/">Spring boot docker getting started guide</a></li>
+<li><code>{name}-gitlab-review-apps-staging</code></li>
+<li><code>{name}-gitlab-review-apps-production</code></li>
+</ul>
+
+<p>Again, to start with, we will do the first steps from local.
+Navigate to your project&rsquo;s directory and:</p>
+
+<ol>
+<li><a href="https://devcenter.heroku.com/articles/heroku-cli">Install Heroku CLI</a> if you don&rsquo;t already have it</li>
+
+<li><p>Test it out</p>
+
+<pre><code class="language-console">$ heroku --version
+heroku-cli/6.14.36 (darwin-x64) node-v8.9.1
+</code></pre></li>
+
+<li><p>Login with</p>
+
+<pre><code class="language-console">$ heroku login
+</code></pre></li>
+
+<li><p>Login Heroku&rsquo;s container registry</p>
+
+<pre><code class="language-console">$ heroku container:login
+</code></pre></li>
+
+<li><p>Tag your image within Heroku&rsquo;s registry</p>
+
+<pre><code class="language-console">$ docker tag registry.gitlab.com/iyp-uk/gitlab-review-apps:latest registry.heroku.com/gitlab-review-apps-staging/web:latest
+</code></pre></li>
+
+<li><p>Push to Heroku&rsquo;s registry which deploys it automatically</p>
+
+<pre><code class="language-console">$ docker push registry.heroku.com/gitlab-review-apps-staging/web:latest
+</code></pre></li>
+</ol>
+
+<p>So with our current codebase it doesn&rsquo;t go through as Heroku has some specific requirements, in particular:</p>
+
+<ul>
+<li>No <code>EXPOSE</code> in <code>Dockerfile</code></li>
+<li>Assignment of a random <code>$PORT</code> for web server which container has to bind to</li>
+</ul>
+
+<p>So let&rsquo;s make a few changes to test that out.</p>
+
+<p>Tag and push again to Heroku:</p>
+
+<pre><code class="language-console">$ docker tag registry.gitlab.com/iyp-uk/gitlab-review-apps:latest registry.heroku.com/gitlab-review-apps-staging/web:latest
+$ docker push registry.heroku.com/gitlab-review-apps-staging/web:latest  
+</code></pre>
+
+<p>See the app in action: <a href="https://gitlab-review-apps-staging.herokuapp.com/">https://gitlab-review-apps-staging.herokuapp.com/</a></p>
+
+<p>We can then also push it to the production app:</p>
+
+<pre><code class="language-console">$ docker tag registry.gitlab.com/iyp-uk/gitlab-review-apps:latest registry.heroku.com/gitlab-review-apps-production/web:latest
+$ docker push registry.heroku.com/gitlab-review-apps-production/web:latest  
+</code></pre>
+
+<p>And then visit the production app running: <a href="https://gitlab-review-apps-production.herokuapp.com/">https://gitlab-review-apps-production.herokuapp.com/</a></p>
+
+<p>OK so now that we know how that works locally, let&rsquo;s make it integrated into our pipeline.
+Essentially the steps will remain the same, apart from the way we login.</p>
+
+<p>Login for CI tools on the heroku registry:</p>
+
+<pre><code class="language-console">$ docker login --username=_ --password=$(heroku auth:token) registry.heroku.com
+</code></pre>
+
+<p>The password will be set to a <a href="https://docs.gitlab.com/ee/ci/variables/#secret-variables">private variable</a> (Notice they aren&rsquo;t as private as you may think)</p>
+
+<p>From your local project root, get that token with:</p>
+
+<pre><code class="language-console">$ heroku auth:token
+replies-with-a-token
+</code></pre>
+
+<p>And set it in Gitlab under Settings &gt; CI/CD &gt; Secret Variables under <code>HEROKU_AUTHENTICATION_TOKEN</code>.</p>
+
+<p>Here&rsquo;s what the job looks like:</p>
+
+<pre><code class="language-yaml">
+deploy_staging:
+  stage: deploy
+  script:
+    - docker pull $IMAGE_TAG
+    - docker login --username=_ --password=$HEROKU_AUTHENTICATION_TOKEN registry.heroku.com
+    - docker tag $IMAGE_TAG $HEROKU_IMAGE
+    - docker push $HEROKU_IMAGE
+  environment:
+    name: staging
+    url: https://gitlab-review-apps-staging.herokuapp.com/
+  only:
+    - master
+</code></pre>
+
+<p>And we&rsquo;ve also updated the <code>variables</code> section with:</p>
+
+<pre><code class="language-yaml">variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  HEROKU_IMAGE: registry.heroku.com/gitlab-review-apps-staging/web:latest
+</code></pre>
+
+<blockquote>
+<p>Here&rsquo;s what the pipeline looks like: <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/pipelines/13974492">https://gitlab.com/iyp-uk/gitlab-review-apps/pipelines/13974492</a></p>
+</blockquote>
+
+<p>It builds, tests and then deploys to Heroku on the staging environment when things are pushed on <code>master</code> branch.</p>
+
+<p>Codebase now looks like <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/deploy-to-heroku-staging">this</a>.</p>
+
+<p>Notice the <code>staging</code> environment is now available under <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/environments">CI/CD &gt; Environments</a> where you have a direct link to it.</p>
+
+<blockquote>
+<p>Read more about <a href="https://docs.gitlab.com/ee/ci/environments.html">Gitlab&rsquo;s environments</a></p>
+</blockquote>
+
+<h2 id="deploying-review-apps">Deploying Review Apps</h2>
+
+<p>Here we are finally! Deploying to our temporary environments on Merge Requests.</p>
+
+<p>The idea is to create an heroku app on the fly, then push the container there.</p>
+
+<p>To create apps from Heroku CLI:</p>
+
+<pre><code class="language-console">$ heroku create &lt;yourappname&gt;
+</code></pre>
+
+<p>Fine, but within your CI pipeline, you&rsquo;d have to install the Heroku CLI,
+so there&rsquo;s another way of doing it using the <a href="https://devcenter.heroku.com/articles/platform-api-quickstart#calling-the-api">Heroku API</a>.</p>
+
+<p>So here&rsquo;s the principle:</p>
+
+<pre><code class="language-yaml">deploy_review_app:
+  stage: review
+  script:
+    - docker pull $IMAGE_TAG
+    - docker login --username=_ --password=$HEROKU_AUTHENTICATION_TOKEN registry.heroku.com
+    - apk add --no-cache curl
+    - &gt;-
+        curl
+        -H &quot;Accept: application/vnd.heroku+json; version=3&quot;
+        -H &quot;Authorization: Bearer $HEROKU_AUTHENTICATION_TOKEN&quot;
+        -H &quot;Content-Type: application/json&quot;
+        -X POST
+        -d '{&quot;name&quot;:&quot;'&quot;gitlab-review-apps-$CI_PIPELINE_ID&quot;'&quot;}'
+        https://api.heroku.com/apps
+    - docker tag $IMAGE_TAG $HEROKU_IMAGE_REVIEW
+    - docker push $HEROKU_IMAGE_REVIEW
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    url: https://gitlab-review-apps-$CI_PIPELINE_ID.herokuapp.com/
+  only:
+    - branches
+  except:
+    - master
+</code></pre>
+
+<p>and under <code>variables</code>:</p>
+
+<pre><code class="language-yaml">variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  HEROKU_IMAGE_STAGING: registry.heroku.com/gitlab-review-apps-staging/web:latest
+  HEROKU_IMAGE_REVIEW: registry.heroku.com/gitlab-review-apps-$CI_PIPELINE_ID/web:latest
+</code></pre>
+
+<p>With <code>curl</code> we can create an app on the fly without any dependency as the only thing we need it the Heroku Authentication Token.</p>
+
+<p>This triggers on any <code>branches</code> (so no <code>tags</code>), except <code>master</code>.
+The app is build and pushed to Heroku which suffice to get it live at <a href="https://gitlab-review-apps-$CI_PIPELINE_ID.herokuapp.com/">https://gitlab-review-apps-$CI_PIPELINE_ID.herokuapp.com/</a></p>
+
+<p>And because we still have</p>
+
+<pre><code class="language-yaml">deploy_staging:
+  stage: deploy
+  script:
+    - docker pull $IMAGE_TAG
+    - docker login --username=_ --password=$HEROKU_AUTHENTICATION_TOKEN registry.heroku.com
+    - docker tag $IMAGE_TAG $HEROKU_IMAGE_STAGING
+    - docker push $HEROKU_IMAGE_STAGING
+  environment:
+    name: staging
+    url: https://gitlab-review-apps-staging.herokuapp.com/
+  only:
+    - master
+</code></pre>
+
+<p>Whenever the Merge Request gets merged into Master, it will deploy the update to staging automatically</p>
+
+<h2 id="deploying-tags-to-production">Deploying tags to production</h2>
+
+<p>Whenever we tag and push to gitlab, get the tag deployed to <code>production</code> environment automatically.</p>
+
+<p>That means:</p>
+
+<ol>
+<li>fetching the <code>master</code> image (we don&rsquo;t need to rebuild it)</li>
+<li>tag it appropriately (like with the version number)</li>
+<li>tag it as <code>latest</code></li>
+<li>Deploy to production</li>
+</ol>
+
+<p>Something like that should do:</p>
+
+<pre><code class="language-yaml">
+deploy_production:
+  stage: deploy
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:master
+    # Push to Gitlab registry with the tag name as well as 'latest'.
+    - docker tag $CI_REGISTRY_IMAGE:master $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    - docker tag $CI_REGISTRY_IMAGE:master $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+    # Push to Heroku registry and to production environment.
+    - docker login --username=_ --password=$HEROKU_AUTHENTICATION_TOKEN registry.heroku.com
+    - docker tag $CI_REGISTRY_IMAGE:latest $HEROKU_IMAGE_PRODUCTION
+    - docker push $HEROKU_IMAGE_PRODUCTION
+  environment:
+    name: production
+    url: https://gitlab-review-apps-production.herokuapp.com/
+  only:
+    - tags
+</code></pre>
+
+<h2 id="summary-and-overview-of-what-s-been-done">Summary and overview of what&rsquo;s been done</h2>
+
+<ul>
+<li>Full <code>.gitlab-ci.yml</code> defintion can be found <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/blob/master/.gitlab-ci.yml">on gitlab</a></li>
+<li><a href="https://gitlab.com/iyp-uk/gitlab-review-apps/merge_requests/3/diffs">Example of a review app in the context of a Merge Request</a>
+
+<ul>
+<li>Along with its <a href="https://gitlab-review-apps-14018076.herokuapp.com/">auto-created environment and running review app</a> (there&rsquo;s a link for that on the Merge Request, it may take some time to appear though)</li>
+</ul></li>
+<li><a href="https://gitlab-review-apps-staging.herokuapp.com/">Staging app</a></li>
+<li><a href="https://gitlab-review-apps-production.herokuapp.com/">Production app</a></li>
+</ul>
+
+<h2 id="what-s-next">What&rsquo;s next?</h2>
+
+<ul>
+<li>Delete the app when the MR gets merged.</li>
 </ul>
 
 
@@ -1499,15 +1459,10 @@ Documentation on <a href="https://docs.spring.io/spring/docs/5.0.1.RELEASE/sprin
                     
                     <div>
                         <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
-                        <a href="https://www.iyp-uk.com/blog/tdd-django-docker/">TDD Django Docker</a>
+                        <a href="https://www.iyp-uk.com/blog/java-spring-boot-getting-started/">Java Spring Boot Getting Started</a>
                     </div>
                     
                     <div style="width: 100%;"></div>
-                    
-                    <div>
-                        <a href="https://www.iyp-uk.com/blog/gitlab-review-apps/">Gitlab Review Apps</a>
-                        <img class="icon" src="https://www.iyp-uk.com/img/next.svg" alt="next" />
-                    </div>
                     
                 </div>
             
