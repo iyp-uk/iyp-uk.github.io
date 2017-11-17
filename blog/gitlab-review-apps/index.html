@@ -988,7 +988,7 @@ ga('send', 'pageview');
                     
                         
                     
-                    <div class="reading-time"><div class="middot"></div>8 minute read</div>
+                    <div class="reading-time"><div class="middot"></div>7 minute read</div>
                     <div class="tags">
                         <ul>
                           
@@ -1019,30 +1019,32 @@ ga('send', 'pageview');
     
 
 <p>Let&rsquo;s have a look at <a href="https://about.gitlab.com/features/review-apps/">Gitlab&rsquo;s review Apps</a>,
-available for available in GitLab.com, GitLab Community Edition, and GitLab Enterprise Edition.</p>
+available for GitLab.com, GitLab Community Edition, and GitLab Enterprise Edition.</p>
 
 <h2 id="so-what-s-the-plan">So what&rsquo;s the plan?</h2>
 
-<p>In this particular example, we want to demonstrate a use case of Gitlab&rsquo;s review apps.
-We will also demonstrate that in the context of a trivial docker-based python app, which essentially returns an &ldquo;Hello world&rdquo;.</p>
+<p>In this particular example, we will showcase Gitlab&rsquo;s review apps in the context of a trivial docker-based python app.
+This app essentially returns an &ldquo;Hello world&rdquo;.</p>
 
 <p><a href="https://docs.gitlab.com/ee/ci/README.html">Gitlab CI</a> allows us to do plenty of things, and in particular we will want to:</p>
 
 <ol>
-<li>Run tests (there are no tests in our dummy app but we&rsquo;ll bring a &ldquo;stage&rdquo; for it in case you want to fill them with your needs)</li>
 <li>Build the docker image</li>
-<li>Deploy the app to heroku</li>
+<li>Run tests</li>
+<li>Deploy the app to Heroku</li>
 </ol>
 
 <blockquote>
-<p>The source code is available on <a href="https://gitlab.com/iyp-uk/gitlab-review-apps">gitlab</a></p>
+<p>The source code is available on <a href="https://gitlab.com/iyp-uk/gitlab-review-apps">gitlab</a>.</p>
+
+<p>Production app is <a href="https://gitlab-review-apps-production.herokuapp.com/">running here on Heroku</a>.</p>
 </blockquote>
 
 <h2 id="let-s-get-started">Let&rsquo;s get started</h2>
 
-<p>First of all, let&rsquo;s have a look at our app: <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/app-init">Here it is</a>.</p>
+<p>First of all, let&rsquo;s have a look at our basic app: <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/app-init">Here it is</a>.</p>
 
-<p>That&rsquo;s a Flask app, just <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/blob/app-init/app.py">greeting you with a nice &ldquo;Hello world!&rdquo;</a>.</p>
+<p>That&rsquo;s a Flask app running in docker, just <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/blob/app-init/app.py">greeting you with a nice &ldquo;Hello world!&rdquo;</a>.</p>
 
 <p>As you may see, there&rsquo;s no definition of any CI/CD pipeline. It&rsquo;s just the code.</p>
 
@@ -1065,10 +1067,13 @@ The <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#jobs">job</a> has fi
 <p>Codebase now looks like <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/set-up-ci">this</a>.</p>
 
 <blockquote>
-<p>Read more:
-* <a href="https://docs.gitlab.com/ee/ci/quick_start/README.html">Getting started with CI/CD in Gitlab</a>
-* <a href="https://docs.gitlab.com/ee/ci/yaml/README.html">.gitlab-ci.yml reference</a>
-* <a href="https://docs.gitlab.com/ee/ci/README.html">Gitlab&rsquo;s CI docs</a></p>
+<p>Read more:</p>
+
+<ul>
+<li><a href="https://docs.gitlab.com/ee/ci/quick_start/README.html">Getting started with CI/CD in Gitlab</a></li>
+<li><a href="https://docs.gitlab.com/ee/ci/yaml/README.html">.gitlab-ci.yml reference</a></li>
+<li><a href="https://docs.gitlab.com/ee/ci/README.html">Gitlab&rsquo;s CI docs</a></li>
+</ul>
 </blockquote>
 
 <h2 id="configure-a-more-advanced-ci">Configure a more advanced CI</h2>
@@ -1105,7 +1110,7 @@ For all other times, it will be done by the pipeline.</p>
 $ docker push registry.gitlab.com/iyp-uk/gitlab-review-apps
 </code></pre>
 
-<p>This tags your image with <code>latest</code> and pushes it to the registry where you <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/container_registry">can see it</a></p>
+<p>This tags your image with <code>latest</code> and pushes it to the registry where you <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/container_registry">can see it</a>.</p>
 
 <p>Let&rsquo;s now <a href="https://gitlab.com/help/ci/docker/using_docker_build.md#using-the-gitlab-container-registry">add these steps to our build stage</a>:</p>
 
@@ -1179,6 +1184,8 @@ test:
 <p>Codebase now looks like <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/tree/set-up-pipelines">this</a>.</p>
 
 <blockquote>
+<p>Read more:</p>
+
 <ul>
 <li><a href="https://docs.gitlab.com/ee/ci/variables/README.html">Read more about these variables</a></li>
 <li><a href="https://docs.gitlab.com/ee/ci/yaml/README.html">Read .gitlab-ci.yml reference</a> for <code>services</code>, <code>variables</code> and <code>before_script</code> definitions</li>
@@ -1320,7 +1327,7 @@ deploy_staging:
 <p>Notice the <code>staging</code> environment is now available under <a href="https://gitlab.com/iyp-uk/gitlab-review-apps/environments">CI/CD &gt; Environments</a> where you have a direct link to it.</p>
 
 <blockquote>
-<p>Read more about <a href="https://docs.gitlab.com/ee/ci/environments.html">Gitlab&rsquo;s environments</a></p>
+<p>Read more about <a href="https://docs.gitlab.com/ee/ci/environments.html">Gitlab&rsquo;s environments</a>.</p>
 </blockquote>
 
 <h2 id="deploying-review-apps">Deploying Review Apps</h2>
@@ -1377,7 +1384,7 @@ so there&rsquo;s another way of doing it using the <a href="https://devcenter.he
 <p>This triggers on any <code>branches</code> (so no <code>tags</code>), except <code>master</code>.
 The app is build and pushed to Heroku which suffice to get it live at <a href="https://gitlab-review-apps-$CI_PIPELINE_ID.herokuapp.com/">https://gitlab-review-apps-$CI_PIPELINE_ID.herokuapp.com/</a></p>
 
-<p>And because we still have</p>
+<p>And because we still have:</p>
 
 <pre><code class="language-yaml">deploy_staging:
   stage: deploy
