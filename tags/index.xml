@@ -96,7 +96,7 @@
     <item>
       <title>Docker</title>
       <link>https://www.iyp-uk.com/tags/docker/</link>
-      <pubDate>Tue, 14 Nov 2017 16:20:25 +0000</pubDate>
+      <pubDate>Tue, 21 Nov 2017 12:17:29 +0000</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/docker/</guid>
       <description></description>
@@ -202,6 +202,15 @@
     </item>
     
     <item>
+      <title>Performance</title>
+      <link>https://www.iyp-uk.com/tags/performance/</link>
+      <pubDate>Tue, 21 Nov 2017 12:17:29 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pycharm</title>
       <link>https://www.iyp-uk.com/tags/pycharm/</link>
       <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
@@ -247,11 +256,29 @@
     </item>
     
     <item>
+      <title>Scalability</title>
+      <link>https://www.iyp-uk.com/tags/scalability/</link>
+      <pubDate>Tue, 21 Nov 2017 12:17:29 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/scalability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Spring Boot</title>
       <link>https://www.iyp-uk.com/tags/spring-boot/</link>
       <pubDate>Sat, 04 Nov 2017 16:04:16 +0000</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swarm</title>
+      <link>https://www.iyp-uk.com/tags/swarm/</link>
+      <pubDate>Tue, 21 Nov 2017 12:17:29 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/swarm/</guid>
       <description></description>
     </item>
     

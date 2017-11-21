@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Tue, 14 Nov 2017 16:20:25 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Nov 2017 12:17:29 +0000</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Scale With Docker Swarm</title>
+      <link>https://www.iyp-uk.com/blog/scale-with-docker-swarm/</link>
+      <pubDate>Tue, 21 Nov 2017 12:17:29 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/scale-with-docker-swarm/</guid>
+      <description>What&amp;rsquo;s the plan In this article, we will demonstrate how to scale your app with docker swarm.
+Definitions Swarm A docker swarm is a group of docker hosts operating in swarm mode. Every docker host can be:
+ A manager  Manages orchestration of the workers  A worker  Run containers as part of a service (see below for service defintion)  Both at the same time  Node A docker node is an instance of the docker engine.</description>
+    </item>
     
     <item>
       <title>Gitlab Review Apps</title>

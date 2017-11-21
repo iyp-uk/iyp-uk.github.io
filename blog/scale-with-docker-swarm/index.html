@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="IYP UK&#39;s website">
+
+
+<meta property="og:site_name" content="IYP UK" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.iyp-uk.com/blog/scale-with-docker-swarm/" />
+<meta property="og:title" content="Scale With Docker Swarm" />
+<meta property="twitter:title" content="Scale With Docker Swarm">
+
+    <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://www.iyp-uk.com/img/logo.png">
+
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     IYP UK - Scale With Docker Swarm 
+
+</title>
+<link rel="canonical" href="https://www.iyp-uk.com/blog/scale-with-docker-swarm/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('https://www.iyp-uk.com/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+section.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.header .container .logo {
+  max-width: 100px;
+  margin-left: -2em;
+}
+section.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  color: #555555;
+}
+section.header nav {
+  margin-bottom: 16px;
+}
+section.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+section.header nav ul a {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+section.header nav ul a:first-child {
+  margin-left: 0;
+}
+section.header nav ul a:last-child {
+  margin-right: 0;
+}
+section.header nav ul li {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.header nav ul li:hover {
+  color: #111111;
+}
+section.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+section.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.footer .container a:first-child {
+  margin-left: 0;
+}
+section.footer .container a:last-child {
+  margin-right: 0;
+}
+section.footer .container a:hover {
+  opacity: 0.8;
+}
+section.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+section.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+section.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+section.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+section.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+section.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+section.main .content .posts {
+  margin-bottom: 4em;
+}
+section.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+section.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+section.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+  display: none;
+}
+section.main .content .front-matter .middot {
+  font-size: 6px;
+  margin: 0 6px;
+  display: inline;
+  vertical-align: middle;
+}
+section.main .content .front-matter .middot:before {
+  content: "•";
+}
+section.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+section.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+section.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+section.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+section.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+section.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+section.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+section.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+section.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+section.header {
+  padding-top: 10px;
+}
+section.header-home {
+  padding-top: 36px;
+}
+section.main {
+  padding-top: 32px;
+}
+section.main .container .content .post-item .meta {
+    display: block;
+}
+section.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+section.main .content {
+    width: 100%;
+}
+section.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+section.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+section.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+section.main .content .markdown code,
+section.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+section.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+section.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+section.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+section.main .content .markdown a code {
+  color: #428bca !important;
+}
+section.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+section.main .content .markdown p {
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+section.main .content .markdown ul,
+section.main .content .markdown ol,
+section.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown dt {
+  font-weight: bold;
+}
+section.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+section.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown li {
+  margin-left: 2em;
+}
+section.main .content .markdown em {
+  font-style: italic;
+}
+section.main .content .markdown strong {
+  font-weight: 700;
+}
+section.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+section.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+section.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+section.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+section.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+section.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+section.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+section.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+section.main .content .markdown td,
+section.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+section.main .content .markdown tbody tr:nth-child(odd) td,
+section.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+section.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+section.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+section.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+section.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 2em;
+}
+section.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+section.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+section.main .content .navigation a {
+  width: 250px;
+  margin: 0 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+section.main .content .share, section.main .content .share div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+section.main .content .share {
+  background-color: rgba(152, 152, 152, 0.07);
+  padding: 1em 0;
+}
+section.main .content .share a {
+  margin: 0 6px;
+}
+
+/* Fonts */
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active section.header nav ul li,
+.wf-raleway-n7-active section.main .content .page-heading,
+.wf-raleway-n2-active section.main .container.f04 .content .num,
+.wf-raleway-n7-active section.main .content .markdown h1,
+.wf-raleway-n7-active section.main .content .markdown h2,
+.wf-raleway-n7-active section.main .content .markdown h3,
+.wf-raleway-n7-active section.main .content .markdown h4,
+.wf-raleway-n7-active section.main .content .markdown h5,
+.wf-raleway-n7-active section.main .content .markdown h6 {
+  font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active section.main .content .markdown {
+  font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active section.main .content .markdown code,
+.wf-ubuntu-mono-n4-active section.main .content .markdown pre {
+  font-family: 'Ubuntu Mono';
+}
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+max-width: 750px;
+}
+section.header {
+background-color: transparent;
+}
+section.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.header .container .logo {
+margin: 0;
+}
+section.header-home .container .logo {
+max-width: 180px;
+margin-left: 20px;
+}
+section.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+section.header-home nav ul li {
+font-size: 18px;
+}
+section.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.header .name {
+color: #333333;
+}
+section.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+section.header nav ul {
+text-align: left;
+}
+section.header nav ul li {
+color: #666666;
+}
+section.header nav ul li:hover {
+color: #333333;
+}
+section.footer {
+background-color: transparent;
+}
+section.footer .container {
+flex-direction: row;
+}
+section.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+section.footer .container a:hover {
+color: #333333;
+}
+section.footer .container a .icon {
+font-size: 18px;
+}
+section.footer .container a .icon.larger {
+font-size: 20px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+display: initial;
+}
+section.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+section.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+section.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.footer {
+padding-top: 30px;
+padding-bottom: 60px;
+}
+section.main {
+padding-top: 0;
+}
+section.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+section.main .container .content .post-item .meta {
+display: block;
+}
+section.main.post {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+section.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+section.main .content .navigation div {
+margin-top: 0em;
+}
+</style>
+<style media="(min-width: 769px)">
+  section.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+section.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+section.main .content .markdown pre {
+width: 110%;
+margin-left: -4%;
+}
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://www.iyp-uk.com/img/favicon.png"
+
+>
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-107170827-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="https://www.iyp-uk.com/"><img class="logo" src="https://www.iyp-uk.com/img/logo.png" alt="logo" /></a>
+        <div class="content">
+            <a href="https://www.iyp-uk.com/"><div class="name"><h1>IYP UK</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="https://www.iyp-uk.com/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                    
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Scale With Docker Swarm
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Tue Nov 21 2017 12:17:29 UTC">Nov 21, 2017</div>
+                    
+                        
+                    
+                    <div class="reading-time"><div class="middot"></div>15 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/docker">docker</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/swarm">swarm</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/scalability">scalability</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/performance">performance</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+
+<h2 id="what-s-the-plan">What&rsquo;s the plan</h2>
+
+<p>In this article, we will demonstrate how to scale your app with <a href="https://docs.docker.com/engine/swarm/">docker swarm</a>.</p>
+
+<h2 id="definitions">Definitions</h2>
+
+<h3 id="swarm">Swarm</h3>
+
+<p>A <a href="https://docs.docker.com/engine/swarm/key-concepts/#what-is-a-swarm">docker swarm</a> is a group of docker hosts operating in <strong>swarm mode</strong>.
+Every docker host can be:</p>
+
+<ul>
+<li>A manager
+
+<ul>
+<li>Manages orchestration of the workers</li>
+</ul></li>
+<li>A worker
+
+<ul>
+<li>Run containers as part of a <em>service</em> (see below for service defintion)</li>
+</ul></li>
+<li>Both at the same time</li>
+</ul>
+
+<h3 id="node">Node</h3>
+
+<p>A <a href="https://docs.docker.com/engine/swarm/key-concepts/#nodes">docker node</a> is an instance of the docker engine.
+Several nodes can run on a single machine, but they are usually distributed across various machines.</p>
+
+<h3 id="service">Service</h3>
+
+<p>A <a href="https://docs.docker.com/engine/swarm/key-concepts/#services-and-tasks">docker service</a> is the definition of the tasks to execute.
+You then specify:</p>
+
+<ul>
+<li>which container image to use</li>
+<li>which commands to execute inside these running containers</li>
+</ul>
+
+<p>A <strong>replicated service</strong> is distributed amongst multiple nodes.
+A <strong>global</strong> service is present on <em>every</em> node of the swarm</p>
+
+<p>A task carries a docker container and the commands to run against it.</p>
+
+<h3 id="load-balancing">Load balancing</h3>
+
+<p>Swarm has a built-in <a href="https://docs.docker.com/engine/swarm/key-concepts/#load-balancing">load balancer and DNS</a> to manage connectivity between the nodes and expose a port for the external world.</p>
+
+<blockquote>
+<p>Read more about these concepts <a href="https://docs.docker.com/engine/swarm/key-concepts/">on the docker documentation</a></p>
+</blockquote>
+
+<h2 id="set-up-the-swarm">Set up the swarm</h2>
+
+<p>OK, let&rsquo;s create a swarm locally with <code>docker-machine</code> and VirtualBox.</p>
+
+<blockquote>
+<p>Your machines could be anywhere. This is just a repeatable and easy enough way of doing it.</p>
+
+<p>Docker machine has <a href="https://docs.docker.com/machine/drivers/">multiple drivers</a> which you could be interested in if you want to spin off machines elsewhere.</p>
+</blockquote>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>We will create 3 docker machines:</p>
+
+<ul>
+<li><code>manager1</code></li>
+<li><code>worker1</code></li>
+<li><code>worker2</code></li>
+</ul>
+
+<pre><code class="language-console">$ docker-machine create --driver virtualbox manager1
+$ docker-machine create --driver virtualbox worker1
+$ docker-machine create --driver virtualbox worker2
+</code></pre>
+
+<p>Check your machines:</p>
+
+<pre><code class="language-console">$ docker-machine ls                                
+NAME       ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
+manager1   -        virtualbox   Running   tcp://192.168.99.100:2376           v17.10.0-ce   
+worker1    -        virtualbox   Running   tcp://192.168.99.101:2376           v17.10.0-ce   
+worker2    -        virtualbox   Running   tcp://192.168.99.102:2376           v17.10.0-ce   
+</code></pre>
+
+<p>Take note of the manager&rsquo;s IP: <code>192.168.99.100</code>.</p>
+
+<p>Also take note of the <code>SWARM</code> column, where currently nothing is reported.</p>
+
+<blockquote>
+<p>We don&rsquo;t specify here any option which could be sent while creating these machines as we just want a linux with docker engine and that&rsquo;s it.</p>
+</blockquote>
+
+<h3 id="set-up-the-swarm-1">Set up the swarm</h3>
+
+<h4 id="initialise">Initialise</h4>
+
+<pre><code class="language-console">$ docker-machine ssh manager1
+</code></pre>
+
+<p>Then initialise the swarm from there:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker swarm init --advertise-addr 192.168.99.100
+Swarm initialized: current node (x2b4hxuc2v9loe1l37rlzb62w) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-3guuuh9hbealub7kxc6cu88ysdhqxtsg4bup3mx6ji5zs2de0n-926iqz8n6mn2cofydizrxf5fn 192.168.99.100:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+</code></pre>
+
+<blockquote>
+<p>Take note of the output here, as it provides the token for the other nodes to join the swarm.</p>
+</blockquote>
+
+<p>Get some insights:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker info
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.10.0-ce
+Storage Driver: aufs
+ Root Dir: /mnt/sda1/var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: bridge host macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
+Swarm: active
+ NodeID: x2b4hxuc2v9loe1l37rlzb62w
+ Is Manager: true
+ ClusterID: zo29gayi3tefpzzb5951n26as
+ Managers: 1
+ Nodes: 1
+ Orchestration:
+  Task History Retention Limit: 5
+ Raft:
+  Snapshot Interval: 10000
+  Number of Old Snapshots to Retain: 0
+  Heartbeat Tick: 1
+  Election Tick: 3
+ Dispatcher:
+  Heartbeat Period: 5 seconds
+ CA Configuration:
+  Expiry Duration: 3 months
+  Force Rotate: 0
+ Autolock Managers: false
+ Root Rotation In Progress: false
+ Node Address: 192.168.99.100
+ Manager Addresses:
+  192.168.99.100:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 06b9cb35161009dcb7123345749fef02f7cea8e0
+runc version: 0351df1c5a66838d0c392b4ac4cf9450de844e2d
+init version: 949e6fa
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 4.4.93-boot2docker
+Operating System: Boot2Docker 17.10.0-ce (TCL 7.2); HEAD : 34fe485 - Wed Oct 18 17:16:34 UTC 2017
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 995.8MiB
+Name: manager1
+ID: RXGS:CGIL:LUHM:4SU3:5RCX:LBXE:VZSR:DJSE:LALT:6XL5:BEBY:TMK7
+Docker Root Dir: /mnt/sda1/var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): true
+ File Descriptors: 32
+ Goroutines: 137
+ System Time: 2017-11-21T14:12:50.411007549Z
+ EventsListeners: 0
+Registry: https://index.docker.io/v1/
+Labels:
+ provider=virtualbox
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+</code></pre>
+
+<p>Which nodes are in the swarm:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+x2b4hxuc2v9loe1l37rlzb62w *   manager1            Ready               Active              Leader
+</code></pre>
+
+<pre><code class="language-console">docker@manager1:~$ exit
+</code></pre>
+
+<h4 id="add-workers">Add workers</h4>
+
+<p>We will now ssh into the 2 workers and add them to the swarm using the output from the <code>docker swarm init</code> command.</p>
+
+<pre><code class="language-console">$ docker-machine ssh worker1
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code class="language-console">docker@worker1:~$ docker swarm join --token SWMTKN-1-3guuuh9hbealub7kxc6cu88ysdhqxtsg4bup3mx6ji5zs2de0n-926iqz8n6mn2cofydizrxf5fn 192.168.99.100:2377
+This node joined a swarm as a worker.
+</code></pre>
+
+<p>You can get some info from a worker too,</p>
+
+<pre><code class="language-console">docker@worker1:~$ docker info
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.10.0-ce
+Storage Driver: aufs
+ Root Dir: /mnt/sda1/var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: bridge host macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
+Swarm: active
+ NodeID: npf2bl47rnkjeedlkx9in4dfy
+ Is Manager: false
+ Node Address: 192.168.99.101
+ Manager Addresses:
+  192.168.99.100:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 06b9cb35161009dcb7123345749fef02f7cea8e0
+runc version: 0351df1c5a66838d0c392b4ac4cf9450de844e2d
+init version: 949e6fa
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 4.4.93-boot2docker
+Operating System: Boot2Docker 17.10.0-ce (TCL 7.2); HEAD : 34fe485 - Wed Oct 18 17:16:34 UTC 2017
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 995.8MiB
+Name: worker1
+ID: TT3N:MSWG:NRRX:PGDU:KQSM:WGU2:WT62:4BAS:I24S:HXWA:UJMC:QSUQ
+Docker Root Dir: /mnt/sda1/var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): true
+ File Descriptors: 26
+ Goroutines: 81
+ System Time: 2017-11-21T14:24:28.952824445Z
+ EventsListeners: 0
+Registry: https://index.docker.io/v1/
+Labels:
+ provider=virtualbox
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+</code></pre>
+
+<p>but not list nodes, which only the manager nodes can see!</p>
+
+<pre><code class="language-console">docker@worker1:~$ docker node ls
+Error response from daemon: This node is not a swarm manager. Worker nodes can't be used to view or modify cluster state. Please run this command on a manager node or promote the current node to a manager.
+</code></pre>
+
+<blockquote>
+<p>Same thing for <code>worker2</code>.</p>
+</blockquote>
+
+<p>So let&rsquo;s ssh into our <code>manager1</code> again,</p>
+
+<pre><code class="language-console">$ docker-machine ssh manager1
+</code></pre>
+
+<p>and check the swarm status:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+x2b4hxuc2v9loe1l37rlzb62w *   manager1            Ready               Active              Leader
+npf2bl47rnkjeedlkx9in4dfy     worker1             Ready               Active              
+pf20a66rgtactwftxout1d3lx     worker2             Ready               Active              
+</code></pre>
+
+<p>All good, our nodes are ready!
+We can now deploy a service to the swarm.</p>
+
+<h2 id="deploy-a-service">Deploy a service</h2>
+
+<p>Still from the manager,</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service create --replicas 1 --name helloworld alpine ping docker.com
+dju980v89ljrs5iuqv9qw26g2
+overall progress: 1 out of 1 tasks 
+1/1: running   [==================================================&gt;] 
+verify: Service converged 
+</code></pre>
+
+<p>This creates a service called <code>helloworld</code>, running the command <code>ping docker.com</code> in an <code>alpine</code> container.</p>
+
+<p>You can see all currently running services within the swarm with:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ls
+ID                  NAME                MODE                REPLICAS            IMAGE               PORTS
+dju980v89ljr        helloworld          replicated          1/1                 alpine:latest       
+</code></pre>
+
+<p>Or, for more details, with the <code>docker service inspect</code> command:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service inspect helloworld --pretty
+
+ID:		dju980v89ljrs5iuqv9qw26g2
+Name:		helloworld
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		alpine:latest@sha256:d6bfc3baf615dc9618209a8d607ba2a8103d9c8a405b3bd8741d88b4bef36478
+ Args:		ping docker.com 
+Resources:
+Endpoint Mode:	vip
+</code></pre>
+
+<p>We can also see which nodes are running the service:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps helloworld
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE           ERROR               PORTS
+dollmixrb8mt        helloworld.1        alpine:latest       manager1            Running             Running 3 minutes ago                       
+</code></pre>
+
+<p>Interestingly, it&rsquo;s running on the manager! YMMV here, so you could see it running on another node.</p>
+
+<p>This is because managers can be assigned tasks by default.</p>
+
+<h2 id="scale-a-service">Scale a service</h2>
+
+<p>Ok, let&rsquo;s scale this service and get it to run on other nodes.</p>
+
+<p>We will scale it to 5, which is more than the number of available nodes, so it will run multiple tasks per nodes.</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service scale helloworld=5
+helloworld scaled to 5
+overall progress: 5 out of 5 tasks 
+1/5: running   [==================================================&gt;] 
+2/5: running   [==================================================&gt;] 
+3/5: running   [==================================================&gt;] 
+4/5: running   [==================================================&gt;] 
+5/5: running   [==================================================&gt;] 
+verify: Service converged 
+</code></pre>
+
+<p>Let&rsquo;s check it then:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps helloworld
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE                ERROR               PORTS
+dollmixrb8mt        helloworld.1        alpine:latest       manager1            Running             Running 8 minutes ago                            
+dezui9q445ud        helloworld.2        alpine:latest       manager1            Running             Running about a minute ago                       
+ym5m5zoq52oz        helloworld.3        alpine:latest       worker1             Running             Running about a minute ago                       
+uz35a1k3c3ie        helloworld.4        alpine:latest       worker2             Running             Running about a minute ago                       
+0jkmzx4g5m3i        helloworld.5        alpine:latest       worker2             Running             Running about a minute ago                       
+</code></pre>
+
+<p>We have now 5 times the task running:</p>
+
+<ul>
+<li>2x on <code>manager1</code></li>
+<li>1x on <code>worker1</code></li>
+<li>2x on <code>worker2</code></li>
+</ul>
+
+<p>Total 5 :)</p>
+
+<p>We can also scale <strong>down</strong> similarly:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service scale helloworld=3
+helloworld scaled to 3
+overall progress: 3 out of 3 tasks 
+1/3: running   [==================================================&gt;] 
+2/3: running   [==================================================&gt;] 
+3/3: running   [==================================================&gt;] 
+verify: Service converged 
+docker@manager1:~$ docker service ps helloworld
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE           ERROR               PORTS
+dezui9q445ud        helloworld.2        alpine:latest       manager1            Running             Running 3 minutes ago                       
+ym5m5zoq52oz        helloworld.3        alpine:latest       worker1             Running             Running 3 minutes ago                       
+uz35a1k3c3ie        helloworld.4        alpine:latest       worker2             Running             Running 3 minutes ago                       
+</code></pre>
+
+<h2 id="delete-a-service">Delete a service</h2>
+
+<p>Still from a manager:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service rm helloworld
+helloworld
+</code></pre>
+
+<p>Verify it disappeared:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps helloworld
+no such service: helloworld
+</code></pre>
+
+<h2 id="deploying-rolling-update">Deploying rolling update</h2>
+
+<blockquote>
+<p>Rolling updates allow you to deploy new versions of a service following continuous deployment principle and with essentially no downtime (See <a href="https://en.wikipedia.org/wiki/Rolling_release">rolling releases</a>).</p>
+</blockquote>
+
+<p>Let&rsquo;s deploy here a <code>redis</code> service on a given version. We will then deploy a newer version with a rolling update.</p>
+
+<p>From a manager:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service create \
+&gt;   --replicas 3 \
+&gt;   --name redis \
+&gt;   --update-delay 10s \
+&gt;   redis:3.0.6
+1j06u71w8eay4jf7ahuzep68f
+overall progress: 3 out of 3 tasks 
+1/3: running   [==================================================&gt;] 
+2/3: running   [==================================================&gt;] 
+3/3: running   [==================================================&gt;] 
+verify: Service converged 
+</code></pre>
+
+<p>Take note of the <code>--update-delay 10s</code> argument here.
+It is specified straight at service creation.</p>
+
+<p>But let&rsquo;s see it in more details:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service inspect --pretty redis
+
+ID:		1j06u71w8eay4jf7ahuzep68f
+Name:		redis
+Service Mode:	Replicated
+ Replicas:	3
+Placement:
+UpdateConfig:
+ Parallelism:	1
+ Delay:		10s
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		redis:3.0.6@sha256:6a692a76c2081888b589e26e6ec835743119fe453d67ecf03df7de5b73d69842
+Resources:
+Endpoint Mode:	vip
+</code></pre>
+
+<p>Take a look at the <code>UpdateConfig</code>:</p>
+
+<ul>
+<li><code>Parallelism</code> is the amount of tasks that can be updated in parallel. In this case, one after the other (default behaviour, can be set with <code>--update-parallelism</code>).</li>
+<li><code>Delay</code> is the amount of time between one service has successfully updated (task status is <code>RUNNING</code>) and the beginning of the next task update. 10s here, as we&rsquo;ve instructed.</li>
+<li><code>On failure</code> is the action to perform when a task fails updating (returns <code>FAILED</code>) instead of <code>RUNNING</code></li>
+<li><code>Update order</code> (“start-first”|”stop-first”): <code>stop-first</code> here indicates the current version of a task is stopped, then the new one is started.</li>
+</ul>
+
+<p>Check where the <code>redis</code> service is running:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps redis
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE            ERROR               PORTS
+dv67f24pag3h        redis.1             redis:3.0.6         worker1             Running             Running 15 minutes ago                       
+8dhwsdopmp2d        redis.2             redis:3.0.6         worker2             Running             Running 15 minutes ago                       
+vmoipyvlvh0s        redis.3             redis:3.0.6         manager1            Running             Running 15 minutes ago                       
+</code></pre>
+
+<p>Evenly distributed across our 3 nodes, lovely.</p>
+
+<p>Let&rsquo;s update it now to a newer version:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service update --image redis:3.0.7 redis
+redis
+</code></pre>
+
+<p>This below gets updated while the update command above runs,</p>
+
+<pre><code class="language-console">overall progress: 1 out of 3 tasks 
+1/3: running   [==================================================&gt;] 
+2/3: preparing [=================================&gt;                 ] 
+3/3:   
+</code></pre>
+
+<p>It goes along with another way of seeing it:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps redis
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE             ERROR               PORTS
+rslfg2no15q0        redis.1             redis:3.0.7         worker1             Running             Running 9 seconds ago                         
+dv67f24pag3h         \_ redis.1         redis:3.0.6         worker1             Shutdown            Shutdown 22 seconds ago                       
+8dhwsdopmp2d        redis.2             redis:3.0.6         worker2             Running             Running 16 minutes ago                        
+vmoipyvlvh0s        redis.3             redis:3.0.6         manager1            Running             Running 16 minutes ago                        
+</code></pre>
+
+<p>When the update is complete:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service update --image redis:3.0.7 redis
+redis
+overall progress: 3 out of 3 tasks 
+1/3: running   [==================================================&gt;] 
+2/3: running   [==================================================&gt;] 
+3/3: running   [==================================================&gt;] 
+verify: Service converged 
+</code></pre>
+
+<p>and</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps redis
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE                ERROR               PORTS
+rslfg2no15q0        redis.1             redis:3.0.7         worker1             Running             Running 2 minutes ago                            
+dv67f24pag3h         \_ redis.1         redis:3.0.6         worker1             Shutdown            Shutdown 3 minutes ago                           
+ckmxpqsnypbt        redis.2             redis:3.0.7         worker2             Running             Running about a minute ago                       
+8dhwsdopmp2d         \_ redis.2         redis:3.0.6         worker2             Shutdown            Shutdown 2 minutes ago                           
+srp2rafc58l1        redis.3             redis:3.0.7         manager1            Running             Running 2 minutes ago                            
+vmoipyvlvh0s         \_ redis.3         redis:3.0.6         manager1            Shutdown            Shutdown 2 minutes ago                
+</code></pre>
+
+<h2 id="drain-a-node">Drain a node</h2>
+
+<p>If you need to take a node out of the swarm, to update it in particular, you can instruct it to not receive updates from the manager.</p>
+
+<p>Inspect your swarm from a manager:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+x2b4hxuc2v9loe1l37rlzb62w *   manager1            Ready               Active              Leader
+npf2bl47rnkjeedlkx9in4dfy     worker1             Ready               Active              
+pf20a66rgtactwftxout1d3lx     worker2             Ready               Active              
+</code></pre>
+
+<p>We currently have one redis task running on each node.
+Let&rsquo;s take the worker1 out:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker node update --availability drain worker1
+worker1
+</code></pre>
+
+<p>Check:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+x2b4hxuc2v9loe1l37rlzb62w *   manager1            Ready               Active              Leader
+npf2bl47rnkjeedlkx9in4dfy     worker1             Ready               Drain               
+pf20a66rgtactwftxout1d3lx     worker2             Ready               Active              
+</code></pre>
+
+<p>Some more details:</p>
+
+<pre><code class="language-console"> docker node inspect --pretty worker1
+ID:			npf2bl47rnkjeedlkx9in4dfy
+Hostname:              	worker1
+Joined at:             	2017-11-21 14:22:17.63509973 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Drain
+ Address:		192.168.99.101
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		995.8MiB
+Plugins:
+ Log:		awslogs, fluentd, gcplogs, gelf, journald, json-file, logentries, splunk, syslog
+ Network:		bridge, host, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.10.0-ce
+Engine Labels:
+ - provider=virtualbox
+TLS Info:
+ TrustRoot:
+-----BEGIN CERTIFICATE-----
+somekeyhere
+-----END CERTIFICATE-----
+
+ Issuer Subject:	foo
+ Issuer Public Key:	bar
+</code></pre>
+
+<p>Take note of the <code>Status</code>:</p>
+
+<ul>
+<li><code>State</code> shows the machine is up</li>
+<li><code>Drain</code> shows the machine is &ldquo;off the swarm&rdquo;, it will not receive orders from a manager until its status returns to <code>ACTIVE</code></li>
+</ul>
+
+<p>Our <code>redis</code> service has reorganised itself within the remaining ndoes of the swarm:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps redis
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE             ERROR               PORTS
+x9uc3roz8lcv        redis.1             redis:3.0.7         manager1            Running             Running 7 minutes ago                         
+rslfg2no15q0         \_ redis.1         redis:3.0.7         worker1             Shutdown            Shutdown 7 minutes ago                        
+dv67f24pag3h         \_ redis.1         redis:3.0.6         worker1             Shutdown            Shutdown 18 minutes ago                       
+ckmxpqsnypbt        redis.2             redis:3.0.7         worker2             Running             Running 17 minutes ago                        
+8dhwsdopmp2d         \_ redis.2         redis:3.0.6         worker2             Shutdown            Shutdown 17 minutes ago                       
+srp2rafc58l1        redis.3             redis:3.0.7         manager1            Running             Running 17 minutes ago                        
+vmoipyvlvh0s         \_ redis.3         redis:3.0.6         manager1            Shutdown            Shutdown 18 minutes ago              
+</code></pre>
+
+<p>Or more readable:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps -f desired-state=running redis
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE            ERROR               PORTS
+x9uc3roz8lcv        redis.1             redis:3.0.7         manager1            Running             Running 8 minutes ago                        
+ckmxpqsnypbt        redis.2             redis:3.0.7         worker2             Running             Running 18 minutes ago                       
+srp2rafc58l1        redis.3             redis:3.0.7         manager1            Running             Running 18 minutes ago     
+</code></pre>
+
+<p>See how <code>manager1</code> now runs two tasks.</p>
+
+<p>Bring the <code>worker1</code> back in:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker node update --availability active worker1
+worker1
+</code></pre>
+
+<p>Is it back?</p>
+
+<pre><code class="language-console">docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+x2b4hxuc2v9loe1l37rlzb62w *   manager1            Ready               Active              Leader
+npf2bl47rnkjeedlkx9in4dfy     worker1             Ready               Active              
+pf20a66rgtactwftxout1d3lx     worker2             Ready               Active          
+</code></pre>
+
+<p>Yes, it is!</p>
+
+<p>Interestingly, it doesn&rsquo;t run anything (yet):</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps -f desired-state=running redis
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE            ERROR               PORTS
+x9uc3roz8lcv        redis.1             redis:3.0.7         manager1            Running             Running 11 minutes ago                       
+ckmxpqsnypbt        redis.2             redis:3.0.7         worker2             Running             Running 21 minutes ago                       
+srp2rafc58l1        redis.3             redis:3.0.7         manager1            Running             Running 22 minutes ago            
+</code></pre>
+
+<h2 id="make-a-service-available-outside-the-swarm">Make a service available outside the swarm</h2>
+
+<blockquote>
+<p>Read about <a href="https://docs.docker.com/engine/swarm/ingress/">docker swarm networking</a>.</p>
+</blockquote>
+
+<p>To make a service available to the outside world, use:</p>
+
+<pre><code class="language-console">$ docker service create \
+  --name &lt;SERVICE-NAME&gt; \
+  --publish TARGET-PORT:CONTAINER-PORT \
+  &lt;IMAGE&gt;
+</code></pre>
+
+<p>Where:</p>
+
+<ul>
+<li><code>TARGET-PORT</code> is the port available to the outside world</li>
+<li><code>CONTAINER-PORT</code> is the port the container listens on</li>
+</ul>
+
+<p>Example with NGINX which <a href="https://github.com/dockerfile/nginx/blob/master/Dockerfile">exposes port 80</a>:</p>
+
+<p>From a manager:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service create --name my_web --replicas 3 --publish 8080:80 nginx
+bk615pfjc0qg1gr32b5nl1lra
+overall progress: 3 out of 3 tasks 
+1/3: running   [==================================================&gt;] 
+2/3: running   [==================================================&gt;] 
+3/3: running   [==================================================&gt;] 
+verify: Service converged 
+</code></pre>
+
+<p>Now all nodes listen on port <code>8080</code> as <code>nginx</code> is on all of them:</p>
+
+<pre><code class="language-console">docker@manager1:~$ docker service ps my_web
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE           ERROR               PORTS
+eh3q0xp0826s        my_web.1            nginx:latest        worker1             Running             Running 4 minutes ago                       
+b1iugchsy2er        my_web.2            nginx:latest        worker2             Running             Running 4 minutes ago                       
+jvswfbxt4zxl        my_web.3            nginx:latest        manager1            Running             Running 4 minutes ago                       
+</code></pre>
+
+<p>From your host (not on any node):</p>
+
+<pre><code class="language-console">$ curl -I $(docker-machine ip manager1):8080
+HTTP/1.1 200 OK
+Server: nginx/1.13.6
+Date: Tue, 21 Nov 2017 16:01:03 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 14 Sep 2017 16:35:09 GMT
+Connection: keep-alive
+ETag: &quot;59baafbd-264&quot;
+Accept-Ranges: bytes
+
+$ curl -I $(docker-machine ip worker1):8080 
+HTTP/1.1 200 OK
+Server: nginx/1.13.6
+Date: Tue, 21 Nov 2017 16:01:40 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 14 Sep 2017 16:35:09 GMT
+Connection: keep-alive
+ETag: &quot;59baafbd-264&quot;
+Accept-Ranges: bytes
+
+$ curl -I $(docker-machine ip worker2):8080
+HTTP/1.1 200 OK
+Server: nginx/1.13.6
+Date: Tue, 21 Nov 2017 16:01:45 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 14 Sep 2017 16:35:09 GMT
+Connection: keep-alive
+ETag: &quot;59baafbd-264&quot;
+Accept-Ranges: bytes
+</code></pre>
+
+<p>Great! But that&rsquo;s not super convenient, we may want to have a <strong>unique</strong> entry point to all these.</p>
+
+<p>You will need a load balancer to distribute traffic to all these nodes.</p>
+
+<p>Example with <a href="https://www.haproxy.com/">HAProxy</a>, which we will run as a docker container for convenience.</p>
+
+<p>Set the haproxy conf:</p>
+
+<pre><code>$ touch haproxy.cfg
+</code></pre>
+
+<p>And then fill this file with:</p>
+
+<pre><code class="language-ini">global
+        debug
+
+defaults
+        log global
+        mode    http
+        timeout connect 5000
+        timeout client 5000
+        timeout server 5000
+
+# Configure HAProxy to listen on port 80
+frontend http_front
+        bind *:80
+        default_backend http_back
+
+# Configure HAProxy to route requests to swarm nodes on port 8080
+backend http_back
+        balance roundrobin
+        rspadd X-Backend-Server:\ node1 if { srv_id 1 }
+        rspadd X-Backend-Server:\ node2 if { srv_id 2 }
+        rspadd X-Backend-Server:\ node3 if { srv_id 3 }
+        server node1 192.168.99.100:8080 check
+        server node2 192.168.99.101:8080 check
+        server node3 192.168.99.102:8080 check
+</code></pre>
+
+<blockquote>
+<p>Notice we&rsquo;re adding the <code>X-Backend-Server</code> with the node&rsquo;s name.
+It&rsquo;s just for clarity here, not something you&rsquo;d want to run in production or anything.</p>
+</blockquote>
+
+<p>Now, start the container:</p>
+
+<pre><code class="language-console">$ docker run -d --name haproxy -p 8888:80 -v $(pwd):/usr/local/etc/haproxy:ro haproxy:1.7.9-alpine
+haproxy
+</code></pre>
+
+<blockquote>
+<p>HAProxy listens on port <code>80</code> by default, but there&rsquo;s probably something running on this port your host, so we&rsquo;re mapping it to port <code>8888</code> on host.</p>
+</blockquote>
+
+<p>We can then query HAProxy and verify it sends traffic to the swarm:</p>
+
+<pre><code class="language-console">$ curl -I localhost:8888    
+HTTP/1.1 200 OK
+Server: nginx/1.13.6
+Date: Tue, 21 Nov 2017 17:11:25 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 14 Sep 2017 16:35:09 GMT
+ETag: &quot;59baafbd-264&quot;
+Accept-Ranges: bytes
+X-Backend-Server: node1
+
+$ curl -I localhost:8888
+HTTP/1.1 200 OK
+Server: nginx/1.13.6
+Date: Tue, 21 Nov 2017 17:11:30 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 14 Sep 2017 16:35:09 GMT
+ETag: &quot;59baafbd-264&quot;
+Accept-Ranges: bytes
+X-Backend-Server: node2
+
+$ curl -I localhost:8888
+HTTP/1.1 200 OK
+Server: nginx/1.13.6
+Date: Tue, 21 Nov 2017 17:11:31 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 14 Sep 2017 16:35:09 GMT
+ETag: &quot;59baafbd-264&quot;
+Accept-Ranges: bytes
+X-Backend-Server: node3
+</code></pre>
+
+<p>It&rsquo;s distributed and goes round the different nodes from the swarm.</p>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
+                        <a href="https://www.iyp-uk.com/blog/gitlab-review-apps/">Gitlab Review Apps</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="container">
+
+        
+
+        <div class="copyright">
+
+        
+            
+                <a href="https://www.iyp-uk.com/license">Copyright © 2017 IYP UK</a>
+            
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+            <a href="https://github.com/iyp-uk" target="_blank">
+                <img class="icon" src="https://www.iyp-uk.com/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="https://www.iyp-uk.com/index.xml">
+                <img class="icon" src="https://www.iyp-uk.com/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+
+  <script src="https://www.iyp-uk.com/js/highlight.min.js" defer></script>
+  
+
+
+
+
+
+
+
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+    
+  };
+</script>
+
+
+</body>
+</html>
+
