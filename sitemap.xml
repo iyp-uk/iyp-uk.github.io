@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.iyp-uk.com/blog/kong-authentication/</loc>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/blog/scale-with-docker-swarm/</loc>
     <lastmod>2017-11-21T12:17:29+00:00</lastmod>
   </url>
@@ -68,6 +73,12 @@
   </url>
   
   <url>
+    <loc>https://www.iyp-uk.com/tags/api/</loc>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/tags/architecture/</loc>
     <lastmod>2017-10-22T16:45:01+01:00</lastmod>
     <priority>0</priority>
@@ -93,7 +104,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/blog/</loc>
-    <lastmod>2017-11-21T12:17:29+00:00</lastmod>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -164,7 +175,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/</loc>
-    <lastmod>2017-11-21T12:17:29+00:00</lastmod>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -181,6 +192,12 @@
   </url>
   
   <url>
+    <loc>https://www.iyp-uk.com/tags/kong/</loc>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/tags/kubernetes/</loc>
     <lastmod>2017-08-24T11:07:05+01:00</lastmod>
     <priority>0</priority>
@@ -189,6 +206,12 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/local/</loc>
     <lastmod>2017-08-24T11:07:05+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/microservices/</loc>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -266,7 +289,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/tags/</loc>
-    <lastmod>2017-10-22T16:45:01+01:00</lastmod>
+    <lastmod>2017-11-27T10:07:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
