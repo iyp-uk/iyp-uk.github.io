@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Mon, 27 Nov 2017 10:07:25 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Dec 2017 12:27:18 +0000</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kong Custom Plugin</title>
+      <link>https://www.iyp-uk.com/blog/kong-custom-plugin/</link>
+      <pubDate>Mon, 04 Dec 2017 12:27:18 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/kong-custom-plugin/</guid>
+      <description>Purpose So you&amp;rsquo;re using Kong and have fun with it. But the provided plugins are not enough for your needs? You&amp;rsquo;re demanding!
+We will show here how to write your own and distribute it.
+ In this article we will build a custom plugin named aws-lambda-status-code. You can find its source code on Github or get it from Luarocks.
+ Development Setting up  Also read the official documentation.</description>
+    </item>
     
     <item>
       <title>Kong Authentication</title>
