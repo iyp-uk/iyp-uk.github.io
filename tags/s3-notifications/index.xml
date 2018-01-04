@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Terraform on IYP UK</title>
-    <link>https://www.iyp-uk.com/tags/terraform/</link>
-    <description>Recent content in Terraform on IYP UK</description>
+    <title>S3 Notifications on IYP UK</title>
+    <link>https://www.iyp-uk.com/tags/s3-notifications/</link>
+    <description>Recent content in S3 Notifications on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
     <lastBuildDate>Wed, 03 Jan 2018 10:27:10 +0100</lastBuildDate>
     
-	<atom:link href="https://www.iyp-uk.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.iyp-uk.com/tags/s3-notifications/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,16 +22,6 @@
 This makes use of S3 event notification to fire a Lambda function that will index data from the documents added to the S3 bucket in Elasticsearch.
 Elements in use S3 bucket main.tf:
 provider &amp;quot;aws&amp;quot; { shared_credentials_file = &amp;quot;${var.aws_shared_credentials_file}&amp;quot; profile = &amp;quot;${var.aws_profile}&amp;quot; region = &amp;quot;${var.aws_region}&amp;quot; } resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; { count = 3 bucket = &amp;quot;${var.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started With Terraform</title>
-      <link>https://www.iyp-uk.com/blog/getting-started-with-terraform/</link>
-      <pubDate>Thu, 24 Aug 2017 16:23:41 +0100</pubDate>
-      
-      <guid>https://www.iyp-uk.com/blog/getting-started-with-terraform/</guid>
-      <description>Definitions Terraform is a tool to manage infrastructures. This means you will create infrastructures (compute instances, storage, networking, DNS entries, &amp;hellip;) You may be already familiar with Ansible, which is a configuration management tool. This means with tools like Ansible, you can configure the infrastructure elements already created either manually or with Terraform.
-What we will do  Creating an EC2 instance on AWS Destroying this EC2 instance  Install terraform  Please refer to the official documentation for variants.</description>
     </item>
     
   </channel>

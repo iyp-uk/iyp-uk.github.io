@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017 IYP UK</copyright>
-    <lastBuildDate>Mon, 04 Dec 2017 12:27:18 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2018 10:27:10 +0100</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terraform S3 Lambda Elasticsearch</title>
+      <link>https://www.iyp-uk.com/blog/terraform-s3-lambda-elasticsearch/</link>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/terraform-s3-lambda-elasticsearch/</guid>
+      <description>Goal In this post, we will provide the required infrastructure to index data in Elasticsearch from Events of an S3 bucket with Lambda.
+This makes use of S3 event notification to fire a Lambda function that will index data from the documents added to the S3 bucket in Elasticsearch.
+Elements in use S3 bucket main.tf:
+provider &amp;quot;aws&amp;quot; { shared_credentials_file = &amp;quot;${var.aws_shared_credentials_file}&amp;quot; profile = &amp;quot;${var.aws_profile}&amp;quot; region = &amp;quot;${var.aws_region}&amp;quot; } resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; { count = 3 bucket = &amp;quot;${var.</description>
+    </item>
     
     <item>
       <title>Kong Custom Plugin</title>

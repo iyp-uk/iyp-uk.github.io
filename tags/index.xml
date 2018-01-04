@@ -33,7 +33,7 @@
     <item>
       <title>Aws</title>
       <link>https://www.iyp-uk.com/tags/aws/</link>
-      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/aws/</guid>
       <description></description>
@@ -114,7 +114,7 @@
     <item>
       <title>Elasticsearch</title>
       <link>https://www.iyp-uk.com/tags/elasticsearch/</link>
-      <pubDate>Mon, 31 Jul 2017 12:01:35 +0100</pubDate>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/elasticsearch/</guid>
       <description></description>
@@ -180,6 +180,15 @@
       <pubDate>Thu, 24 Aug 2017 11:07:05 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>https://www.iyp-uk.com/tags/lambda/</link>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/lambda/</guid>
       <description></description>
     </item>
     
@@ -283,6 +292,24 @@
     </item>
     
     <item>
+      <title>S3</title>
+      <link>https://www.iyp-uk.com/tags/s3/</link>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3 Notifications</title>
+      <link>https://www.iyp-uk.com/tags/s3-notifications/</link>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/s3-notifications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Scalability</title>
       <link>https://www.iyp-uk.com/tags/scalability/</link>
       <pubDate>Tue, 21 Nov 2017 12:17:29 +0000</pubDate>
@@ -321,7 +348,7 @@
     <item>
       <title>Terraform</title>
       <link>https://www.iyp-uk.com/tags/terraform/</link>
-      <pubDate>Thu, 24 Aug 2017 16:23:41 +0100</pubDate>
+      <pubDate>Wed, 03 Jan 2018 10:27:10 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/terraform/</guid>
       <description></description>

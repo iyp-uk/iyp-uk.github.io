@@ -2,7 +2,6 @@
 <html lang="en-GB">
 
 <head>
-	<meta name="generator" content="Hugo 0.29" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
@@ -15,24 +14,24 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.iyp-uk.com/" />
-<meta property="og:title" content="IYP UK" />
-<meta property="twitter:title" content="IYP UK">
+<meta property="og:url" content="https://www.iyp-uk.com/blog/terraform-s3-lambda-elasticsearch/" />
+<meta property="og:title" content="Terraform S3 Lambda Elasticsearch" />
+<meta property="twitter:title" content="Terraform S3 Lambda Elasticsearch">
 
     <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="https://www.iyp-uk.com/img/logo.png">
 
-<meta property="og:description" content="IYP UK&#39;s website">
-<meta property="twitter:description" content="IYP UK&#39;s website">
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
 
 <title>
 
 
-    IYP UK
+     IYP UK - Terraform S3 Lambda Elasticsearch 
 
 </title>
-<link rel="canonical" href="https://www.iyp-uk.com/">
+<link rel="canonical" href="https://www.iyp-uk.com/blog/terraform-s3-lambda-elasticsearch/">
 
 
 <style media="screen">
@@ -928,8 +927,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://www.iyp-uk.com/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
-
 
 
 <script>
@@ -946,7 +943,7 @@ ga('send', 'pageview');
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://www.iyp-uk.com/"><img class="logo" src="https://www.iyp-uk.com/img/logo.png" alt="logo" /></a>
@@ -973,78 +970,272 @@ ga('send', 'pageview');
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            
-                <div class="markdown">
-                <p><a href="https://www.iyp-uk.com/">IYP UK</a> provides digital solutions for real-world problems.</p>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Terraform S3 Lambda Elasticsearch
+
+</div>
 
                 </div>
-            
-
-            
-                <div class="posts">
-                
-                
-                    <div class="page-heading">Latest posts</div>
-                    <ul>
+                <div class="meta">
+                    <div class="date" title="Wed Jan 3 2018 10:27:10 CET">Jan 3, 2018</div>
                     
-                        <li class="groupby">Jan, 2018</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Jan 3, 2018</span>
-    <a href="https://www.iyp-uk.com/blog/terraform-s3-lambda-elasticsearch/"><span>Terraform S3 Lambda Elasticsearch</span></a>
-</li>
-
                         
                     
-                        <li class="groupby">Dec, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Dec 4, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/kong-custom-plugin/"><span>Kong Custom Plugin</span></a>
-</li>
-
-                        
-                    
-                        <li class="groupby">Nov, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 27, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/kong-authentication/"><span>Kong Authentication</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 21, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/scale-with-docker-swarm/"><span>Scale With Docker Swarm</span></a>
-</li>
-
-                        
-                            <li class="post-item">
-    <span class="meta">Nov 14, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/gitlab-review-apps/"><span>Gitlab Review Apps</span></a>
-</li>
-
-                        
-                    
-                    </ul>
-
-                    
-                        <a href="./blog/" class="see-more">See more ...</a>
-                    
-                
+                    <div class="reading-time"><div class="middot"></div>3 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/terraform">Terraform</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/aws">AWS</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/s3">S3</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/lambda">Lambda</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/elasticsearch">Elasticsearch</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/s3-notifications">S3 notifications</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
                 </div>
-            
-
-            <div class="best-posts">
-            
-            
             </div>
+            <div class="markdown">
+                
+    
+
+<h2 id="goal">Goal</h2>
+
+<p>In this post, we will provide the required infrastructure to <a href="https://aws.amazon.com/blogs/database/indexing-metadata-in-amazon-elasticsearch-service-using-aws-lambda-and-python/">index data in Elasticsearch from Events of an S3 bucket with Lambda</a>.</p>
+
+<p>This makes use of <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">S3 event notification</a> to fire a Lambda function that will index data from the documents added to the S3 bucket in Elasticsearch.</p>
+
+<h2 id="elements-in-use">Elements in use</h2>
+
+<p><img src="https://d2908q01vomqb2.cloudfront.net/887309d048beef83ad3eabf2a79a64a389ab1c9f/2016/12/20/Services.png" alt="Elements in use" /></p>
+
+<h2 id="s3-bucket">S3 bucket</h2>
+
+<p><code>main.tf</code>:</p>
+
+<pre><code>provider &quot;aws&quot; {
+  shared_credentials_file = &quot;${var.aws_shared_credentials_file}&quot;
+  profile                 = &quot;${var.aws_profile}&quot;
+  region                  = &quot;${var.aws_region}&quot;
+}
+
+resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
+  count   = 3
+  bucket  = &quot;${var.aws_s3_bucket_prefix}-${element(var.aws_s3_buckets, count.index)}&quot;
+  acl     = &quot;private&quot;
+
+  tags {
+    Name        = &quot;Project's ${element(var.aws_s3_buckets, count.index)} bucket&quot;
+    Environment = &quot;${element(var.aws_s3_buckets, count.index)}&quot;
+  }
+}
+</code></pre>
+
+<p><code>variables.tf</code>:</p>
+
+<pre><code>variable &quot;aws_region&quot; {
+  default = &quot;eu-west-1&quot;
+}
+variable &quot;aws_shared_credentials_file&quot; {
+  default = &quot;~/.aws/credentials&quot;
+}
+variable &quot;aws_profile&quot; {
+  default = &quot;profile_name&quot;
+}
+variable &quot;aws_s3_bucket_prefix&quot; {
+  default = &quot;some-prefix&quot;
+}
+variable &quot;aws_s3_buckets&quot; {
+  description = &quot;List of buckets to hold data&quot;
+  type        = &quot;list&quot;
+  default     = [&quot;dev&quot;, &quot;uat&quot;, &quot;prod&quot;]
+}
+</code></pre>
+
+<h2 id="lambda-with-s3-notifications">Lambda with S3 notifications</h2>
+
+<p>When Lambda resources are being processed, they need to have:</p>
+
+<ul>
+<li>A zip file attached (that&rsquo;s the method we will use, it can be a dummy function)</li>
+<li><code>s3_*</code> properties defined when the lambda source code is hosted in an S3 bucket.</li>
+</ul>
+
+<p>Notice then that we&rsquo;re grabbing a file named <code>lambda_function.py</code>, in <code>${path.module}/../lambda/src</code> where <code>${path.module}</code> is where terraform <code>.tf</code> files live.</p>
+
+<p><code>lambda_function.py</code>:</p>
+
+<pre><code class="language-python">def lambda_handler(event, context):
+  print &quot;Hello, world!&quot;
+</code></pre>
+
+<blockquote>
+<p><code>lambda_function.py</code> and <code>lambda_handler</code> method correspond to what is defined below under <code>aws_lambda_function</code>&rsquo;s handler.</p>
+</blockquote>
+
+<p><code>main.tf</code>:</p>
+
+<pre><code>data &quot;archive_file&quot; &quot;lambda_zip_file&quot; {
+  type        = &quot;zip&quot;
+  source_dir  = &quot;${path.module}/../lambda/src&quot;
+  output_path = &quot;${path.module}/../lambda/lambda.zip&quot;
+}
+
+resource &quot;aws_iam_role&quot; &quot;iam_lambda_role&quot; {
+  name = &quot;iam_lambda_role&quot;
+
+  assume_role_policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: &quot;lambda.amazonaws.com&quot;
+      },
+      &quot;Effect&quot;: &quot;Allow&quot;
+    }
+  ]
+}
+EOF
+}
+
+resource &quot;aws_lambda_permission&quot; &quot;allow_bucket&quot; {
+  count         = &quot;${length(var.aws_s3_buckets)}&quot;
+  statement_id  = &quot;AllowExecutionFromS3Bucket&quot;
+  action        = &quot;lambda:InvokeFunction&quot;
+  function_name = &quot;${element(aws_lambda_function.func.*.arn, count.index)}&quot;
+  principal     = &quot;s3.amazonaws.com&quot;
+  source_arn    = &quot;${element(aws_s3_bucket.bucket.*.arn, count.index)}&quot;
+}
+
+resource &quot;aws_lambda_function&quot; &quot;func&quot; {
+  filename         = &quot;${path.module}/../lambda/lambda.zip&quot;
+  count            = &quot;${length(var.aws_s3_buckets)}&quot;
+  function_name    = &quot;drivers_stats_producer_${element(var.aws_s3_buckets, count.index)}&quot;
+  role             = &quot;${aws_iam_role.iam_lambda_role.arn}&quot;
+  handler          = &quot;lambda_function.lambda_handler&quot;
+  runtime          = &quot;python2.7&quot;
+
+  environment {
+    variables = {
+      env = &quot;${element(var.aws_s3_buckets, count.index)}&quot;
+    }
+  }
+}
+
+resource &quot;aws_s3_bucket_notification&quot; &quot;bucket_notification&quot; {
+  count  = &quot;${length(var.aws_s3_buckets)}&quot;
+  bucket = &quot;${element(aws_s3_bucket.bucket.*.id, count.index)}&quot;
+
+  lambda_function {
+    lambda_function_arn = &quot;${element(aws_lambda_function.func.*.arn, count.index)}&quot;
+    events              = [&quot;s3:ObjectCreated:*&quot;]
+  }
+}
+</code></pre>
+
+<h2 id="elasticsearch-cluster">Elasticsearch cluster</h2>
+
+<p>Creating an Elasticsearch cluster in AWS takes a while, whether from the UI or with Terraform.
+Be prepared to wait for about 20 minutes or more.</p>
+
+<blockquote>
+<p>Take note that the policy defines the ES instance to be publicly accessible to anyone.
+This is what is shown in the AWS document, but you will want to change that to your needs, it is <strong>not recommended</strong> to keep it like that.
+You can restrict access policy and filter by IP or IAM users, etc.</p>
+</blockquote>
+
+<pre><code>resource &quot;aws_elasticsearch_domain&quot; &quot;es_domain&quot; {
+  domain_name           = &quot;${var.aws_es_domain_name}&quot;
+  elasticsearch_version = &quot;${var.aws_es_version}&quot;
+
+  cluster_config {
+    instance_type   = &quot;m4.large.elasticsearch&quot;
+    instance_count  = 2
+  }
+
+  snapshot_options {
+    automated_snapshot_start_hour = 23
+  }
+
+  ebs_options {
+    ebs_enabled = true
+    volume_size = 30
+  }
+}
+
+resource &quot;aws_elasticsearch_domain_policy&quot; &quot;main&quot; {
+  domain_name = &quot;${aws_elasticsearch_domain.es_domain.domain_name}&quot;
+
+  access_policies = &lt;&lt;POLICIES
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Principal&quot;: {
+        &quot;AWS&quot;: &quot;*&quot;
+      },
+      &quot;Action&quot;: &quot;es:*&quot;,
+      &quot;Resource&quot;: &quot;${aws_elasticsearch_domain.es_domain.arn}/*&quot;
+    }
+  ]
+}
+POLICIES
+}
+</code></pre>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
+                        <a href="https://www.iyp-uk.com/blog/kong-custom-plugin/">Kong Custom Plugin</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
 
@@ -1119,5 +1310,4 @@ ga('send', 'pageview');
 
 </body>
 </html>
-
 
