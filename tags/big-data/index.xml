@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on IYP UK</title>
-    <link>https://www.iyp-uk.com/tags/java/</link>
-    <description>Recent content in Java on IYP UK</description>
+    <title>Big Data on IYP UK</title>
+    <link>https://www.iyp-uk.com/tags/big-data/</link>
+    <description>Recent content in Big Data on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2017-2018 IYP UK</copyright>
     <lastBuildDate>Mon, 19 Feb 2018 14:50:28 +0000</lastBuildDate>
     
-	<atom:link href="https://www.iyp-uk.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.iyp-uk.com/tags/big-data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
       <description>Running Spark locally (single machine) Prerequisites You must have Java to run Spark.
 $ java -version java version &amp;quot;1.8.0_151&amp;quot; Java(TM) SE Runtime Environment (build 1.8.0_151-b12) Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)  Installation Go to the Spark Download page and get the latest version, leaving all options to default. At the time of writing this is spark-2.2.1-bin-hadoop2.7.tgz.
 $ cd ~ $ mv Downloads/spark-2.2.1-bin-hadoop2.7.tgz . $ tar -xf spark-2.</description>
-    </item>
-    
-    <item>
-      <title>Java Spring Boot Getting Started</title>
-      <link>https://www.iyp-uk.com/blog/java-spring-boot-getting-started/</link>
-      <pubDate>Sat, 04 Nov 2017 16:04:16 +0000</pubDate>
-      
-      <guid>https://www.iyp-uk.com/blog/java-spring-boot-getting-started/</guid>
-      <description>Part 1: Basic set up  Steps inspired by spring boot getting started guide.
- Add some basic dependencies and Java file to return Hello world!
- See the code on github.
- Part 2: Using spring boot Typical project layout com +- example +- myapplication +- Application.java | +- customer | +- Customer.java | +- CustomerController.java | +- CustomerService.java | +- CustomerRepository.java | +- order +- Order.java +- OrderController.</description>
     </item>
     
   </channel>

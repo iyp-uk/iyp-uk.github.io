@@ -112,6 +112,12 @@
   </url>
   
   <url>
+    <loc>https://www.iyp-uk.com/tags/big-data/</loc>
+    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/tags/ble/</loc>
     <lastmod>2017-08-26T18:14:18+01:00</lastmod>
     <priority>0</priority>
@@ -202,7 +208,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/tags/java/</loc>
-    <lastmod>2017-11-04T16:04:16+00:00</lastmod>
+    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -303,8 +309,20 @@
   </url>
   
   <url>
+    <loc>https://www.iyp-uk.com/tags/scala/</loc>
+    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/tags/scalability/</loc>
     <lastmod>2017-11-21T12:17:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/spark/</loc>
+    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
