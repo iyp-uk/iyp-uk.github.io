@@ -6,11 +6,19 @@
     <description>Recent content in Big Data on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <copyright>Copyright © 2017-2018 IYP UK</copyright>
-    <lastBuildDate>Mon, 19 Feb 2018 14:50:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Apr 2018 21:18:36 +0100</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/tags/big-data/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Designing Data Intensive Applications</title>
+      <link>https://www.iyp-uk.com/books/designing-data-intensive-applications/</link>
+      <pubDate>Mon, 09 Apr 2018 21:18:36 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/books/designing-data-intensive-applications/</guid>
+      <description>Read on gitbooks.</description>
+    </item>
     
     <item>
       <title>Getting Started With Spark</title>

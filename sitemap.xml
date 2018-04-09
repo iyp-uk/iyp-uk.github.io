@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.iyp-uk.com/books/designing-data-intensive-applications/</loc>
+    <lastmod>2018-04-09T21:18:36+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/blog/getting-started-with-spark/</loc>
     <lastmod>2018-02-19T14:50:28+00:00</lastmod>
   </url>
@@ -25,6 +30,11 @@
   <url>
     <loc>https://www.iyp-uk.com/blog/scale-with-docker-swarm/</loc>
     <lastmod>2017-11-21T12:17:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/blog/streaming-applications/</loc>
+    <lastmod>2017-11-17T09:46:54+00:00</lastmod>
   </url>
   
   <url>
@@ -78,6 +88,11 @@
   </url>
   
   <url>
+    <loc>https://www.iyp-uk.com/about/</loc>
+    <lastmod>2017-07-31T11:06:28+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/license/</loc>
     <lastmod>2017-07-31T11:06:04+01:00</lastmod>
   </url>
@@ -113,7 +128,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/tags/big-data/</loc>
-    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
+    <lastmod>2018-04-09T21:18:36+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -132,6 +147,18 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/bluetooth/</loc>
     <lastmod>2017-08-26T18:14:18+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/books/</loc>
+    <lastmod>2018-04-09T21:18:36+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/books/</loc>
+    <lastmod>2018-04-09T21:18:36+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -196,7 +223,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/</loc>
-    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
+    <lastmod>2018-04-09T21:18:36+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -209,6 +236,12 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/java/</loc>
     <lastmod>2018-02-19T14:50:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/kafka/</loc>
+    <lastmod>2017-11-17T09:46:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -251,6 +284,12 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/mongodb/</loc>
     <lastmod>2017-08-18T14:47:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/mqtt/</loc>
+    <lastmod>2017-11-17T09:46:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -329,6 +368,12 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/spring-boot/</loc>
     <lastmod>2017-11-04T16:04:16+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/streaming/</loc>
+    <lastmod>2017-11-17T09:46:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   

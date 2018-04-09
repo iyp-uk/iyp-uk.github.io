@@ -6,7 +6,6 @@
     <description>Recent content in Tags on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <copyright>Copyright © 2017-2018 IYP UK</copyright>
     <lastBuildDate>Mon, 04 Dec 2017 12:27:18 +0000</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -51,7 +50,7 @@
     <item>
       <title>Big Data</title>
       <link>https://www.iyp-uk.com/tags/big-data/</link>
-      <pubDate>Mon, 19 Feb 2018 14:50:28 +0000</pubDate>
+      <pubDate>Mon, 09 Apr 2018 21:18:36 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/big-data/</guid>
       <description></description>
@@ -72,6 +71,15 @@
       <pubDate>Sat, 26 Aug 2017 18:14:18 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>https://www.iyp-uk.com/tags/books/</link>
+      <pubDate>Mon, 09 Apr 2018 21:18:36 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/books/</guid>
       <description></description>
     </item>
     
@@ -175,6 +183,15 @@
     </item>
     
     <item>
+      <title>Kafka</title>
+      <link>https://www.iyp-uk.com/tags/kafka/</link>
+      <pubDate>Fri, 17 Nov 2017 09:46:54 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Kong</title>
       <link>https://www.iyp-uk.com/tags/kong/</link>
       <pubDate>Mon, 04 Dec 2017 12:27:18 +0000</pubDate>
@@ -234,6 +251,15 @@
       <pubDate>Fri, 18 Aug 2017 14:47:35 +0100</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mqtt</title>
+      <link>https://www.iyp-uk.com/tags/mqtt/</link>
+      <pubDate>Fri, 17 Nov 2017 09:46:54 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/mqtt/</guid>
       <description></description>
     </item>
     
@@ -351,6 +377,15 @@
       <pubDate>Sat, 04 Nov 2017 16:04:16 +0000</pubDate>
       
       <guid>https://www.iyp-uk.com/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Streaming</title>
+      <link>https://www.iyp-uk.com/tags/streaming/</link>
+      <pubDate>Fri, 17 Nov 2017 09:46:54 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/tags/streaming/</guid>
       <description></description>
     </item>
     

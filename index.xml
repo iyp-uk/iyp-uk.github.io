@@ -6,11 +6,19 @@
     <description>Recent content on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <copyright>Copyright © 2017-2018 IYP UK</copyright>
-    <lastBuildDate>Mon, 19 Feb 2018 14:50:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Apr 2018 21:18:36 +0100</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Designing Data Intensive Applications</title>
+      <link>https://www.iyp-uk.com/books/designing-data-intensive-applications/</link>
+      <pubDate>Mon, 09 Apr 2018 21:18:36 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/books/designing-data-intensive-applications/</guid>
+      <description>Read on gitbooks.</description>
+    </item>
     
     <item>
       <title>Getting Started With Spark</title>
@@ -68,6 +76,17 @@ $ docker run --rm \ --link kong-database:kong-database \ -e &amp;quot;KONG_DATAB
       <description>What&amp;rsquo;s the plan In this article, we will demonstrate how to scale your app with docker swarm.
 Definitions Swarm A docker swarm is a group of docker hosts operating in swarm mode. Every docker host can be:
  A manager  Manages orchestration of the workers  A worker  Run containers as part of a service (see below for service defintion)  Both at the same time  Node A docker node is an instance of the docker engine.</description>
+    </item>
+    
+    <item>
+      <title>Streaming Applications</title>
+      <link>https://www.iyp-uk.com/blog/streaming-applications/</link>
+      <pubDate>Fri, 17 Nov 2017 09:46:54 +0000</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/streaming-applications/</guid>
+      <description>What&amp;rsquo;s the plan? The plan is to define a distributed architecture to get streams and make some sense out of it.
+We will create:
+   Component Role     Producer Produce streams of (potentially heterogeneous) data   API Gateway Is the entry point to the collection of services   Stream Processor Manages the incoming stream, transforms and allow services to consume   Data warehouse OLAP for streams   Web app A web app, exposing some of the data to a portal    Ok let&amp;rsquo;s start Easy Peasy as it&amp;rsquo;s a vast program here: Producer.</description>
     </item>
     
     <item>
@@ -177,6 +196,18 @@ What is Gardenlog? Gardenlog is a project which:
       
       <guid>https://www.iyp-uk.com/home/</guid>
       <description>IYP UK provides digital solutions for real-world problems.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.iyp-uk.com/about/</link>
+      <pubDate>Mon, 31 Jul 2017 11:06:28 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/about/</guid>
+      <description> What we do IYP UK is an IT consultancy company operating across Europe.
+We specialise in IoT, Big Data and Cloud.
+New circumstances call for new methods, so we offer state-of-the-art services such as:
+ Architecture, Technical guidance and Strategy Project / Product management Development, Testing and Infrastructure Performance and Security audits Operations, Monitoring, Logging and Alerting  Clients  Air France Avene Cartier Elastoplast Intelematics Kellogg&amp;rsquo;s LVMH Michelin PwC  </description>
     </item>
     
     <item>
