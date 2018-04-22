@@ -6,10 +6,22 @@
     <description>Recent content in Python on IYP UK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Sun, 29 Oct 2017 10:06:26 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Apr 2018 21:51:31 +0100</lastBuildDate>
     
 	<atom:link href="https://www.iyp-uk.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Traffic Signal</title>
+      <link>https://www.iyp-uk.com/blog/traffic-signal/</link>
+      <pubDate>Sun, 22 Apr 2018 21:51:31 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/traffic-signal/</guid>
+      <description>Project Learn how to mimic traffic lights with 3 LEDs.
+This project comes with code and instructions for both arduino and raspberry pi.
+Both versions do the same thing, so you can also compare how these 2 programs differ.
+What you need  1x breadboard 3x LEDs: Red, Yellow, Green 3x 150 ohm resistors 1x Arduino or Raspberry pi Jumper wires  Repository and detailed instructions See iyp-uk/traffic-signal on github.</description>
+    </item>
     
     <item>
       <title>TDD Django Docker</title>
