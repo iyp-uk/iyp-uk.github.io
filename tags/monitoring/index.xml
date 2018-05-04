@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring on IYP UK</title>
+    <link>https://www.iyp-uk.com/tags/monitoring/</link>
+    <description>Recent content in Monitoring on IYP UK</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 04 May 2018 14:30:33 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.iyp-uk.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kafka JMX</title>
+      <link>https://www.iyp-uk.com/blog/kafka-jmx/</link>
+      <pubDate>Fri, 04 May 2018 14:30:33 +0100</pubDate>
+      
+      <guid>https://www.iyp-uk.com/blog/kafka-jmx/</guid>
+      <description>How to: JMX and Kafka There are many many ways to read from JMX in general.
+We will show here 2 ways:
+ using a GUI-based JMX-client: jconsole using a cli JMX-client: jmxterm  Running kafka You can run kafka the way you want.
+In order to get JMX, you just need to set the JMX_PORT environment variable to an open port (usually 9999) before you start kafka.
+If you use the iyp-uk.</description>
+    </item>
+    
+  </channel>
+</rss>

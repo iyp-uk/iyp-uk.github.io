@@ -2,7 +2,6 @@
 <html lang="en-GB">
 
 <head>
-	<meta name="generator" content="Hugo 0.40.2" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
@@ -15,24 +14,24 @@
 <meta property="og:site_name" content="IYP UK" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.iyp-uk.com/" />
-<meta property="og:title" content="IYP UK" />
-<meta property="twitter:title" content="IYP UK">
+<meta property="og:url" content="https://www.iyp-uk.com/blog/kafka-jmx/" />
+<meta property="og:title" content="Kafka JMX" />
+<meta property="twitter:title" content="Kafka JMX">
 
     <meta property="og:image" content="https://www.iyp-uk.com/img/logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="https://www.iyp-uk.com/img/logo.png">
 
-<meta property="og:description" content="IYP UK&#39;s website">
-<meta property="twitter:description" content="IYP UK&#39;s website">
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
 
 <title>
 
 
-    IYP UK
+     IYP UK - Kafka JMX 
 
 </title>
-<link rel="canonical" href="https://www.iyp-uk.com/">
+<link rel="canonical" href="https://www.iyp-uk.com/blog/kafka-jmx/">
 
 
 <style media="screen">
@@ -928,8 +927,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://www.iyp-uk.com/index.xml" rel="alternate" type="application/rss+xml" title="IYP UK" />
-
 
 
 <script>
@@ -946,7 +943,7 @@ ga('send', 'pageview');
 <body>
 
 
-<section class="header header-home">
+<section class="header">
 
     <div class="container">
         <a href="https://www.iyp-uk.com/"><img class="logo" src="https://www.iyp-uk.com/img/logo.png" alt="logo" /></a>
@@ -983,84 +980,300 @@ ga('send', 'pageview');
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            
-                <div class="markdown">
-                <p><a href="https://www.iyp-uk.com/">IYP UK</a> provides digital solutions for real-world problems.</p>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Kafka JMX
+
+</div>
 
                 </div>
-            
-
-            
-                <div class="posts">
-                
-                
-                    <div class="page-heading">Latest posts</div>
-                    <ul>
+                <div class="meta">
+                    <div class="date" title="Fri May 4 2018 14:30:33 BST">May 4, 2018</div>
                     
-                        <li class="groupby">May, 2018</li>
-                        
-                            <li class="post-item">
-    <span class="meta">May 4, 2018</span>
-    <a href="https://www.iyp-uk.com/blog/kafka-jmx/"><span>Kafka JMX</span></a>
-</li>
-
                         
                     
-                        <li class="groupby">Apr, 2018</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Apr 22, 2018</span>
-    <a href="https://www.iyp-uk.com/blog/traffic-signal/"><span>Traffic Signal</span></a>
-</li>
-
-                        
-                    
-                        <li class="groupby">Feb, 2018</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Feb 19, 2018</span>
-    <a href="https://www.iyp-uk.com/blog/getting-started-with-spark/"><span>Getting Started With Spark</span></a>
-</li>
-
-                        
-                    
-                        <li class="groupby">Jan, 2018</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Jan 3, 2018</span>
-    <a href="https://www.iyp-uk.com/blog/terraform-s3-lambda-elasticsearch/"><span>Terraform S3 Lambda Elasticsearch</span></a>
-</li>
-
-                        
-                    
-                        <li class="groupby">Dec, 2017</li>
-                        
-                            <li class="post-item">
-    <span class="meta">Dec 4, 2017</span>
-    <a href="https://www.iyp-uk.com/blog/kong-custom-plugin/"><span>Kong Custom Plugin</span></a>
-</li>
-
-                        
-                    
-                    </ul>
-
-                    
-                        <a href="./blog/" class="see-more">See more ...</a>
-                    
-                
+                    <div class="reading-time"><div class="middot"></div>4 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/kafka">Kafka</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/java">Java</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/monitoring">Monitoring</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="https://www.iyp-uk.com/tags/jmx">JMX</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
                 </div>
-            
-
-            <div class="best-posts">
-            
-            
             </div>
+            <div class="markdown">
+                
+    
+
+<h2 id="how-to-jmx-and-kafka">How to: JMX and Kafka</h2>
+
+<p>There are many many ways to read from <a href="https://en.wikipedia.org/wiki/Java_Management_Extensions">JMX</a> in general.</p>
+
+<p>We will show here 2 ways:</p>
+
+<ol>
+<li>using a GUI-based JMX-client: <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/jconsole.html">jconsole</a></li>
+<li>using a cli JMX-client: <a href="https://cwiki.apache.org/confluence/display/KAFKA/jmxterm+quickstart">jmxterm</a></li>
+</ol>
+
+<h2 id="running-kafka">Running kafka</h2>
+
+<p>You can run kafka the way you want.</p>
+
+<p>In order to get JMX, you just need to set the <code>JMX_PORT</code> environment variable to an open port (usually <code>9999</code>) before you start kafka.</p>
+
+<p>If you use the <a href="https://galaxy.ansible.com/iyp-uk/kafka/"><code>iyp-uk.kafka</code> ansible role</a>, it&rsquo;s as simple as setting it in your role&rsquo;s variables like so:</p>
+
+<pre><code class="language-yaml">kafka_env:
+  JMX_PORT: 9999
+</code></pre>
+
+<p>Or for a more complete typical example:</p>
+
+<pre><code class="language-yaml">- name: Installing Kakfa
+  hosts: kafka
+  become: yes
+  roles:
+    - role: kafka
+      kafka_hosts: &quot;{{groups['kafka']}}&quot;
+      kafka_zookeeper_hosts: &quot;{{groups['zookeeper']}}&quot;
+      kafka_env:
+        JMX_PORT: 9999
+      kafka_config:
+        server:
+          num_partitions: 3
+          offsets_topic_replication_factor: 3
+          transaction_state_log_replication_factor: 3
+          log_retention_hours: -1
+</code></pre>
+
+<blockquote>
+<p>From now on, we will assume we have 3 brokers: <code>kaf1</code>, <code>kaf2</code> and <code>kaf3</code>, with JMX exported on port <code>9999</code>.</p>
+</blockquote>
+
+<h2 id="jmx-client">JMX-client</h2>
+
+<h3 id="jconsole"><code>jconsole</code></h3>
+
+<p>With <code>jconsole</code>, you don&rsquo;t need to have anything sitting on the brokers, as you can do it remotely (as long as you can access the port remotely).</p>
+
+<p>It comes with Java, so you don&rsquo;t need to install it specifically.</p>
+
+<p>So, let&rsquo;s get started:</p>
+
+<pre><code class="language-console">$ jconsole
+</code></pre>
+
+<p>Select &ldquo;remote&rdquo; and supply your broker JMX endpoint such as <code>kaf1:9999</code>.</p>
+
+<p>By default, authentication is <strong>not</strong> enabled, so you don&rsquo;t need to specify any username / password.</p>
+
+<p>You then get something like:</p>
+
+
+<figure>
+    
+        <img src="https://www.iyp-uk.com/img/jconsole.png" />
+    
+    
+</figure>
+
+
+<p>The part we&rsquo;re particularly interested in lives in the <code>MBeans</code> tab.</p>
+
+<p>Example with under-replicated partitions - They should always be equal to 0.</p>
+
+<p>The corresponding MBean is <code>kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions</code></p>
+
+<p>So under the <code>MBean</code> tab, expand:</p>
+
+<ul>
+<li><code>kafka.server</code></li>
+<li><code>ReplicaManager</code></li>
+<li><code>UnderReplicatedPartitions</code></li>
+<li><code>Attributes</code></li>
+<li><code>Value</code></li>
+</ul>
+
+<p>Check it&rsquo;s effectively 0.</p>
+
+
+<figure>
+    
+        <img src="https://www.iyp-uk.com/img/jconsole-UnderReplicatedPartitions.png" />
+    
+    
+</figure>
+
+
+<h3 id="jmxterm"><code>jmxterm</code></h3>
+
+<p>As its name suggests, it&rsquo;s a terminal-based utility. Go and <a href="http://wiki.cyclopsgroup.org/jmxterm/download.html">download</a> it.</p>
+
+<p>Let&rsquo;s start it, and connect to our remote broker:</p>
+
+<pre><code class="language-console">$ java -jar jmxterm-1.0.0-uber.jar --url kaf1:9999
+Welcome to JMX terminal. Type &quot;help&quot; for available commands.
+</code></pre>
+
+<p>the help command shows what commands are available:</p>
+
+<pre><code class="language-console">$&gt;help
+#following commands are available to use:
+about    - Display about page
+bean     - Display or set current selected MBean. 
+beans    - List available beans under a domain or all domains
+bye      - Terminate console and exit
+close    - Close current JMX connection
+domain   - Display or set current selected domain. 
+domains  - List all available domain names
+exit     - Terminate console and exit
+get      - Get value of MBean attribute(s)
+help     - Display available commands or usage of a command
+info     - Display detail information about an MBean
+jvms     - List all running local JVM processes
+open     - Open JMX session or display current connection
+option   - Set options for command session
+quit     - Terminate console and exit
+run      - Invoke an MBean operation
+set      - Set value of an MBean attribute
+subscribe - Subscribe to the notifications of a bean
+unsubscribe - Unsubscribe the notifications of an earlier subscribed bean
+watch    - Watch the value of one MBean attribute constantly
+</code></pre>
+
+<p>An interesting command is <code>beans</code>, which shows all available beans.</p>
+
+<p>Narrowing down to a specific domain might be more useful though:</p>
+
+<pre><code class="language-console">$&gt;beans -d kafka.server
+#domain = kafka.server:
+kafka.server:broker-id=1,type=controller-channel-metrics
+kafka.server:broker-id=2,fetcher-id=0,type=replica-fetcher-metrics
+kafka.server:broker-id=2,type=controller-channel-metrics
+kafka.server:broker-id=3,fetcher-id=0,type=replica-fetcher-metrics
+kafka.server:broker-id=3,type=controller-channel-metrics
+kafka.server:brokerHost=kaf2,brokerPort=9092,clientId=ReplicaFetcherThread-0-2,name=BytesPerSec,type=FetcherStats
+kafka.server:brokerHost=kaf2,brokerPort=9092,clientId=ReplicaFetcherThread-0-2,name=RequestsPerSec,type=FetcherStats
+kafka.server:brokerHost=kaf3,brokerPort=9092,clientId=ReplicaFetcherThread-0-3,name=BytesPerSec,type=FetcherStats
+kafka.server:brokerHost=kaf3,brokerPort=9092,clientId=ReplicaFetcherThread-0-3,name=RequestsPerSec,type=FetcherStats
+kafka.server:clientId=Replica,name=MaxLag,type=ReplicaFetcherManager
+... long list ...
+</code></pre>
+
+<p>Let&rsquo;s now see the same MBean as previously (<code>kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions</code>):</p>
+
+<p>First, get info about that bean:</p>
+
+<pre><code class="language-console">$&gt;info -b kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions
+#mbean = kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions
+#class name = com.yammer.metrics.reporting.JmxReporter$Gauge
+# attributes
+  %0   - Value (java.lang.Object, r)
+# operations
+  %0   - javax.management.ObjectName objectName()
+#there's no notifications
+</code></pre>
+
+<p>It has just one attribute, <code>Value</code>, which is the one we&rsquo;re interested in.</p>
+
+<p>The <code>info</code> commands being:</p>
+
+<pre><code class="language-console">$&gt;help info
+[USAGE]
+  info &lt;OPTIONS&gt;
+[DESCRIPTION]
+  Display detail information about an MBean
+[OPTIONS]
+  -b --bean     &lt;value&gt;    Name of MBean
+  -d --domain   &lt;value&gt;    Domain for bean
+  -h --help                Display usage
+  -o --op       &lt;value&gt;    Show a single operation with more details (including parameters information)
+  -e --detail              Show description
+  -t --type     &lt;value&gt;    Types(a|o|u) to display, for example aon for all attributes, operations and notifications
+[NOTE]
+  If -b option is not specified, current selected MBean is applied
+</code></pre>
+
+<p>So what&rsquo;s the value of this <code>Value</code> attribute? Let&rsquo;s see:</p>
+
+<pre><code class="language-console">$&gt;get -s -b kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions Value
+#mbean = kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions:
+0
+</code></pre>
+
+<p>All good, it&rsquo;s still <code>0</code>.</p>
+
+<p>The <code>get</code> command being:</p>
+
+<pre><code class="language-console">$&gt;help get
+[USAGE]
+  get &lt;OPTIONS&gt; &lt;ARGS&gt;
+[DESCRIPTION]
+  Get value of MBean attribute(s)
+[OPTIONS]
+  -b --bean     &lt;value&gt;    MBean name where the attribute is. Optional if bean has been set
+  -l --delimite &lt;value&gt;    Sets an optional delimiter to be printed after the value
+  -d --domain   &lt;value&gt;    Domain of bean, optional
+  -h --help                Display usage
+  -i --info                Show detail information of each attribute
+  -q --quots               Quotation marks around value
+  -s --simple              Print simple expression of value without full expression
+  -n --singleLi            Prints result without a newline - default is false
+[ARGS]
+  &lt;attr&gt;... Name of attributes to select
+[NOTE]
+  * stands for all attributes. eg. get Attribute1 Attribute2 or get *
+</code></pre>
+
+
+                <br>
+            </div>
+            
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://www.iyp-uk.com/img/back.svg" alt="back" />
+                        <a href="https://www.iyp-uk.com/blog/traffic-signal/">Traffic Signal</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </section>
+
 <section class="footer">
     <div class="container">
 
@@ -1135,5 +1348,4 @@ ga('send', 'pageview');
 
 </body>
 </html>
-
 

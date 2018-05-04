@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.iyp-uk.com/blog/kafka-jmx/</loc>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.iyp-uk.com/blog/traffic-signal/</loc>
     <lastmod>2018-04-22T21:51:31+01:00</lastmod>
   </url>
@@ -151,7 +156,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/blog/</loc>
-    <lastmod>2018-04-22T21:51:31+01:00</lastmod>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -240,7 +245,7 @@
   
   <url>
     <loc>https://www.iyp-uk.com/</loc>
-    <lastmod>2018-04-22T21:51:31+01:00</lastmod>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -252,13 +257,19 @@
   
   <url>
     <loc>https://www.iyp-uk.com/tags/java/</loc>
-    <lastmod>2018-02-19T14:50:28+00:00</lastmod>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/jmx/</loc>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.iyp-uk.com/tags/kafka/</loc>
-    <lastmod>2017-11-17T09:46:54+00:00</lastmod>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -307,6 +318,12 @@
   <url>
     <loc>https://www.iyp-uk.com/tags/mongodb/</loc>
     <lastmod>2017-08-18T14:47:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.iyp-uk.com/tags/monitoring/</loc>
+    <lastmod>2018-05-04T14:30:33+01:00</lastmod>
     <priority>0</priority>
   </url>
   
